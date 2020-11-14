@@ -18,7 +18,8 @@
   </div>
 </template>
 <script>
-import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
+// import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
+import Swiper from "swiper";
 export default {
   name: "ImageList",
   data() {
@@ -50,6 +51,30 @@ export default {
         },
         {
           id: 6,
+          imgUrl: "./images/03.png",
+        },
+        {
+          id: 17,
+          imgUrl: "./images/02.png",
+        },
+        {
+          id: 16,
+          imgUrl: "./images/03.png",
+        },
+        {
+          id: 15,
+          imgUrl: "./images/02.png",
+        },
+        {
+          id: 14,
+          imgUrl: "./images/03.png",
+        },
+        {
+          id: 13,
+          imgUrl: "./images/02.png",
+        },
+        {
+          id: 11,
           imgUrl: "./images/03.png",
         },
       ],

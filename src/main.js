@@ -10,6 +10,7 @@ import * as API from "./api";
 import "./styles/reset.css";
 import "swiper/swiper-bundle.css";
 Vue.prototype.$API = API;
+Vue.prototype.$bus = new Vue();
 new Vue({
   router,
   store,
