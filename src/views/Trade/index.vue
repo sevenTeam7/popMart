@@ -144,6 +144,7 @@ export default {
   margin: 0 auto;
   font-size: 14px;
   line-height: 21px;
+  padding-top: 20px;
 }
 .content {
   width: 1200px;
