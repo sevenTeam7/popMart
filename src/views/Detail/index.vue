@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="con w">
+    <div class="con w clearFix">
       <!-- 商品分类导航 -->
       <div class="topNav"></div>
       <!-- 导航路径区域 -->
-      <div class="conPoin">
+      <div class="conPoin clearFix">
         <span>玩具乐器</span>
         <span>潮玩/动漫</span>
         <span>潮流盲盒</span>
@@ -12,15 +12,15 @@
         <span>泡泡玛特（POP MART）</span>
       </div>
       <!-- 主要内容区域 -->
-      <div class="mainCon">
+      <div class="mainCon clearFix">
         <!-- 左侧放大镜区域 -->
-        <div class="previewWrap">
+        <div class="previewWrap clearFix">
           <!--放大镜效果，给zoom组件传递小图地址和大图地址-->
           <Zoom />
           <!-- 小图列表 -->
           <ImageList />
           <!-- 关注分享 -->
-          <div class="preview-info">
+          <div class="preview-info clearFix">
             <div class="left-btns">
               <a
                 class="follow J-follow"
@@ -189,11 +189,407 @@
         </div>
       </div>
     </div>
+    <div class="w">
+      <!-- 左侧 -->
+      <div class="aside clearFix">
+        <!-- 店铺 -->
+        <div class="popbox">
+          <div class="popbox-inner">
+            <div class="mt">
+              <h3>
+                <a
+                  href="//mall.jd.com/index-10179889.html?from=pc"
+                  target="_blank"
+                  title="泡泡玛特京东自营旗舰店"
+                  >泡泡玛特京东自营旗舰店</a
+                >
+              </h3>
+              <div class="iconfont icon-wangwang"></div>
+            </div>
+            <div class="mc">
+              <div class="summary">
+                <div class="btns">
+                  <a href="#" class="btn-a ">
+                    <i class="iconfont icon-shouye"></i>
+                    进店逛逛
+                  </a>
+                  <a href="#" class="btn-a ">
+                    <i class="iconfont icon-shoucang"></i>
+                    关注店铺
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 店内搜索 -->
+        <div class="popbox">
+          <div class="popbox-inner">
+            <div class="mt">
+              <h3>
+                <a
+                  href="//mall.jd.com/index-10179889.html?from=pc"
+                  target="_blank"
+                  title="店内搜索"
+                  >店内搜索</a
+                >
+              </h3>
+            </div>
+            <div class="mc">
+              <p>
+                <span>关键字：</span>
+                <input type="text" style="width:122px" />
+              </p>
+              <p>
+                <span>价格：</span>
+                <input type="text" class="price-ipt" />
+                <span class="price-text">到</span>
+                <input type="text" class="price-ipt" />
+              </p>
+              <button style="margin-left: 51px;">搜索</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 店内分类 -->
+        <div class="popbox">
+          <div class="popbox-inner">
+            <div class="mt">
+              <h3>
+                店内分类
+              </h3>
+            </div>
+            <div class="category">
+              <div class="mc">
+                <dl class="sp-single">
+                  <dt class="open">
+                    <s></s
+                    ><a
+                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
+                      target="_blank"
+                      >Molly</a
+                    >
+                  </dt>
+                </dl>
+                <dl class="sp-single">
+                  <dt class="open">
+                    <s></s
+                    ><a
+                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
+                      target="_blank"
+                      >PUCKY</a
+                    >
+                  </dt>
+                </dl>
+                <dl class="sp-single">
+                  <dt class="open">
+                    <s></s
+                    ><a
+                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
+                      target="_blank"
+                      >Molly</a
+                    >
+                  </dt>
+                </dl>
+                <dl class="sp-single">
+                  <dt class="open">
+                    <s></s
+                    ><a
+                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
+                      target="_blank"
+                      >PUCKY</a
+                    >
+                  </dt>
+                </dl>
+                <dl class="sp-single">
+                  <dt class="open">
+                    <s></s
+                    ><a
+                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
+                      target="_blank"
+                      >Molly</a
+                    >
+                  </dt>
+                </dl>
+                <dl class="sp-single">
+                  <dt class="open">
+                    <s></s
+                    ><a
+                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
+                      target="_blank"
+                      >PUCKY</a
+                    >
+                  </dt>
+                </dl>
+                <dl class="sp-single">
+                  <dt class="open">
+                    <s></s
+                    ><a
+                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
+                      target="_blank"
+                      >Molly</a
+                    >
+                  </dt>
+                </dl>
+                <dl class="sp-single">
+                  <dt class="open">
+                    <s></s
+                    ><a
+                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
+                      target="_blank"
+                      >PUCKY</a
+                    >
+                  </dt>
+                </dl>
+                <dl class="sp-single">
+                  <dt class="open">
+                    <s></s
+                    ><a
+                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
+                      target="_blank"
+                      >Molly</a
+                    >
+                  </dt>
+                </dl>
+                <dl class="sp-single">
+                  <dt class="open">
+                    <s></s
+                    ><a
+                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
+                      target="_blank"
+                      >PUCKY</a
+                    >
+                  </dt>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 店内热销 -->
+        <div class="popbox">
+          <el-tabs type="border-card" stretch>
+            <el-tab-pane label="店内热销">
+              店内热销
+            </el-tab-pane>
+            <el-tab-pane label="热门关注">热门关注</el-tab-pane>
+          </el-tabs>
+        </div>
+      </div>
+
+      <!-- 右侧 -->
+      <div class="detail">
+        <el-tabs type="border-card">
+          <!-- 商品介绍 -->
+          <el-tab-pane>
+            <span slot="label"><i class="el-icon-date"></i> 商品介绍</span>
+            <div class="tab-con">
+              <div class="p-parameter">
+                <ul class="p-parameter-list">
+                  <li>
+                    品牌：
+                    <a href="#">泡泡玛特（POP MART）</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="p-parameter">
+                <ul class="p-parameter-list">
+                  <li>
+                    商品名称：泡泡玛特（POP MART）盲盒
+                  </li>
+                  <li>
+                    商品编号：65960814183
+                  </li>
+                  <li>
+                    商品毛重：500.00g
+                  </li>
+                  <li>
+                    商品产地：中国大陆
+                  </li>
+                  <li>
+                    材质：PVC
+                  </li>
+                  <li>
+                    颜色：混合颜色
+                  </li>
+                </ul>
+              </div>
+              <div class="detail-con">
+                <p>
+                  <img
+                    src="./images/detail-1.jpg"
+                    alt=""
+                    style="width:auto;height:auto;max-width:100%;"
+                  />
+                  <img
+                    src="./images/detail-2.png"
+                    alt=""
+                    style="width:auto;height:auto;max-width:100%;"
+                  />
+                  <img
+                    src="./images/detail-3.png"
+                    alt=""
+                    style="width:auto;height:auto;max-width:100%;"
+                  />
+                  <img
+                    src="./images/detail-4.png"
+                    alt=""
+                    style="width:auto;height:auto;max-width:100%;"
+                  />
+                  <img
+                    src="./images/detail-5.png"
+                    alt=""
+                    style="width:auto;height:auto;max-width:100%;"
+                  />
+                  <img
+                    src="./images/detail-6.png"
+                    alt=""
+                    style="width:auto;height:auto;max-width:100%;"
+                  />
+                </p>
+              </div>
+            </div>
+          </el-tab-pane>
+
+          <!-- 规格与包装 -->
+          <el-tab-pane label="规格与包装">
+            <div class="hide">
+              <div class="package-list">
+                <h3>包装清单</h3>
+                <p>暂无</p>
+              </div>
+            </div>
+            <AfterSale />
+          </el-tab-pane>
+
+          <!-- 售后保障 -->
+          <el-tab-pane label="售后保障">
+            <AfterSale />
+          </el-tab-pane>
+
+          <!-- 商品评价 -->
+          <el-tab-pane label="商品评价2000+">
+            <div class="comment">
+              <div class="mt">
+                <h3>商品评价</h3>
+              </div>
+              <div class="mc">
+                <div class="comment-info">
+                  <div class="comment-percent">
+                    <strong class="percent-tit">好评度</strong>
+                    <div class="percent-con">
+                      98
+                      <span>%</span>
+                    </div>
+                  </div>
+                  <div class="percent-info">
+                    <div class="tag-list">
+                      <span class="tag-1">做工一流(7)</span>
+                      <span class="tag-1">乖萌可爱(3)</span>
+                      <span class="tag-1">方便实用(2)</span>
+                      <span class="tag-1">稳定性高(1)</span>
+                      <span class="tag-1">趣味无穷(1)</span>
+                      <span class="tag-1">精美绝伦(1)</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="comment-list">
+                  <div class="tab-main">
+                    <ul
+                      class="filter-list"
+                      style="background-color: #fafafa;padding-left: 10px;"
+                    >
+                      <li
+                        class="current"
+                        style="display: inline-block; padding: 5px 10px;"
+                      >
+                        <a
+                          href="#"
+                          style="color: #e4393c;text-decoration: none;"
+                        >
+                          全部评价
+                          <em>(2000+)</em>
+                        </a>
+                      </li>
+                      <li
+                        class="current"
+                        style="display: inline-block; padding: 5px 10px;"
+                      >
+                        <a href="#" style="text-decoration: none;">
+                          晒图
+                          <em>(127)</em>
+                        </a>
+                      </li>
+                      <li
+                        class="current"
+                        style="display: inline-block; padding: 5px 10px;"
+                      >
+                        <a href="#" style="text-decoration: none;">
+                          视频晒单
+                          <em>(2)</em>
+                        </a>
+                      </li>
+                      <li
+                        class="current"
+                        style="display: inline-block; padding: 5px 10px;"
+                      >
+                        <a href="#" style="text-decoration: none;">
+                          追评
+                          <em>(6)</em>
+                        </a>
+                      </li>
+                      <li
+                        class="current"
+                        style="display: inline-block; padding: 5px 10px;"
+                      >
+                        <a href="#" style="text-decoration: none;">
+                          好评
+                          <em>(300+)</em>
+                        </a>
+                      </li>
+                      <li
+                        class="current"
+                        style="display: inline-block; padding: 5px 10px;"
+                      >
+                        <a href="#" style="text-decoration: none;">
+                          中评
+                          <em>(5)</em>
+                        </a>
+                      </li>
+                      <li
+                        class="current"
+                        style="display: inline-block; padding: 5px 10px;"
+                      >
+                        <a href="#" style="text-decoration: none;">
+                          差评
+                          <em>(2)</em>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="tab-con">
+                    <div>
+                      <Comment />
+                      <Comment />
+                      <Comment />
+                      <Comment />
+                      <Comment />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </el-tab-pane>
+        </el-tabs>
+      </div>
+    </div>
   </div>
 </template>
 <script>
 import Zoom from "./Zoom";
 import ImageList from "./ImageList";
+import AfterSale from "./AfterSale";
+import Comment from "./Comment";
 export default {
   name: "Detail",
   data() {
@@ -205,6 +601,8 @@ export default {
   components: {
     Zoom,
     ImageList,
+    AfterSale,
+    Comment,
   },
   methods: {
     //限制输入框输入内容---->输入框只能输入正数
@@ -236,10 +634,17 @@ export default {
   width: 1200px;
   margin: 15px auto 0;
 }
+.clearFix:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+}
 .con {
   .topNav {
     height: 200px;
     background-color: red;
+    overflow: hidden;
   }
   // 商品导航分类
   .conPoin {
@@ -550,6 +955,419 @@ export default {
           height: 36px;
           line-height: 36px;
           display: block;
+        }
+      }
+    }
+  }
+}
+//商品描述部分
+// 左侧
+.mt {
+  padding: 10px;
+  overflow: hidden;
+  background-color: #f7f7f7;
+  border: 1px solid #eee;
+}
+.mc {
+  border: 1px solid #eee;
+  border-top: none;
+  overflow: visible;
+}
+h3 {
+  font: 700 14px "microsoft yahei";
+  color: #666;
+}
+.aside {
+  margin-right: 10px;
+  float: left;
+  width: 200px;
+  margin-bottom: 20px;
+  .popbox {
+    margin-bottom: 15px;
+    overflow: hidden;
+    .mt {
+      background-color: #f7f7f7;
+      border: 1px solid #eee;
+      display: flex;
+      h3 {
+        // float: left;
+        max-width: 150px;
+        height: 18px;
+        overflow: hidden;
+        font: 700 14px "microsoft yahei";
+        a {
+          color: #666;
+          text-decoration: none;
+          margin: 0;
+          padding: 0;
+        }
+      }
+      .icon-wangwang {
+        color: #e12228;
+      }
+    }
+    .mc {
+      padding-top: 0;
+      background-color: #fff;
+      padding: 10px 10px 0;
+      .btns {
+        padding: 10px 0;
+        font-size: 0;
+        text-align: center;
+        display: flex;
+        .btn-a {
+          text-decoration: none;
+          display: inline-block;
+          width: 88px;
+          height: 34px;
+          line-height: 34px;
+          padding: 0;
+          margin-right: 8px;
+          font-size: 12px;
+          border: 1px solid #ddd;
+          background-color: #f8f8f8;
+          color: #666;
+        }
+        .icon-shouye,
+        .icon-shoucang {
+          color: #e12228;
+        }
+      }
+    }
+    p {
+      display: flex;
+      justify-content: space-around;
+      padding: 2px;
+      overflow: hidden;
+      margin-bottom: 5px;
+      span {
+        width: 7em;
+      }
+      input {
+        display: inline-block;
+        width: 130px;
+      }
+      .price-ipt {
+        width: 49px;
+      }
+      .price-text {
+        width: 3em;
+        text-align: center;
+      }
+    }
+    .category {
+      .mc {
+        margin-top: -1px;
+        padding: 0;
+        .sp-single {
+          border-bottom: none;
+          dt {
+            border-top: 1px solid #ddd;
+            position: relative;
+            border-bottom: none;
+            s {
+              background-position: -37px 0;
+              display: block;
+              position: absolute;
+              left: 10px;
+              top: 6px;
+              width: 16px;
+              height: 16px;
+              background-image: url("./images/20130603A.png");
+              background-repeat: no-repeat;
+              cursor: pointer;
+            }
+            a {
+              background: #f7f7f7;
+              display: block;
+              height: 28px;
+              line-height: 28px;
+              text-decoration: none;
+              padding-left: 36px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// 右侧
+ul {
+  overflow: hidden;
+  list-style: none;
+}
+.detail {
+  width: 990px;
+  min-height: 220px;
+  float: right;
+  display: inline;
+  .tab-con {
+    padding: 10px 0;
+    .p-parameter {
+      padding: 0 10px 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #eee;
+      .p-parameter-list {
+        padding: 20px 0 15px;
+        display: flex;
+        flex-wrap: wrap;
+        li {
+          width: 200px;
+          padding-left: 42px;
+          float: left;
+          margin-bottom: 5px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          a {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    .detail-con {
+      p {
+        display: block;
+        img {
+          border: 0;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+  .guarantee {
+    .serve-agree-bd {
+      .item-detail {
+        padding: 10px;
+        line-height: 180%;
+        margin-bottom: -58px;
+        .serve-agree-bd {
+          padding: 20px 20px 20px 62px;
+          dt {
+            display: flex;
+            height: 32px;
+            line-height: 32px;
+            margin-left: -42px;
+            font-size: 16px;
+            color: #e4393c;
+            font-family: "microsoft yahei";
+            i {
+              display: inline-block;
+              line-height: 32px;
+              margin-right: 10px;
+              vertical-align: bottom;
+              font-style: normal;
+            }
+            .goods {
+              display: block;
+              width: 32px;
+              background-position: -32px -75px;
+              height: 32px;
+              background-image: url("./images/__sprite2.png");
+            }
+            strong {
+              margin-top: -10px;
+              display: inline-block;
+              padding: 8px 0 3px;
+              font-style: normal;
+              font-weight: 700;
+            }
+          }
+          dd {
+            display: block;
+            padding: 0px 0 30px;
+            line-height: 18px;
+          }
+        }
+      }
+    }
+    .state {
+      padding: 10px;
+      strong {
+        color: #e4393c;
+        display: inline-block;
+        padding: 8px 0 3px;
+      }
+      b {
+        font-weight: bold;
+      }
+    }
+  }
+}
+.package-list {
+  padding: 32px 0;
+  line-height: 220%;
+  color: #999;
+  font-size: 12px;
+  margin-top: -1px;
+  display: flex;
+  h3 {
+    width: 130px;
+    text-align: right;
+    font-weight: 400;
+    font-size: 12px;
+    float: left;
+  }
+  p {
+    margin-left: 30px;
+    padding-right: 50px;
+    margin-top: -6px;
+  }
+}
+.comment {
+  .mc {
+    overflow: visible;
+    .comment-info {
+      overflow: hidden;
+      zoom: 1;
+      padding: 25px 0px;
+      .comment-percent {
+        width: 90px;
+        padding: 15px 0px 0px 40px;
+        float: left;
+        .percent-tit {
+          font-size: 12px;
+          color: rgb(102, 102, 102);
+          font-weight: 400;
+        }
+        .percent-con {
+          line-height: 110%;
+          font-size: 45px;
+          color: rgb(228, 57, 60);
+          font-family: arial;
+        }
+        span {
+          font-size: 23px;
+        }
+      }
+      .percent-info {
+        margin-left: 90px;
+        .tag-list {
+          padding-left: 20px;
+          height: auto;
+          overflow: visible;
+          span {
+            display: inline-block;
+            line-height: 20px;
+            padding: 0px 9px;
+            border: 1px solid rgb(224, 224, 224);
+            border-radius: 2px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            color: rgb(153, 153, 153);
+            cursor: pointer;
+          }
+          .tag-1 {
+            color: rgb(153, 153, 153);
+            border-color: rgb(224, 224, 224);
+          }
+        }
+      }
+    }
+    .comments-list {
+      min-height: 93px;
+      .tab-main {
+        position: relative;
+        display: block;
+        border: 1px solid #f5f5f5;
+        .filter-list {
+          margin-top: -1px;
+          list-style: none;
+          li {
+            padding: 5px 10px;
+            position: relative;
+            display: inline-block;
+            font-family: "microsoft yahei";
+            em {
+              font-style: normal;
+            }
+          }
+          .current {
+            background: #fafafa;
+            color: #e4393c;
+            cursor: default;
+            padding: 5px 10px;
+          }
+        }
+      }
+      .tab-con {
+        padding: 10px 0;
+        .comment-item {
+          zoom: 1;
+          padding: 15px;
+          border-bottom: 1px solid rgb(221, 221, 221);
+          .user-column {
+            width: 140px;
+            float: left;
+            .user-info {
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              img {
+                border-radius: 50%;
+                margin-right: 5px;
+                border: 0;
+                vertical-align: middle;
+              }
+            }
+            .user-level {
+              padding-top: 3px;
+              .comment-plus-icon {
+                display: inline-block;
+                margin: 5px 5px 0px 0px;
+              }
+            }
+          }
+          .comment-column {
+            margin-left: 150px;
+            .comment-con {
+              font-size: 14px;
+              padding: 10px 0px;
+              line-height: 180%;
+              color: rgb(51, 51, 51);
+            }
+          }
+        }
+        .pic-list {
+          padding-bottom: 15px;
+          img {
+            border: 1px solid rgb(226, 226, 226);
+            padding: 1px;
+            margin-right: 6px;
+            vertical-align: middle;
+          }
+        }
+        .order-info {
+          float: left;
+          color: rgb(153, 153, 153);
+        }
+        .comment-op {
+          float: right;
+          a {
+            display: inline-block;
+            margin-left: 25px;
+            color: rgb(102, 102, 102);
+            text-decoration: none;
+            i {
+              margin-right: 5px;
+              vertical-align: -2px;
+            }
+            .sprite-praise {
+              display: inline-block;
+              background-position: -32px -34px;
+              width: 16px;
+              height: 16px;
+              background-image: url("./images/__sprite3.png");
+            }
+            .sprite-comment {
+              display: inline-block;
+              background-position: -48px -34px;
+              width: 16px;
+              height: 16px;
+              background-image: url("./images/__sprite3.png");
+            }
+          }
         }
       }
     }
