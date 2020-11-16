@@ -5,17 +5,12 @@
       <!-- 头部轮播图 -->
       <div class="swiper-container">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="./images/背景图片.jpg" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./images/大黑图.png" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./images/背景图片.jpg" />
-          </div>
-          <div class="swiper-slide">
-            <img src="./images/背景图片.jpg" />
+          <div
+            class="swiper-slide"
+            v-for="(carousel, index) in banners"
+            :key="carousel.id"
+          >
+            <img :src="carousel.pic" />
           </div>
         </div>
         <!-- 如果需要分页器 -->
@@ -55,7 +50,7 @@
 
       <!-- 视频 -->
 
-      <div class="video_box">
+      <!-- <div class="video_box">
         <div class="video">
           <video
             src="https://popwebsite.paquapp.com/popmartwww/pc/index_video.mp4"
@@ -64,7 +59,7 @@
             loop="loop"
           ></video>
         </div>
-      </div>
+      </div> -->
 
       <!-- TO LIGHT UP PASSION AND BRING JOY -->
       <div class="company_con">
@@ -282,43 +277,62 @@
 <script>
 //引入swpier
 import Swiper from "swiper";
-//引入样式
+//引入vuex辅助函数
+import { mapState } from "vuex";
 export default {
   name: "Home",
   mounted() {
-    var mySwiper = new Swiper(".swiper-container", {
-      // direction: "vertical", // 垂直切换选项
-      loop: true, // 循环模式选项
-      // 如果需要分页器
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        renderBullet: function(index, className) {
-          return (
-            `<image src="https://popwebsite.paquapp.com/popmartwww/pc/popularProduct/ipAvatar${23 +
-              index}.png " class="` +
-            className +
-            '">' +
-            "</image>"
-          );
-        },
-      },
+    this.$store.dispatch("getBanners");
+    this.$store.dispatch("getjournaism");
+  },
+  watch: {
+    banners: {
+      //该回调会在侦听开始之后初立即调用
+      handler: function() {
+        if (this.banners.length === 0) return;
+        this.$nextTick(() => {
+          var mySwiper = new Swiper(".swiper-container", {
+            // direction: "vertical", // 垂直切换选项
+            loop: true, // 循环模式选项
+            // 如果需要分页器
+            pagination: {
+              el: ".swiper-pagination",
+              clickable: true,
+              renderBullet: function(index, className) {
+                return (
+                  `<image src="https://popwebsite.paquapp.com/popmartwww/pc/popularProduct/ipAvatar${23 +
+                    index}.png " class="` +
+                  className +
+                  '">' +
+                  "</image>"
+                );
+              },
+            },
 
-      // 如果需要前进后退按钮
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
+            // 如果需要前进后退按钮
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
 
-      // 如果需要滚动条
-      scrollbar: {
-        el: ".swiper-scrollbar",
+            // 如果需要滚动条
+            scrollbar: {
+              el: ".swiper-scrollbar",
+            },
+          });
+        });
       },
-    });
+      immediate: true,
+    },
+  },
+  computed: {
+    ...mapState({
+      banners: (state) => state.home.banners,
+    }),
   },
 };
 </script>
-<style >
+<style>
 /* 大盒子 */
 .container-box {
   width: 100%;

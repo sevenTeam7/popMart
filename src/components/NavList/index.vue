@@ -3,9 +3,10 @@
     <!-- 头部北京图片 -->
     <div class="header_bg">
       <div class="header">
-        <a href="###"></a>
+        <router-link to="/"></router-link>
+        <!-- <a href="###"></a> -->
         <div class="nav_con">
-          <a href="###" cl>关于我们</a>
+          <a href="https://www.popmart.com/home/about">关于我们</a>
           <router-link to="/news">新闻</router-link>
           <!-- <a href="###">新闻</a> -->
           <a href="###">附近门店</a>
@@ -32,8 +33,7 @@ export default {
 };
 </script>
 <style>
-* 大盒子 */ 
-.container-box {
+* 大盒子 */ .container-box {
   width: 100%;
 }
 /* 头部 */
@@ -81,7 +81,7 @@ export default {
 }
 #lang {
   position: relative;
-  left: -110px;
+  left: -40px;
   top: 20px;
 }
 #lang > a {

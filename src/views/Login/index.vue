@@ -78,7 +78,7 @@ export default {
   data() {
     var checkAge = (rule, value, callback) => {
       if (!value) {
-        return callback(new Error("年龄不能为空"));
+        return callback(new Error("号码不能为空"));
       }
       setTimeout(() => {
         if (!Number.isInteger(value)) {
