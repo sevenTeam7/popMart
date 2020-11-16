@@ -11,17 +11,16 @@ import "element-ui/lib/theme-chalk/index.css";
 
 //引入nav
 import NavList from "@/components/NavList";
+//引入floot
+import Floot from "@/components/Floot";
 
 Vue.component("NavList", NavList);
+Vue.component("Floot", Floot);
 
 //引入样式swpier
 import "swiper/css/swiper.css";
 
 Vue.use(ElementUI);
-
-//引入ui样式
-// import '@/'
-
 // 导出所有的Api 挂载到vue写原型上
 import * as API from "./api";
 Vue.prototype.$API = API;

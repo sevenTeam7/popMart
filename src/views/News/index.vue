@@ -1,25 +1,54 @@
 <template>
-  <div class="containernews">
-    <!-- 导航条 -->
-    <NavList />
-    <div class="big_picture">
-      <!-- NEWS -->
-      <div class="tltle_news">
-        <img src="./images/news_banner2.jpg" alt="" />
+  <div>
+    <div class="containernews">
+      <!-- 导航条 -->
+      <NavList />
+      <div class="big_picture">
+        <!-- NEWS -->
+        <div class="tltle_news">
+          <img src="./images/news_banner2.jpg" alt="" />
+        </div>
       </div>
-    </div>
-    <!-- 媒体新闻 -->
-    <div class="news_tltie">
-      <p class="news_en">NEWS</p>
-      <p class="news_media">媒体新闻</p>
-    </div>
-    <!-- 做公仔 -->
-    <div class="news_con">
-      <div class="news_box">
-        <a
-          href="http://life.ynet.com/2020/10/12/2914725t978.html"
-          class="news_box_A"
-        >
+      <!-- 媒体新闻 -->
+      <div class="news_tltie">
+        <p class="news_en">NEWS</p>
+        <p class="news_media">媒体新闻</p>
+      </div>
+      <!-- 做公仔 -->
+      <div class="news_con">
+        <div class="news_box">
+          <a
+            href="http://life.ynet.com/2020/10/12/2914725t978.html"
+            class="news_box_A"
+          >
+            <div class="news_item">
+              <img
+                src="https://popwebsite.paquapp.com/cms/news/6czx0Sr6063z1480BCT6t8bX2PycZi4b.jpeg"
+                alt=""
+              />
+              <div class="news_item_con">
+                <div class="news_item_tltle">
+                  做公仔，当然是开心最重要啦
+                </div>
+                <p class="content_desc">
+                  设计师Ton Mak分享泡泡玛特“Magical
+                  Natural”主题系列盲盒公仔的设计历程和艺术人生。
+                </p>
+                <div class="news_site">
+                  <div class="site">北青网</div>
+                  <div class="time">2020-11-16 00:53"</div>
+                  <div class="more">
+                    MORE<i class="el-icon-arrow-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a
+            href="http://life.ynet.com/2020/10/12/2914725t978.html"
+            class="news_box_A"
+          >
+          </a>
           <div class="news_item">
             <img
               src="https://popwebsite.paquapp.com/cms/news/6czx0Sr6063z1480BCT6t8bX2PycZi4b.jpeg"
@@ -40,11 +69,12 @@
               </div>
             </div>
           </div>
-        </a>
-         <a
-          href="http://life.ynet.com/2020/10/12/2914725t978.html"
-          class="news_box_A"
-        >
+
+          <a
+            href="http://life.ynet.com/2020/10/12/2914725t978.html"
+            class="news_box_A"
+          >
+          </a>
           <div class="news_item">
             <img
               src="https://popwebsite.paquapp.com/cms/news/6czx0Sr6063z1480BCT6t8bX2PycZi4b.jpeg"
@@ -65,132 +95,13 @@
               </div>
             </div>
           </div>
-        </a>
-         <a
-          href="http://life.ynet.com/2020/10/12/2914725t978.html"
-          class="news_box_A"
-        >
-          <div class="news_item">
-            <img
-              src="https://popwebsite.paquapp.com/cms/news/6czx0Sr6063z1480BCT6t8bX2PycZi4b.jpeg"
-              alt=""
-            />
-            <div class="news_item_con">
-              <div class="news_item_tltle">
-                做公仔，当然是开心最重要啦
-              </div>
-              <p class="content_desc">
-                设计师Ton Mak分享泡泡玛特“Magical
-                Natural”主题系列盲盒公仔的设计历程和艺术人生。
-              </p>
-              <div class="news_site">
-                <div class="site">北青网</div>
-                <div class="time">2020-11-16 00:53"</div>
-                <div class="more">MORE<i class="el-icon-arrow-right"></i></div>
-              </div>
-            </div>
+          <!-- 分页器 -->
+          <div class="pagination">
+            <el-pagination layout="prev, pager, next" :total="1000">
+            </el-pagination>
           </div>
-        </a>
-         <a
-          href="http://life.ynet.com/2020/10/12/2914725t978.html"
-          class="news_box_A"
-        >
-          <div class="news_item">
-            <img
-              src="https://popwebsite.paquapp.com/cms/news/6czx0Sr6063z1480BCT6t8bX2PycZi4b.jpeg"
-              alt=""
-            />
-            <div class="news_item_con">
-              <div class="news_item_tltle">
-                做公仔，当然是开心最重要啦
-              </div>
-              <p class="content_desc">
-                设计师Ton Mak分享泡泡玛特“Magical
-                Natural”主题系列盲盒公仔的设计历程和艺术人生。
-              </p>
-              <div class="news_site">
-                <div class="site">北青网</div>
-                <div class="time">2020-11-16 00:53"</div>
-                <div class="more">MORE<i class="el-icon-arrow-right"></i></div>
-              </div>
-            </div>
-          </div>
-        </a>
-         <a
-          href="http://life.ynet.com/2020/10/12/2914725t978.html"
-          class="news_box_A"
-        >
-          <div class="news_item">
-            <img
-              src="https://popwebsite.paquapp.com/cms/news/6czx0Sr6063z1480BCT6t8bX2PycZi4b.jpeg"
-              alt=""
-            />
-            <div class="news_item_con">
-              <div class="news_item_tltle">
-                做公仔，当然是开心最重要啦
-              </div>
-              <p class="content_desc">
-                设计师Ton Mak分享泡泡玛特“Magical
-                Natural”主题系列盲盒公仔的设计历程和艺术人生。
-              </p>
-              <div class="news_site">
-                <div class="site">北青网</div>
-                <div class="time">2020-11-16 00:53"</div>
-                <div class="more">MORE<i class="el-icon-arrow-right"></i></div>
-              </div>
-            </div>
-          </div>
-        </a>
-         <a
-          href="http://life.ynet.com/2020/10/12/2914725t978.html"
-          class="news_box_A"
-        >
-          <div class="news_item">
-            <img
-              src="https://popwebsite.paquapp.com/cms/news/6czx0Sr6063z1480BCT6t8bX2PycZi4b.jpeg"
-              alt=""
-            />
-            <div class="news_item_con">
-              <div class="news_item_tltle">
-                做公仔，当然是开心最重要啦
-              </div>
-              <p class="content_desc">
-                设计师Ton Mak分享泡泡玛特“Magical
-                Natural”主题系列盲盒公仔的设计历程和艺术人生。
-              </p>
-              <div class="news_site">
-                <div class="site">北青网</div>
-                <div class="time">2020-11-16 00:53"</div>
-                <div class="more">MORE<i class="el-icon-arrow-right"></i></div>
-              </div>
-            </div>
-          </div>
-        </a>
-         <a
-          href="http://life.ynet.com/2020/10/12/2914725t978.html"
-          class="news_box_A"
-        >
-          <div class="news_item">
-            <img
-              src="https://popwebsite.paquapp.com/cms/news/6czx0Sr6063z1480BCT6t8bX2PycZi4b.jpeg"
-              alt=""
-            />
-            <div class="news_item_con">
-              <div class="news_item_tltle">
-                做公仔，当然是开心最重要啦
-              </div>
-              <p class="content_desc">
-                设计师Ton Mak分享泡泡玛特“Magical
-                Natural”主题系列盲盒公仔的设计历程和艺术人生。
-              </p>
-              <div class="news_site">
-                <div class="site">北青网</div>
-                <div class="time">2020-11-16 00:53"</div>
-                <div class="more">MORE<i class="el-icon-arrow-right"></i></div>
-              </div>
-            </div>
-          </div>
-        </a>
+          <Floot />
+        </div>
       </div>
     </div>
   </div>
@@ -238,7 +149,6 @@ export default {
   transform: translateZ(0);
 }
 .containernews .news_con .news_box {
-  width: 854px;
   height: 214px;
   margin: 0 auto;
   /* background-color: pink; */
@@ -253,7 +163,7 @@ export default {
   margin: 0 auto;
   padding: 41px;
   /* background: red; */
-      border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -280,7 +190,12 @@ export default {
   margin: 12px 0px 20px 0;
 }
 .containernews .news_con .news_box .news_item .news_item_con .news_site {
+  overflow: hidden;
   display: flex;
   justify-content: space-between;
+}
+.containernews .pagination {
+  text-align: center;
+  margin-top: 5px;
 }
 </style>

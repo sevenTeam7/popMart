@@ -6,10 +6,9 @@ import Home from "../views/Home";
 const routes = [
   { path: "/", component: Home },
   // { path: "/about", component: () => import("../views/About") },
+  //新闻页面
   { path: "/news", component: () => import("../views/News") },
-  // {
-  //   path: "/news",
-  //   component: News,
-  // },
+    //登录页面
+  {path:"/login",component:()=>import("../views/Login")}
 ];
 export default routes;
