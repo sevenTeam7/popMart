@@ -499,78 +499,83 @@
                       class="filter-list"
                       style="background-color: #fafafa;padding-left: 10px;"
                     >
+                      <!-- 全部评价 -->
                       <li
                         class="current"
                         style="display: inline-block; padding: 5px 10px;"
+                        @click="changeCommentList(1)"
                       >
                         <a
-                          href="#"
+                          href="javascript:;"
                           style="color: #e4393c;text-decoration: none;"
                         >
                           全部评价
                           <em>(2000+)</em>
                         </a>
                       </li>
+                      <!-- 好评 -->
                       <li
                         class="current"
                         style="display: inline-block; padding: 5px 10px;"
+                        @click.stop="changeCommentList(2)"
                       >
-                        <a href="#" style="text-decoration: none;">
-                          晒图
-                          <em>(127)</em>
+                        <a href="javascript:;" style="text-decoration: none;">
+                          好评
+                          <!-- <em>{{ commentsNum }}</em> -->
+                          <em>20</em>
                         </a>
                       </li>
+                      <!-- 中评 -->
+                      <li
+                        class="current"
+                        style="display: inline-block; padding: 5px 10px;"
+                        @click="changeCommentList(3)"
+                      >
+                        <a href="javascript:;" style="text-decoration: none;">
+                          中评
+                          <em>20</em>
+                        </a>
+                      </li>
+                      <!-- 差评 -->
+                      <li
+                        class="current"
+                        style="display: inline-block; padding: 5px 10px;"
+                        @click="changeCommentList(4)"
+                      >
+                        <a href="javascript:;" style="text-decoration: none;">
+                          差评
+                          <em>20</em>
+                        </a>
+                      </li>
+
+                      <!-- 晒图 -->
                       <li
                         class="current"
                         style="display: inline-block; padding: 5px 10px;"
                       >
-                        <a href="#" style="text-decoration: none;">
-                          视频晒单
+                        <a href="javascript:;" style="text-decoration: none;">
+                          晒图
                           <em>(2)</em>
                         </a>
                       </li>
+
+                      <!-- 视频评论 -->
                       <li
                         class="current"
                         style="display: inline-block; padding: 5px 10px;"
                       >
-                        <a href="#" style="text-decoration: none;">
-                          追评
-                          <em>(6)</em>
-                        </a>
-                      </li>
-                      <li
-                        class="current"
-                        style="display: inline-block; padding: 5px 10px;"
-                      >
-                        <a href="#" style="text-decoration: none;">
-                          好评
-                          <em>(300+)</em>
-                        </a>
-                      </li>
-                      <li
-                        class="current"
-                        style="display: inline-block; padding: 5px 10px;"
-                      >
-                        <a href="#" style="text-decoration: none;">
-                          中评
-                          <em>(5)</em>
-                        </a>
-                      </li>
-                      <li
-                        class="current"
-                        style="display: inline-block; padding: 5px 10px;"
-                      >
-                        <a href="#" style="text-decoration: none;">
-                          差评
+                        <a href="javascript:;" style="text-decoration: none;">
+                          视频评论
                           <em>(2)</em>
                         </a>
                       </li>
                     </ul>
                   </div>
-                  <div class="tab-con">
+                  <div class="tab-con" v-if="goodsInfo">
                     <div
-                      v-for="(userInfo, index) in goodsInfo.goodsInfo[0]
-                        .highopinion"
+                      v-for="(userInfo, index) in !commentList
+                        ? totalCommentList
+                        : commentList"
                       :key="index"
                     >
                       <Comment :userInfo="userInfo" />
@@ -613,13 +618,15 @@ import AfterSale from "./AfterSale";
 import Comment from "./Comment";
 import Header from "../Header";
 import Good from "./Good";
-import { mapState } from "vuex";
+import { mapState, mapGetters } from "vuex";
 export default {
   name: "Detail",
   data() {
     return {
       isSelected: true,
       skuNum: 1,
+      commentList: "",
+      init: true, //全部评论与好评数组等的切换
     };
   },
   components: {
@@ -631,7 +638,7 @@ export default {
     Good,
   },
   methods: {
-    //限制输入框输入内容---->输入框只能输入正数
+    //购买数量-限制输入框输入内容---->输入框只能输入正数
     CheckNum() {
       const skuNum = this.skuNum;
       const regNum = /^[1-9]\d*$|\s\g/;
@@ -647,6 +654,39 @@ export default {
         return;
       }
     },
+    //根据参数获取对应评论数据
+    changeCommentList(flag) {
+      //总对象
+      const totalList = this.goodsInfo[0];
+      //好评
+      const highopinion = totalList.highopinion;
+      //中评
+      const mediumopinion = totalList.mediumopinion;
+      //差评
+      const badopinion = totalList.badopinion;
+      switch (flag) {
+        case 1: {
+          this.commentList = [...mediumopinion, ...highopinion, ...badopinion];
+
+          return;
+        }
+        case 2: {
+          this.commentList = highopinion;
+
+          return;
+        }
+        case 3: {
+          this.commentList = mediumopinion;
+
+          return;
+        }
+        case 4: {
+          this.commentList = badopinion;
+
+          return;
+        }
+      }
+    },
   },
   mounted() {
     //获取小图索引
@@ -655,8 +695,7 @@ export default {
     });
     //获取好评
     const skuid = 7;
-    const result = this.$store.dispatch("getGoodsInfo", skuid);
-    console.log(result);
+    this.$store.dispatch("getGoodsInfo", skuid);
   },
   computed: {
     ...mapState({
@@ -664,6 +703,7 @@ export default {
         return state.detail.goodsInfo;
       },
     }),
+    ...mapGetters(["commentsNum", "totalCommentList"]),
   },
 };
 </script>
