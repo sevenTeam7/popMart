@@ -11,7 +11,8 @@ Vue.component('Header', Header)
 import "./styles/index.less";
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-
+// 引入validate
+import './utils/validate';
 
 Vue.config.productionTip = false;
 

@@ -1,5 +1,9 @@
 <template>
+<div>
+  <Header />
+
   <div class="cart-container">
+    
     <div class="cart-header">
       <h2>全部商品</h2>
     </div>
@@ -164,6 +168,7 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
@@ -193,7 +198,7 @@ export default {
 .cart-nav {
   display: flex;
   justify-content: space-around;
-  padding-top: 10px;
+  padding-top: 20px;
   padding-left: 10px;
   background-color: #f3f3f3;
   height: 30px;
@@ -234,7 +239,7 @@ export default {
   display: flex;
   font-size: 10px;
   margin-left: 30px;
-  width: 36%;
+  width: 37%;
 }
 .cart-list-con3 {
   width: 12%;

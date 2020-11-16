@@ -1,5 +1,6 @@
 <template>
   <div class="trade-container">
+   <Header />
     <h3 class="title">填写并核对订单信息</h3>
     <div class="content">
       <h5 class="receive">收件人信息</h5>
@@ -11,7 +12,7 @@
           <span class="s3">默认地址</span>
         </p>
       </div>
-       <div class="address clearFix">
+      <div class="address clearFix">
         <p>
           <span class="username">xx</span>
           <span class="s1">xxxxxxxxxxxxxxx</span>
@@ -29,18 +30,18 @@
       </div>
       <div class="line"></div>
       <h5 class="pay">支付方式</h5>
-      <div class="address clearFix pay-way">
-        <p>
+      <div class="address clearFix">
+        <div>
           <span class="username selected ">在线支付</span>
           <span class="username" style="margin-left:5px;">货到付款</span>
-        </p>
+        </div>
       </div>
       <div class="line"></div>
       <h5 class="pay">送货清单</h5>
       <div class="way">
         <h5>配送方式</h5>
         <div class="info clearFix">
-          <span class="s1">天天快递</span>
+          <span class="s1">硅谷快递</span>
           <p>配送时间：预计8月10日（周三）09:00-15:00送达</p>
         </div>
       </div>
@@ -56,7 +57,7 @@
           <li>
             <p>
               POPMART泡泡玛特 DIMOO徽章-太空系列盲盒胸针摆件潮流玩具生日礼物
-            DIMOO太空徽章-单个盲盒（随机发不支持退）
+              DIMOO太空徽章-单个盲盒（随机发不支持退）
             </p>
             <h4>7天无理由退货</h4>
           </li>
@@ -75,8 +76,8 @@
           </li>
           <li>
             <p>
-            POPMART泡泡玛特 DIMOO徽章-太空系列盲盒胸针摆件潮流玩具生日礼物
-            DIMOO太空徽章-单个盲盒（随机发不支持退）
+              POPMART泡泡玛特 DIMOO徽章-太空系列盲盒胸针摆件潮流玩具生日礼物
+              DIMOO太空徽章-单个盲盒（随机发不支持退）
             </p>
             <h4>7天无理由退货</h4>
           </li>
