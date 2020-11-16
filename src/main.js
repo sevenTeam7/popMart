@@ -9,10 +9,13 @@ Vue.config.productionTip = false;
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 
+//引入nav
+import NavList from "@/components/NavList";
+
+Vue.component("NavList", NavList);
+
 //引入样式swpier
 import "swiper/css/swiper.css";
-
-
 
 Vue.use(ElementUI);
 
