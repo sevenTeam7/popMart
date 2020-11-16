@@ -9,6 +9,11 @@ import "./styles/reset.css";
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
 
+import Header from "./components/Header";
+Vue.component("Header", Header);
+import Footer from "./components/Footer";
+Vue.component("Footer", Footer);
+
 // 导出所有的Api 挂载到vue写原型上
 import * as API from "./api";
 Vue.prototype.$API = API;

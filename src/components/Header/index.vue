@@ -4,9 +4,10 @@
       <img src="./images/popMart.png" class="titleImg" alt="titleImg" />
       <div class="title">
         <span>泡泡玛特线上自营店</span>
-        <el-button class="button" size="small" icon-thumb type="danger" plain
+        <!-- <el-button class="button" size="small" icon-thumb type="danger" plain
           ><span>关注我</span></el-button
-        >
+        > -->
+        <div class="like"><a href="#" class="love">关注我</a></div>
       </div>
     </div>
     <div class="nav">
@@ -76,6 +77,7 @@ export default {
 }
 .header .titleImg {
   width: 180px;
+  margin-left: 190px;
   margin-right: 5px;
 }
 .header .title {
@@ -86,19 +88,37 @@ export default {
   font-size: 18px;
   color: #333;
 }
-.header .title .button {
+/* .header .title .button {
   height: 23px;
   width: 70px;
 }
 .header .title .button span {
   font-size: 12px;
+} */
+
+.header .title .like {
+  border-radius: 15px;
+  background-color: red;
 }
 
+.header .title .love {
+  color: #fff;
+  background-position: 0 -66px;
+  display: inline-block;
+  padding-left: 24px;
+  width: 47px;
+  height: 23px;
+  line-height: 23px;
+  color: #000;
+  font-size: 12px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEcAAABZCAMAAABbssnGAAAA/1BMVEUAAAD///////+xGRqxGRqxGRr////uub2xGRr////uub2xGRr///+xGRr////////uub3uub3uub3////uub2xGRruub3uub3////uub2xGRr////uub2xGRruub3////uub2xGRqxGRqxGRqxGRqxGRr////uub2xGRr////uub3kOTzlQEOzHx/++/vsoqbsmJzoaWz9+Pj78vL03t7y2Njv0dHtyMjqwcHtq6/jrKzNbG3GV1jEUFHmTE+/QEG8Oju1Jie6MjP57+/25ub25eXou7zgpKTblJTpfYHRdHXnX2LIXV3mWFvmU1bBSEnBR0i3KSrWhofVg4O6NDWxIW+2AAAAKHRSTlMAl9DQlkxEREQGBgbw8JtMTNCb1tbWmJa3t7fx8fHv1dXVm5yZmktLhfBmHAAAAn5JREFUWMPtmMdy2zAQhlfFIq3eZVuWi+IkAIu61SVLcu92kvd/logAMcT4tgBPHn2Xf3n5ZmcxWMwQfBKRaJriSNN0NJIAmdwpVeU0B4L9CNUhu+9rDqgeB1yUpbpkPc0vXl+OL0Xg8WbER/zkEndG6WwbT3hPCSDBigfi8fLC4gEvSgA/qxWRWOE9EYiydGWPi/dEIc1yLXvWeE8aeM5kz4zi8fu5/Qw0n7cq/UR5MQo8I6oyH3G3xmt/OGOqQAQSohyu2JkPqQoJgJKob94Jeb9R0pS83UMFrcWiRZXIhXTfQ9s/XJTV3YeCXEnZUuL7WXov6khDnda992LHju+LUbPwnBRqBsjkzyxVzvIgSFYtHapJX3No6XHIRUVLl6Kn+c3rdqctAo83Iz7irm073W04tr0NLGUAgxWPtsfzM4tHvMiAGsulLbHEe2pQYOnIHgfvKcBJKJ5j4NmVPV0Lj9/PxJHamaj0U+BFJ/B0LJX5iLvVcfxumAZ/XoYo20t25m1LBQOgLOrJm22/TZQ0ZW/3BJ+vr5Ya+ZDue6j7B5JFvW6SIMiXlS3lPMgYKjv6uFA1YMeO74sZj2UIjgzJxOImyOydE1XO90CQuiA6XKR8zRHR44iLfhJdmmw2vL6aX4nA482Ij/i+RXtTQqY92rrHeyoAJiv+UI+7OxZ/8SIT4iwHVGKA98QhxrIne3p4TwwyLPuyp4/3ZIDnVPZMCR6/n811oLn+p9JPjBeLVvDXhajMJ+5X874/nDlRIA6mKD8G7Mw/iAomQEXUmyGlw42SpsLul8AdjVyiBNtBTaLLj1D3D6Saet2kgv1cUbZU9r6+Fw2koUEawXvxHzpC3Z34XwtFAAAAAElFTkSuQmCC)
+    0 0 no-repeat;
+}
 .nav {
   width: 100%;
   height: 40px;
   line-height: 40px;
-  background-color: red;
+  background-color: #e60021;
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
@@ -107,6 +127,7 @@ export default {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-left: 165px;
 }
 .nav .navLeft li {
   margin: 0 20px;
@@ -127,7 +148,7 @@ export default {
   color: #f9f9f9;
 }
 .navRight {
-  margin-right: 150px;
+  margin-right: 205px;
 }
 .navRight .search {
   width: 130px;
