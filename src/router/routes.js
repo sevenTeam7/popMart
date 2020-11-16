@@ -1,6 +1,5 @@
-// @ts-nocheck
-/* import Home from "../views/Home"; */
-import addToCart  from '../pages/addToCart'
+// 引入购物车组件
+import addToCart from "../views/addToCart";
 // @ts-ignore
 const routes = [
   { path: "/", component: addToCart },
