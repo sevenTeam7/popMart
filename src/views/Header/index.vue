@@ -76,6 +76,7 @@ export default {
 }
 .header .titleImg {
   width: 180px;
+  margin-left: 190px;
   margin-right: 5px;
 }
 .header .title {
@@ -107,6 +108,7 @@ export default {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-left: 165px;
 }
 .nav .navLeft li {
   margin: 0 20px;
@@ -127,7 +129,7 @@ export default {
   color: #f9f9f9;
 }
 .navRight {
-  margin-right: 150px;
+  margin-right: 205px;
 }
 .navRight .search {
   width: 130px;

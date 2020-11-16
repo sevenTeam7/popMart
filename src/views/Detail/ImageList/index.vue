@@ -13,6 +13,7 @@
         />
       </div>
     </div>
+
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
   </div>
@@ -54,31 +55,31 @@ export default {
           imgUrl: "./images/03.png",
         },
         {
-          id: 17,
+          id: 7,
           imgUrl: "./images/02.png",
         },
         {
-          id: 16,
+          id: 8,
           imgUrl: "./images/03.png",
         },
         {
-          id: 15,
+          id: 9,
           imgUrl: "./images/02.png",
         },
         {
-          id: 14,
+          id: 10,
           imgUrl: "./images/03.png",
-        },
-        {
-          id: 13,
-          imgUrl: "./images/02.png",
         },
         {
           id: 11,
+          imgUrl: "./images/02.png",
+        },
+        {
+          id: 12,
           imgUrl: "./images/03.png",
         },
       ],
-      currentIndex: 0,
+      currentIndex: 0, // 存储某个图片的索引的
     };
   },
   methods: {

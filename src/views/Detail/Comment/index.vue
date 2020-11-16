@@ -9,7 +9,7 @@
           width="25"
           height="25"
         />
-        魅力天府麻辣熊猫
+        {{ userInfo.username }}
       </div>
       <div class="user-level" style="margin-top:10px">
         <a
@@ -31,9 +31,7 @@
         style="margin-bottom:10px;height: 14px;background: url('../images/star.png') no-repeat; background-position: 0px 0px;  width: 78px;"
       ></div>
       <p class="comment-con">
-        孩子们很喜欢，希望收集这款POPMART泡泡玛特
-        Molly校园系列盲盒公仔潮玩桌面摆件，
-        Molly校园-单个盲盒每次都有意外惊喜，看上去很可爱，这个系列让孩子们兴致勃勃，充满童真，看到他们喜欢就可以了，太有意思了。物流给力，谢谢！
+        {{ userInfo.content }}
       </p>
       <div class="pic-list">
         <img
@@ -54,10 +52,10 @@
       <div class="comment-message">
         <div class="order-info" style="margin-top: 10px; color:#999">
           <span style="margin-right:95px">
-            Molly校园-单个盲盒（随机发不支持退货）
+            {{ userInfo.attrname }}
           </span>
           <span>
-            2020-06-30 17:19
+            {{ userInfo.tickingTime }}
           </span>
           <span style="margin-left:200px">举报</span>
           <span style="margin-left:30px">
@@ -82,6 +80,9 @@
 <script>
 export default {
   name: "Comment",
+  props: {
+    userInfo: Object,
+  },
 };
 </script>
 <style lang="less" rel="stylesheet/less" scoped>

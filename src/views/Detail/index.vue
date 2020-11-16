@@ -1,8 +1,10 @@
 <template>
   <div>
+    <Header />
     <div class="con w clearFix">
       <!-- 商品分类导航 -->
-      <div class="topNav"></div>
+      <!-- <div class="topNav"></div> -->
+
       <!-- 导航路径区域 -->
       <div class="conPoin clearFix">
         <span>玩具乐器</span>
@@ -369,9 +371,7 @@
         <!-- 店内热销 -->
         <div class="popbox">
           <el-tabs type="border-card" stretch>
-            <el-tab-pane label="店内热销">
-              店内热销
-            </el-tab-pane>
+            <el-tab-pane label="店内热销">店内热销</el-tab-pane>
             <el-tab-pane label="热门关注">热门关注</el-tab-pane>
           </el-tabs>
         </div>
@@ -381,7 +381,7 @@
       <div class="detail">
         <el-tabs type="border-card">
           <!-- 商品介绍 -->
-          <el-tab-pane>
+          <el-tab-pane label="商品介绍">
             <span slot="label"><i class="el-icon-date"></i> 商品介绍</span>
             <div class="tab-con">
               <div class="p-parameter">
@@ -568,15 +568,36 @@
                     </ul>
                   </div>
                   <div class="tab-con">
-                    <div>
-                      <Comment />
-                      <Comment />
-                      <Comment />
-                      <Comment />
-                      <Comment />
+                    <div
+                      v-for="(userInfo, index) in goodsInfo.goodsInfo[0]
+                        .highopinion"
+                      :key="index"
+                    >
+                      <Comment :userInfo="userInfo" />
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </el-tab-pane>
+
+          <!-- 好评商品 -->
+          <el-tab-pane label="本店好评商品">
+            <div class="shop-similar-promotion">
+              <div class="mt">
+                <h3 class="fl">本店好评商品</h3>
+              </div>
+              <div class="mc">
+                <ul class="shop-similar-promo-list" style="position: relative;">
+                  <Good />
+                  <Good />
+                  <Good />
+                  <Good />
+                  <Good />
+                  <Good />
+                  <Good />
+                  <Good />
+                </ul>
               </div>
             </div>
           </el-tab-pane>
@@ -590,6 +611,9 @@ import Zoom from "./Zoom";
 import ImageList from "./ImageList";
 import AfterSale from "./AfterSale";
 import Comment from "./Comment";
+import Header from "../Header";
+import Good from "./Good";
+import { mapState } from "vuex";
 export default {
   name: "Detail",
   data() {
@@ -603,6 +627,8 @@ export default {
     ImageList,
     AfterSale,
     Comment,
+    Header,
+    Good,
   },
   methods: {
     //限制输入框输入内容---->输入框只能输入正数
@@ -623,9 +649,21 @@ export default {
     },
   },
   mounted() {
+    //获取小图索引
     this.$bus.$on("getIndex", (index) => {
       this.index = index;
     });
+    //获取好评
+    const skuid = 7;
+    const result = this.$store.dispatch("getGoodsInfo", skuid);
+    console.log(result);
+  },
+  computed: {
+    ...mapState({
+      goodsInfo: (state) => {
+        return state.detail.goodsInfo;
+      },
+    }),
   },
 };
 </script>
@@ -649,7 +687,7 @@ export default {
   // 商品导航分类
   .conPoin {
     padding: 9px 15px 9px 0;
-    background-color: #ccc;
+    background-color: #f3f3f3;
     span,
     span:before {
       content: "/\00a0";
@@ -1366,6 +1404,107 @@ ul {
               width: 16px;
               height: 16px;
               background-image: url("./images/__sprite3.png");
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//本店好评商品
+.shop-similar-promotion {
+  margin-bottom: 15px;
+  h3 {
+    font: 700 14px "microsoft yahei";
+  }
+  .shop-similar-promo-list {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    li {
+      // margin-right: 20px;
+      height: 350px;
+      width: 220px;
+      padding-bottom: 10px;
+      .pro-wrap {
+        width: 218px;
+        border: 1px solid #f5f5f5;
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0.09);
+        .p-img {
+          height: 220px;
+          width: 218px;
+          padding: 0;
+          margin-bottom: 8px;
+          overflow: hidden;
+          img {
+            width: 220px;
+            margin-left: -1px;
+            border: 0;
+            vertical-align: middle;
+            height: 220px;
+          }
+        }
+        .p-name {
+          width: 200px;
+          height: auto;
+          max-height: none;
+          line-height: 16px;
+          padding: 0 9px;
+          margin-bottom: 5px;
+          min-height: 36px;
+        }
+        .p-price {
+          width: 200px;
+          height: 16px;
+          line-height: 16px;
+          padding: 0 9px;
+          margin-bottom: 8px;
+          overflow: hidden;
+          em {
+            color: #999;
+          }
+          .p-focus {
+            float: right;
+            width: 70px;
+            height: 16px;
+            text-align: right;
+            .i-focus {
+              display: inline-block;
+              width: 14px;
+              height: 13px;
+              margin-top: 2px;
+              margin-right: 5px;
+              vertical-align: top;
+              background: url("./images/i-focus.png") no-repeat;
+            }
+            .text {
+              display: inline-block;
+              height: 16px;
+              line-height: 16px;
+              vertical-align: top;
+            }
+          }
+          a {
+            color: #666;
+            text-decoration: none;
+          }
+          .price {
+            font-family: verdana;
+            color: #e4393c;
+            font-size: 14px;
+          }
+          .p-comment {
+            width: 200px;
+            max-height: 48px;
+            padding: 9px;
+            background: #f7f7f7;
+            .inner {
+              width: 100%;
+              max-height: 48px;
+              line-height: 16px;
+              overflow: hidden;
             }
           }
         }
