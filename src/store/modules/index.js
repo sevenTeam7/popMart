@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 
 import cart from "./cart";
 import shop from './shop'
@@ -10,9 +8,18 @@ export default {
   detail,
   cart,
   addToCart,
-<<<<<<< HEAD
   shop,
-=======
+
   trade
->>>>>>> 71e87708fb05fc2145e195f3670a3ca4e351775b
+
 }
+
+//引入home组件
+import home from "./home";
+import news from "./news";
+import login from "./login";
+export default {
+  home,
+  news,
+  login,
+};

@@ -87,7 +87,7 @@
                     <el-button
                       type="primary"
                       @click="sendCode('ruleForm')"
-                      disabled
+                      disabled:disabled
                       >发送验证码</el-button
                     >
                   </el-form-item>
@@ -150,6 +150,7 @@ export default {
       }
     };
     return {
+      disabled: true,
       activeName: "first",
       ruleForm: {
         pass: "1234",
@@ -191,13 +192,16 @@ export default {
       this.activeName = tab.name;
     },
     async sendCode(formName) {
+      this.disabled = false;
       if (this.ruleForm.email) {
         const usermail = this.ruleForm.email.trim();
         const result = await getEmailCode({ usermail });
         if (result.code === 20000) {
           alert("邮件发送成功");
+          this.disabled = true;
         } else {
           alert("密码有误");
+          this.disabled = true;
         }
       }
     },
@@ -248,7 +252,7 @@ export default {
 .login .login_tltle .login_aa {
   display: block;
   margin: 0 5px;
-  background: url(//misc.360buyimg.com/user/passport/1.0.0/css/i/q-icon.png)
+  background: url("//misc.360buyimg.com/user/passport/1.0.0/css/i/q-icon.png")
     no-repeat;
   overflow: hidden;
   color: #999;
