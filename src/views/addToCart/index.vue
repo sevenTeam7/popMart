@@ -1,6 +1,9 @@
 <template>
   <!-- 最外层盒子 -->
   <div class="main">
+    <!-- 导航栏 -->
+    <header />
+
     <!-- 顶部盒子 -->
     <div class="success-wrap">
       <!-- 阴影盒子 -->
@@ -14,7 +17,7 @@
               <div class="success-top">
                 <!-- 成功小图标 -->
                 <b class="succ-icon"></b>
-                <h3 class="succeed" style="display:inline-block">
+                <h3 class="succees" style="display:inline-block">
                   商品已经成功加入购物车!
                 </h3>
               </div>
@@ -78,7 +81,7 @@
         </div>
         <div class="goods-list">
           <ul>
-            <li>
+            <li v-for="item in this.shopList" :key="item._id">
               <div class="item">
                 <div class="p-img">
                   <img
@@ -90,143 +93,17 @@
                 </div>
                 <div>
                   <div class="p-name">
-                    <a href="#">
-                      rolife若来盲盒Nanci囡茜梦境下午茶系列盲盒手办礼物女
-                      单个下午茶盲盒（整套不重复请拍12件）
+                    <a
+                      href="#"
+                      title="rolife若来盲盒Nanci囡茜梦境下午茶系列盲盒手办礼物女 单个下午茶盲盒（整套不重复请拍12件）"
+                    >
+                      {{ item.title }}
                     </a>
                   </div>
                   <div class="p-price">
-                    <strong><em>￥</em><i>59.00</i></strong>
-                  </div>
-                  <div class="p-btn">
-                    <button>加入购物车</button>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="item">
-                <div class="p-img">
-                  <img
-                    src="./images/hangbao-03.png"
-                    alt=""
-                    width="98"
-                    height="98"
-                  />
-                </div>
-                <div>
-                  <div class="p-name">
-                    <a href="#">
-                      rolife若来盲盒Nanci囡茜梦境下午茶系列盲盒手办礼物女
-                      单个下午茶盲盒（整套不重复请拍12件）
-                    </a>
-                  </div>
-                  <div class="p-price">
-                    <strong><em>￥</em><i>59.00</i></strong>
-                  </div>
-                  <div class="p-btn">
-                    <button>加入购物车</button>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="item">
-                <div class="p-img">
-                  <img
-                    src="./images/hangbao-03.png"
-                    alt=""
-                    width="98"
-                    height="98"
-                  />
-                </div>
-                <div>
-                  <div class="p-name">
-                    <a href="#">
-                      rolife若来盲盒Nanci囡茜梦境下午茶系列盲盒手办礼物女
-                      单个下午茶盲盒（整套不重复请拍12件）
-                    </a>
-                  </div>
-                  <div class="p-price">
-                    <strong><em>￥</em><i>59.00</i></strong>
-                  </div>
-                  <div class="p-btn">
-                    <button>加入购物车</button>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="item">
-                <div class="p-img">
-                  <img
-                    src="./images/hangbao-03.png"
-                    alt=""
-                    width="98"
-                    height="98"
-                  />
-                </div>
-                <div>
-                  <div class="p-name">
-                    <a href="#">
-                      rolife若来盲盒Nanci囡茜梦境下午茶系列盲盒手办礼物女
-                      单个下午茶盲盒（整套不重复请拍12件）
-                    </a>
-                  </div>
-                  <div class="p-price">
-                    <strong><em>￥</em><i>59.00</i></strong>
-                  </div>
-                  <div class="p-btn">
-                    <button>加入购物车</button>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="item">
-                <div class="p-img">
-                  <img
-                    src="./images/hangbao-03.png"
-                    alt=""
-                    width="98"
-                    height="98"
-                  />
-                </div>
-                <div>
-                  <div class="p-name">
-                    <a href="#">
-                      rolife若来盲盒Nanci囡茜梦境下午茶系列盲盒手办礼物女
-                      单个下午茶盲盒（整套不重复请拍12件）
-                    </a>
-                  </div>
-                  <div class="p-price">
-                    <strong><em>￥</em><i>59.00</i></strong>
-                  </div>
-                  <div class="p-btn">
-                    <button>加入购物车</button>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="item">
-                <div class="p-img">
-                  <img
-                    src="./images/hangbao-03.png"
-                    alt=""
-                    width="98"
-                    height="98"
-                  />
-                </div>
-                <div>
-                  <div class="p-name">
-                    <a href="#">
-                      rolife若来盲盒Nanci囡茜梦境下午茶系列盲盒手办礼物女
-                      单个下午茶盲盒（整套不重复请拍12件）
-                    </a>
-                  </div>
-                  <div class="p-price">
-                    <strong><em>￥</em><i>59.00</i></strong>
+                    <strong
+                      ><em>￥</em><i>{{ item.price }}</i></strong
+                    >
                   </div>
                   <div class="p-btn">
                     <button>加入购物车</button>
@@ -236,213 +113,65 @@
             </li>
           </ul>
         </div>
-        <!-- <div class="s-panel-nav">
-          <ul>
-            <li class="s-nav-item curr">1</li>
-            <li class="s-nav-item">2</li>
-            <li class="s-nav-item">3</li>
-            <li class="s-nav-item">4</li>
-          </ul>
-        </div> -->
-        <div class="block">
-          <el-pagination background layout="prev, pager, next" :total="40">
-          </el-pagination>
-        </div>
       </div>
-    </div>
-    <!--你可能还需要 -->
-    <div class="wid w1">
-      <div class="mt">
-        <h3>您可能还需要</h3>
-      </div>
-      <div class="goods-list">
-        <ul>
-          <li>
-            <div class="item">
-              <div class="p-img">
-                <img
-                  src="./images/fudai-01.png"
-                  alt=""
-                  width="98"
-                  height="98"
-                />
-              </div>
-              <div>
-                <div class="p-name">
-                  <a href="#">
-                    rolife若来盲盒Nanci囡茜梦境下午茶系列盲盒手办礼物女
-                    单个下午茶盲盒（整套不重复请拍12件）
-                  </a>
-                </div>
-                <div class="p-price">
-                  <strong><em>￥</em><i>59.00</i></strong>
-                </div>
-                <div class="p-btn">
-                  <button>加入购物车</button>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="item">
-              <div class="p-img">
-                <img
-                  src="./images/gongzhu-02.png"
-                  alt=""
-                  width="98"
-                  height="98"
-                />
-              </div>
-              <div>
-                <div class="p-name">
-                  <a href="#">
-                    rolife若来盲盒Nanci囡茜梦境下午茶系列盲盒手办礼物女
-                    单个下午茶盲盒（整套不重复请拍12件）
-                  </a>
-                </div>
-                <div class="p-price">
-                  <strong><em>￥</em><i>59.00</i></strong>
-                </div>
-                <div class="p-btn">
-                  <button>加入购物车</button>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="item">
-              <div class="p-img">
-                <img
-                  src="./images/labixiaoxin-04.png"
-                  alt=""
-                  width="98"
-                  height="98"
-                />
-              </div>
-              <div>
-                <div class="p-name">
-                  <a href="#">
-                    rolife若来盲盒Nanci囡茜梦境下午茶系列盲盒手办礼物女
-                    单个下午茶盲盒（整套不重复请拍12件）
-                  </a>
-                </div>
-                <div class="p-price">
-                  <strong><em>￥</em><i>59.00</i></strong>
-                </div>
-                <div class="p-btn">
-                  <button>加入购物车</button>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="item">
-              <div class="p-img">
-                <img
-                  src="./images/xiaogou07.png"
-                  alt=""
-                  width="98"
-                  height="98"
-                />
-              </div>
-              <div>
-                <div class="p-name">
-                  <a href="#">
-                    rolife若来盲盒Nanci囡茜梦境下午茶系列盲盒手办礼物女
-                    单个下午茶盲盒（整套不重复请拍12件）
-                  </a>
-                </div>
-                <div class="p-price">
-                  <strong><em>￥</em><i>59.00</i></strong>
-                </div>
-                <div class="p-btn">
-                  <button>加入购物车</button>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="item">
-              <div class="p-img">
-                <img
-                  src="./images/xiaohuangr08.png"
-                  alt=""
-                  width="98"
-                  height="98"
-                />
-              </div>
-              <div>
-                <div class="p-name">
-                  <a href="#">
-                    rolife若来盲盒Nanci囡茜梦境下午茶系列盲盒手办礼物女
-                    单个下午茶盲盒（整套不重复请拍12件）
-                  </a>
-                </div>
-                <div class="p-price">
-                  <strong><em>￥</em><i>59.00</i></strong>
-                </div>
-                <div class="p-btn">
-                  <button>加入购物车</button>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="item">
-              <div class="p-img">
-                <img
-                  src="./images/xiaosongshu-05.png"
-                  alt=""
-                  width="98"
-                  height="98"
-                />
-              </div>
-              <div>
-                <div class="p-name">
-                  <a href="#">
-                    rolife若来盲盒Nanci囡茜梦境下午茶系列盲盒手办礼物女
-                    单个下午茶盲盒（整套不重复请拍12件）
-                  </a>
-                </div>
-                <div class="p-price">
-                  <strong><em>￥</em><i>59.00</i></strong>
-                </div>
-                <div class="p-btn">
-                  <button>加入购物车</button>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <!-- <div class="s-panel-nav">
-          <ul>
-            <li class="s-nav-item curr">1</li>
-            <li class="s-nav-item">2</li>
-            <li class="s-nav-item">3</li>
-            <li class="s-nav-item">4</li>
-          </ul>
-        </div> -->
+
       <div class="block">
-        <el-pagination background layout="prev, pager, next" :total="40">
+        <!-- current-change	currentPage 改变时会触发 -->
+        <!-- page-size	每页显示条目个数，支持 .sync 修饰符 -->
+        <!-- page-sizes	每页显示个数选择器的选项设置 -->
+        <el-pagination
+          @current-change="handleCurrentChange"
+          :current-page="pageNum"
+          :page-sizes="[3, 6, 9]"
+          :page-size="6"
+          layout="prev, pager, next, total"
+          :total="16"
+        >
         </el-pagination>
       </div>
     </div>
-
+    <!-- 底部区域 -->
+    <footer />
   </div>
 </template>
 
 <script>
 export default {
   name: "addToCart",
+  data() {
+    return {
+      shopList: [],
+      pageNum: 1, //当前页码
+    };
+  },
+  async mounted() {
+    await this.$store.dispatch("get_ShopImage");
+    this.shopList = this.$store.state.addToCart.getShopImage.goodslist;
+    this.shopList = this.shopList.slice(0, 6);
+  },
+
+  methods: {
+    async handleCurrentChange(val) {
+      this.pageNum = val;
+      let list = await this.$store.state.addToCart.getShopImage.goodslist;
+      this.shopList = list;
+      if (this.pageNum == 1) {
+        this.shopList = list.slice(0, 6);
+        return;
+      } else if (this.pageNum == 2) {
+        this.shopList = list.slice(6, 12);
+      } else {
+        this.shopList = list.slice(12, 16);
+      }
+    },
+  },
 };
 </script>
 
 <style lang="less" scoped>
 .main {
   width: 1452.5px;
-  height: 1198px;
-  margin-top: 153px;
+  margin-top: 55px;
   border-top: 1px solid#e2231a;
 }
 .success-wrap {
@@ -482,6 +211,7 @@ export default {
   background: url("./images/addtocart-icons.png");
   display: inline-block;
 }
+/*  */
 .succees-box .success-top h3 {
   font-size: 18px;
   line-height: 25px;
@@ -489,7 +219,7 @@ export default {
   display: inline-block;
   color: #71b247;
 }
-.succeed-box .mini-img {
+.succees-box .mini-img {
   width: 60px;
   margin-right: 10px;
   display: block;
@@ -514,7 +244,7 @@ export default {
   margin: 0;
 }
 
-.succeed-box .mini-name a {
+.succees-box .mini-name a {
   text-decoration: none;
   color: #333;
 }
@@ -587,7 +317,7 @@ export default {
   color: #666;
 }
 .goods-list {
-  height: 290px;
+  margin-top: 15px;
   width: 1210px;
 }
 .goods-list ul {
@@ -597,7 +327,7 @@ export default {
   height: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .goods-list li {
   margin-bottom: 40px;
@@ -647,10 +377,6 @@ export default {
 /* 分页 */
 .block {
   text-align: center;
-}
-/* 第二部分 */
-.wid .mt {
-  margin-top: 20px;
 }
 
 </style>
