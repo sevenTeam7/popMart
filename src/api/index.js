@@ -9,6 +9,6 @@ export const reqJournaism = () => ajax.get("/home/homenews");
 export const reqNews = (page, pageSize) =>
   ajax.get(`/news/getnewslist?page=${page}&pageSize=${pageSize}`);
 //登录帐户
-// export const reqLogin = (usermail, password) =>
-//   ajax.post(`/login/account`, { usermail, password });
-// console.log(111111111);
+export const reqLogin = (usermail, password) =>
+  ajax.post(`/login/account`, { usermail, password });
+console.log(111111111);
