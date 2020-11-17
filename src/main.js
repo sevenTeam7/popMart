@@ -8,7 +8,7 @@ Vue.config.productionTip = false;
 // 导出所有的Api 挂载到vue写原型上
 import * as API from "./api";
 import "./styles/reset.css";
-import "swiper/swiper-bundle.css";
+import "swiper/css/swiper.css";
 import "./static/iconfonts/iconfont.css";
 Vue.prototype.$API = API;
 Vue.prototype.$bus = new Vue();

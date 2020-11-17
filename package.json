@@ -12,7 +12,7 @@
     "core-js": "^3.6.5",
     "postcss-pxtorem": "^5.1.1",
     "style-less": "0.0.0",
-    "swiper": "^6.3.5",
+    "swiper": "^5.4.2",
     "vue": "^2.6.11",
     "vue-awesome-swiper": "^4.1.1",
     "vue-router": "^3.2.0",
