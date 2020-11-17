@@ -30,69 +30,103 @@
             <div class="ImageTitle">
               <img src="./images/header_logo.png" alt="" />
             </div>
-            <div class="login-content">
-              <el-form
-                :model="ruleForm"
-                status-icon
-                :rules="rules"
-                ref="ruleForm"
-                label-width="100px"
-                class="demo-ruleForm"
-              >
-                <el-form-item label="账号" prop="age">
-                  <el-input v-model.number="ruleForm.age"></el-input>
-                </el-form-item>
-                <el-form-item label="密码" prop="pass">
-                  <el-input
-                    type="password"
-                    v-model="ruleForm.pass"
-                    autocomplete="off"
-                  ></el-input>
-                </el-form-item>
-
-                <el-form-item label="确认密码" prop="checkPass">
-                  <el-input
-                    type="password"
-                    v-model="ruleForm.checkPass"
-                    autocomplete="off"
-                  ></el-input>
-                </el-form-item>
-                <el-form-item label="验证码">
-                  <el-input v-model="input" placeholder="请输入内容"></el-input>
-                </el-form-item>
-                <el-form-item>
-                  <el-button type="primary" @click="submitForm('ruleForm')"
-                    >提交</el-button
+            <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
+              <el-tab-pane label="账号密码" name="first">
+                <div class="login-content">
+                  <el-form
+                    :model="ruleForm"
+                    status-icon
+                    :rules="rules"
+                    ref="ruleForm"
+                    label-width="100px"
+                    class="demo-ruleForm"
                   >
-                  <el-button @click="resetForm('ruleForm')">重置</el-button>
-                </el-form-item>
-              </el-form>
-            </div>
+                    <el-form-item label="账号" prop="age">
+                      <el-input v-model.number="ruleForm.age"></el-input>
+                    </el-form-item>
+                    <el-form-item label="密码" prop="pass">
+                      <el-input
+                        type="password"
+                        v-model="ruleForm.pass"
+                        autocomplete="off"
+                      ></el-input>
+                    </el-form-item>
+                    <el-form-item label="确认密码" prop="checkPass">
+                      <el-input
+                        type="password"
+                        v-model="ruleForm.checkPass"
+                        autocomplete="off"
+                      ></el-input>
+                    </el-form-item>
+                    <el-form-item>
+                      <el-button type="primary" @click="submitForm('ruleForm')"
+                        >提交</el-button
+                      >
+                      <el-button @click="resetForm('ruleForm')">重置</el-button>
+                    </el-form-item>
+                  </el-form>
+                </div>
+              </el-tab-pane>
+              <el-tab-pane label="验证码登录" name="second">
+                <el-form
+                  :model="ruleForm"
+                  status-icon
+                  :rules="rules"
+                  ref="ruleForm"
+                  label-width="100px"
+                  class="demo-ruleForm"
+                  style="margin-right:25px"
+                >
+                  <el-form-item label="邮箱" prop="email">
+                    <el-input
+                      type="email"
+                      v-model="ruleForm.email"
+                      autocomplete="off"
+                      style="margin-bottom:5px"
+                    ></el-input>
+                    <el-button
+                      type="primary"
+                      @click="sendCode('ruleForm')"
+                      disabled:disabled
+                      >发送验证码</el-button
+                    >
+                  </el-form-item>
+                  <el-form-item label="确认验证码" prop="checkemail">
+                    <el-input
+                      type="text"
+                      v-model="ruleForm.checkemail"
+                      autocomplete="open"
+                    ></el-input>
+                  </el-form-item>
+                  <el-form-item>
+                    <el-button type="primary" @click="goLogin('ruleForm')"
+                      >提交</el-button
+                    >
+                    <el-button @click="resetForm('ruleForm')">重置</el-button>
+                  </el-form-item>
+                </el-form>
+              </el-tab-pane>
+            </el-tabs>
           </div>
         </div>
       </div>
-      <!-- 底部 -->
-      <Floot />
     </div>
   </div>
 </template>
 <script>
+import { getPassWord, getEmailCode, getCheckCode } from "../../api";
 export default {
   name: "Login",
   data() {
     var checkAge = (rule, value, callback) => {
       if (!value) {
-        return callback(new Error("号码不能为空"));
+        return callback(new Error("账号"));
       }
       setTimeout(() => {
         if (!Number.isInteger(value)) {
           callback(new Error("请输入数字值"));
         } else {
-          if (value < 18) {
-            callback(new Error("必须年满18岁"));
-          } else {
-            callback();
-          }
+          callback();
         }
       }, 1000);
     };
@@ -116,10 +150,14 @@ export default {
       }
     };
     return {
+      disabled: true,
+      activeName: "first",
       ruleForm: {
-        pass: "",
-        checkPass: "",
-        age: "",
+        pass: "1234",
+        checkPass: "1234",
+        age: "13800000000",
+        email: "864885597@qq.com",
+        checkemail: "",
       },
       rules: {
         pass: [{ validator: validatePass, trigger: "blur" }],
@@ -130,9 +168,17 @@ export default {
   },
   methods: {
     submitForm(formName) {
-      this.$refs[formName].validate((valid) => {
+      this.$refs[formName].validate(async (valid) => {
         if (valid) {
-          alert("submit!");
+          const usermail = this.ruleForm.age;
+          const password = this.ruleForm.pass;
+          console.log();
+          const result = await getPassWord(usermail, password);
+          if (result.code === 20000) {
+            this.$router.push("/shop");
+          } else {
+            alert("密码有误");
+          }
         } else {
           console.log("error submit!!");
           return false;
@@ -141,6 +187,35 @@ export default {
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();
+    },
+    handleClick(tab, event) {
+      this.activeName = tab.name;
+    },
+    async sendCode(formName) {
+      this.disabled = false;
+      if (this.ruleForm.email) {
+        const usermail = this.ruleForm.email.trim();
+        const result = await getEmailCode({ usermail });
+        if (result.code === 20000) {
+          alert("邮件发送成功");
+          this.disabled = true;
+        } else {
+          alert("密码有误");
+          this.disabled = true;
+        }
+      }
+    },
+    async goLogin(formName) {
+      if (this.ruleForm.checkemail) {
+        const usermail = this.ruleForm.email;
+        const code = this.ruleForm.checkemail;
+        const result = await getCheckCode(usermail, code);
+        if (result.code === 20000) {
+          this.$router.push("/shop");
+        } else {
+          alert("验证码有误");
+        }
+      }
     },
   },
 };
@@ -177,7 +252,7 @@ export default {
 .login .login_tltle .login_aa {
   display: block;
   margin: 0 5px;
-  background: url(//misc.360buyimg.com/user/passport/1.0.0/css/i/q-icon.png)
+  background: url("//misc.360buyimg.com/user/passport/1.0.0/css/i/q-icon.png")
     no-repeat;
   overflow: hidden;
   color: #999;
@@ -218,20 +293,18 @@ export default {
 .login_container .login .login-banner .login_con {
   width: 346px;
   height: 436px;
-  /* background-color: pink; */
+  background-color: pink;
   position: absolute;
   top: 5px;
   right: 0px;
 }
-.login_container .login .login-banner .login_con .ImageTitle img {
-  width: 300px;
-  height: 130px;
-  margin-left: 23px;
-  margin-top: 20px;
-}
 
 .login_container .login .login-banner .login_con .login-content {
   width: 325px;
-  margin-top: 0px;
+  margin-top: 20px;
+}
+.login_container .login .login-banner .login_con .ImageTitle img {
+  width: 346px;
+  margin-top: 10px;
 }
 </style>

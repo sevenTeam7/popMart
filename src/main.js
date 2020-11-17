@@ -5,6 +5,9 @@ import store from "./store";
 import "./styles/index.less";
 Vue.config.productionTip = false;
 
+//引入表单验证插件
+import "./utils/validate";
+
 //引入elemetUi
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
