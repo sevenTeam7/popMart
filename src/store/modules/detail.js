@@ -49,19 +49,7 @@ export default {
       const mediumopinion = totalList.mediumopinion;
       //差评
       const badopinion = totalList.badopinion;
-      return [...highopinion, ...mediumopinion, ...badopinion];
+      return [...mediumopinion, ...highopinion, ...badopinion];
     },
-    // //好评数组
-    // highopinion(state) {
-    //   return state.goodsInfo[0].highopinion;
-    // },
-    // //中评数组
-    // mediumopinion(state) {
-    //   return state.goodsInfo[0].mediumopinion;
-    // },
-    // //差评数组
-    // badopinion(state) {
-    //   return state.goodsInfo[0].badopinion;
-    // },
   },
 };
