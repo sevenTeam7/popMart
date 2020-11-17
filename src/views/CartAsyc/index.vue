@@ -75,7 +75,12 @@
             <span>{{ item.price * item.skunum }}</span>
           </li>
           <li class="cart-list-con6">
-            <a href="javascript:void(0)" class="sindelet" @click="delCart(item.skuid)">删除</a>
+            <a
+              href="javascript:void(0)"
+              class="sindelet"
+              @click="delCart(item.skuid)"
+              >删除</a
+            >
             <br />
             <a href="#none">移到收藏</a>
           </li>
@@ -83,11 +88,16 @@
       </div>
       <div class="cart-tool">
         <div class="select-all">
-          <input class="chooseAll" type="checkbox" />
+          <input
+            class="chooseAll"
+            :checked="isCheckedAll"
+            @click="isChecked"
+            type="checkbox"
+          />
           <span>全选</span>
         </div>
         <div class="option">
-          <a href="#none">删除选中的商品</a>
+          <a href="#none" @click="selectedCart">删除选中的商品</a>
           <a href="#none">移到我的关注</a>
           <a href="#none">清除下柜商品</a>
         </div>
@@ -118,7 +128,9 @@ export default {
     Header,
   },
   data() {
-    return {};
+    return {
+      
+    };
   },
   mounted() {
     // 获取购物车商品信息
@@ -147,26 +159,53 @@ export default {
     },
     // 改变选中状态
     swicthIscheked(item) {
-      const {skuid} = item
-      console.log(skuid);
+      const { skuid } = item;
       const isChecked = item.ischecked === 1 ? 0 : 1;
-      this.$store.dispatch('getIschecked',{
+      this.$store.dispatch("getIschecked", {
         skuid,
-        ischecked:isChecked
-      })
-      this.getCartList()
+        ischecked: isChecked,
+      });
+      this.getCartList();
+    },
+    // 切换全选/全不选
+    isChecked(event) {
+      // 获取当前的选中状态 把布尔值转换成number
+      const check = event.target.checked * 1;
+      const promise = this.cartList.map((item) => {
+        return this.$store.dispatch("getIschecked", {
+          skuid: item.skuid,
+          ischecked: check,
+        });
+      });
+      this.getCartList();
     },
     // 删除商品信息
-    delCart(skuid){
-      this.$store.dispatch('getDeleteCart',skuid)
+    delCart(skuid) {
+      this.$store.dispatch("getDeleteCart", skuid);
+      this.getCartList();
+    },
+    // 删除选中的商品
+    selectedCart() {
+      const { delSelectedCart } = this;
+      if (delSelectedCart.length === 0) return;
+      let promise = [];
+      delSelectedCart.forEach((item) => {
+        const promise = this.$store.dispatch("getDeleteCart", item.skuid);
+      });
+      
       this.getCartList()
-    }
+    },
   },
   computed: {
     ...mapState({
       cartList: (state) => state.cart.cartList,
     }),
-    ...mapGetters(["totalCartNum", "totalCartPrice"]),
+    ...mapGetters([
+      "totalCartNum",
+      "totalCartPrice",
+      "delSelectedCart",
+      "isCheckedAll",
+    ]),
   },
 };
 </script>
@@ -231,7 +270,7 @@ export default {
 }
 .cart-list-con4 {
   width: 12%;
- /*  .mins {
+  /*  .mins {
     border: 1px solid #ddd;
     border-right: 0;
     float: left;
