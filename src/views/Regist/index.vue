@@ -1,5 +1,6 @@
 <template>
   <div class="register-container">
+    <el-button type="text"></el-button>
     <!-- 注册内容 -->
     <div class="register">
       <h3>
@@ -10,27 +11,48 @@
       </h3>
       <div class="content">
         <label>邮箱:</label>
-        <input type="text" v-model="email" name="email" v-validate="'required|email'" placeholder="请输入你的邮箱" />
-        <span style="color: red">{{ errors.first("email") }}</span>
+        <input
+          type="text"
+          v-model="usermail"
+          name="usermail"
+          v-validate="'required|usermail'"
+          placeholder="请输入你的邮箱"
+        />
+        <span style="color: red">{{ errors.first("usermail") }}</span>
       </div>
-        
+
       <div class="content">
         <label>登录密码:</label>
-        <input type="text" placeholder="请输入你的登录密码" />
+        <input
+          type="text"
+          v-model="password"
+          v-validate="'required|password'"
+          name="password"
+          placeholder="请输入登录密码"
+        />
+        <span style="color: red">{{ errors.first("password") }}</span>
       </div>
-      <div class="content">
+
+      <!-- <div class="content">
         <label>确认密码:</label>
         <input type="text" placeholder="请输入确认密码" />
-      </div>
-      <div class="content">
+      </div> -->
+      <!-- <div class="content">
         <label>验证码:</label>
-        <input type="text" placeholder="请输入验证码" />
-        <el-button type="danger" round>点击获取验证码</el-button>
-      </div>
+        <input
+          type="text"
+          v-model="code"
+          v-validate="'required|code1'"
+          name="code"
+          placeholder="请输入验证码"
+        />
+        <el-button type="danger" round>点击获取验证码</el-button><br>
+         <span style="color: red; paddingLeft:100px">{{ errors.first("code") }}</span>
+      </div> -->
 
       <div class="controls">
         <input name="m1" type="checkbox" />
-        <span>同意协议并注册《尚品汇用户协议》</span>
+        <span>同意协议并注册《popMart用户协议》</span>
       </div>
       <div class="btn">
         <a href="javascript:" @click="registSuccess">完成注册</a>
@@ -42,14 +64,29 @@
 <script>
 export default {
   name: "Regist",
-  data () {
+  data() {
     return {
-      email:'' //邮箱
-    }
+      usermail: "", //邮箱
+      password: "", //密码
+    };
+  },
+  mounted() {
+    this.$alert("在您注册成为硅谷用户的过程中，您需要完成我们的注册流程并通过点击同意的形式在线签署以下协议，请您务必仔细阅读、充分理解协议中的条款内容后再点击同意（尤其是以粗体并下划线标识的条款，因为这些条款可能会明确您应履行的义务或对您的权利有所限制）", "popMart用户协议", {
+      confirmButtonText: "确定",
+      showClose:false
+    });
   },
   methods: {
-    registSuccess() {
-      this.$message("注册成功，正在跳转");
+    async registSuccess() {
+      const { usermail, password } = this;
+      const result = await this.$API.reqRegist(usermail, password);
+      console.log(result);
+      if (result.code === 2000) {
+        await this.$message.success("注册成功");
+        this.$router.push("/views/cartasyc");
+      } else {
+        this.$message.error("注册失败，请重新再试");
+      }
     },
   },
 };
@@ -120,21 +157,21 @@ export default {
       }
     }
 
-   .btn {
-        text-align: center;
-        line-height: 36px;
-        margin: 17px 0 0 55px;
+    .btn {
+      text-align: center;
+      line-height: 36px;
+      margin: 17px 0 0 55px;
 
-        a {
-          text-decoration: none;
-          width: 270px;
-          height: 36px;
-          background: #e1251b;
-          color: #fff !important;
-          display: inline-block;
-          font-size: 16px;
-        }
+      a {
+        text-decoration: none;
+        width: 270px;
+        height: 36px;
+        background: #e1251b;
+        color: #fff !important;
+        display: inline-block;
+        font-size: 16px;
       }
+    }
   }
 
   .copyright {
