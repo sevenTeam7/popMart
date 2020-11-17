@@ -7,6 +7,8 @@ export const reqGoodsInfo = (skuid) => {
 export const reqGoodsList = () => {
   return ajax.get(`/shophome/goodslist`);
 };
+// 获取购物车中的商品信息列表数据
+export const  getShopImage  = ()=>ajax.get('/shophome/goodslist')
 // export const reqMailLogin = (username,code) => ajax.post('/login/mail',{username,code})
 // 注册
 export const reqRegist = (usermail, password) =>
