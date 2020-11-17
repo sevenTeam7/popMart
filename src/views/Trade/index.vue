@@ -1,30 +1,23 @@
 <template>
   <div class="trade-container">
-   <Header />
+    <Header />
     <h3 class="title">填写并核对订单信息</h3>
     <div class="content">
       <h5 class="receive">收件人信息</h5>
-      <div class="address clearFix">
+      <div
+        class="address clearFix"
+        v-for="(user, index) in userInfo"
+        :key="index"
+      >
+        <span
+          class="username "
+          :class="{ selected: index === currentIndex }"
+          @click="btnUser(index)"
+          >{{ user.username }}
+        </span>
         <p>
-          <span class="username selected">xx</span>
-          <span class="s1">xxxxxxxxxxxxxxx</span>
-          <span class="s2">xxxxxxx</span>
-          <span class="s3">默认地址</span>
-        </p>
-      </div>
-      <div class="address clearFix">
-        <p>
-          <span class="username">xx</span>
-          <span class="s1">xxxxxxxxxxxxxxx</span>
-          <span class="s2">xxxxxxx</span>
-          <span class="s3">默认地址</span>
-        </p>
-      </div>
-      <div class="address clearFix">
-        <p>
-          <span class="username">xx</span>
-          <span class="s1">xxxxxxxxxxxxxxx</span>
-          <span class="s2">xxxxxxx</span>
+          <span class="s1">{{ user.address }}</span>
+          <span class="s2">{{ user.phone }}</span>
           <span class="s3">默认地址</span>
         </p>
       </div>
@@ -47,7 +40,11 @@
       </div>
       <div class="detail">
         <h5>商品清单</h5>
-        <ul class="list clearFix">
+        <ul
+          class="list clearFix"
+          v-for="(item, index) in delSelectedCart"
+          :key="index"
+        >
           <li>
             <img
               src="http://img20.360buyimg.com/n0/s80x80_jfs/t1/114946/23/1673/137342/5e9acd0cE88617e26/d3812d623af176c4.jpg.dpg"
@@ -56,35 +53,14 @@
           </li>
           <li>
             <p>
-              POPMART泡泡玛特 DIMOO徽章-太空系列盲盒胸针摆件潮流玩具生日礼物
-              DIMOO太空徽章-单个盲盒（随机发不支持退）
+              {{ item.title }}
             </p>
             <h4>7天无理由退货</h4>
           </li>
           <li>
-            <h3>￥100.00</h3>
+            <h3>￥{{ item.price * item.skunum }}</h3>
           </li>
-          <li>X1</li>
-          <li>有货</li>
-        </ul>
-        <ul class="list clearFix">
-          <li>
-            <img
-              src="http://img20.360buyimg.com/n0/s80x80_jfs/t1/114946/23/1673/137342/5e9acd0cE88617e26/d3812d623af176c4.jpg.dpg"
-              alt=""
-            />
-          </li>
-          <li>
-            <p>
-              POPMART泡泡玛特 DIMOO徽章-太空系列盲盒胸针摆件潮流玩具生日礼物
-              DIMOO太空徽章-单个盲盒（随机发不支持退）
-            </p>
-            <h4>7天无理由退货</h4>
-          </li>
-          <li>
-            <h3>￥100.00</h3>
-          </li>
-          <li>X1</li>
+          <li>X{{ item.skunum }}</li>
           <li>有货</li>
         </ul>
       </div>
@@ -93,6 +69,7 @@
         <textarea
           placeholder="建议留言前先与商家沟通确认"
           class="remarks-cont"
+          v-model="orderComment"
         ></textarea>
       </div>
       <div class="line"></div>
@@ -105,8 +82,11 @@
     <div class="money clearFix">
       <ul>
         <li>
-          <b><i>1</i>件商品，总商品金额</b>
-          <span>¥5399.00</span>
+          <b
+            ><i>{{ totalCartNum }}</i
+            >件商品，总商品金额</b
+          >
+          <span>¥{{ totalCartPrice }}</span>
         </li>
         <li>
           <b>返现：</b>
@@ -119,12 +99,14 @@
       </ul>
     </div>
     <div class="trade">
-      <div class="price">应付金额: <span>¥5399.00</span></div>
-      <div class="receiveInfo">
+      <div class="price">
+        应付金额: <span>¥{{ totalCartPrice }}</span>
+      </div>
+      <div class="receiveInfo" v-if="userInfo[currentIndex]">
         寄送至:
-        <span>北京市昌平区宏福科技园综合楼6层</span>
-        收货人：<span>张三</span>
-        <span>15010658793</span>
+        <span >{{ userInfo[currentIndex].address }}</span>
+        收货人：<span>{{ userInfo[currentIndex].username }}</span>
+        <span>{{ userInfo[currentIndex].phone }}</span>
       </div>
     </div>
     <div class="sub clearFix">
@@ -134,12 +116,41 @@
 </template>
 
 <script>
-import Header from '@/component/Header'
+import { mapState, mapGetters } from "vuex";
+import Header from "@/component/Header";
+import state from "@/store/state";
 export default {
   name: "Trade",
-  components:{
-    Header
-  }
+  data() {
+    return {
+      currentIndex: 0,
+      orderComment: "老板,受不了啦,快点发货,等不急啦", // 订单的备注
+    };
+  },
+  components: {
+    Header,
+  },
+  async mounted() {
+    await this.getCartList()
+    this.$store.dispatch("getUserInfo");
+  },
+
+  methods: {
+    getCartList() {
+      this.$store.dispatch("getCartList");
+    },
+    btnUser(index) {
+      this.currentIndex = index;
+    },
+  },
+
+
+  computed: {
+    ...mapState({
+      userInfo: (state) => state.trade.userInfo,
+    }),
+    ...mapGetters(["delSelectedCart", "totalCartPrice", "totalCartNum"]),
+  },
 };
 </script>
 
