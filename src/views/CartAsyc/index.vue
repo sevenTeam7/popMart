@@ -102,7 +102,6 @@
           </div>
           <div class="sumbtn">
             <router-link class="sum-btn" to="/views/trade">结算</router-link>
-            <!-- <a class="sum-btn" href="###" target="_blank">结算</a> -->
           </div>
         </div>
       </div>
