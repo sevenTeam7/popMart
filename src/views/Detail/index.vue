@@ -188,7 +188,7 @@
                 >-</a
               >
             </div>
-            <div class="add">
+            <div class="add" @click="toCart">
               <a href="javascript:">加入购物车</a>
             </div>
           </div>
@@ -688,6 +688,10 @@ export default {
           return;
         }
       }
+    },
+    //点击登录跳转到订单详情页面
+    toCart() {
+      this.$router.push("/views/cartasyc");
     },
   },
   mounted() {

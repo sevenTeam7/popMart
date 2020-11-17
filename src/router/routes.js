@@ -10,7 +10,7 @@ const routes = [
   { path: "/views/cartasyc", component: Cart },
   { path: "/views/trade", component: Trade },
   { path: "/views/regist", component: Regist },
-  { path: "/detail", component: Detail },
+  { path: "/views/detail", component: Detail },
 ];
 // @ts-ignore
 
