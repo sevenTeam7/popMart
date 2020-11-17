@@ -1,4 +1,4 @@
-import { reqGoodsINfo } from "@/api";
+import { reqGoodsInfo, reqGoodsList } from "@/api";
 export default {
   state: {
     goodsInfo: "", //当前商品信息
@@ -17,18 +17,18 @@ export default {
   actions: {
     //请求当前商品信息
     async getGoodsInfo({ commit }, skuid) {
-      const result = await reqGoodsINfo(skuid);
+      const result = await reqGoodsInfo(skuid);
       if (result.code === 20000) {
         commit("RECEIVE_GOODSINFO", result.data.goodsInfo);
       }
     },
     //请求好评商品信息
-    // async getGoodsList({ commit }) {
-    //   // const result = await reqGoodsINfo();
-    //   if (result.code === 20000) {
-    //     commit("RECEIVE_GOODSINFO", result.data.goodsInfo);
-    //   }
-    // },
+    async getGoodsList({ commit }) {
+      const result = await reqGoodsList();
+      if (result.code === 20000) {
+        commit("RECEIVE_GOODSLIST", result.data.goodslist);
+      }
+    },
   },
   getters: {
     //好评数量，中评数量，差评数量

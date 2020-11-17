@@ -2,14 +2,13 @@
   <li>
     <div class="pro-wrap">
       <div class="p-img">
-        <a href="#">
-          <img src="../images/good1.jpg" alt="" height="220" width="220" />
+        <a href="javascript:;">
+          <img :src="goodObj.bigImg[0]" alt="" height="220" width="220" />
         </a>
       </div>
       <div class="p-name">
-        <a href="#">
-          POPMART泡泡玛特 泡泡福袋随机8个盲盒 molly毕奇dimoo福袋生日礼物
-          泡泡福袋
+        <a href="javascript:;">
+          {{ goodObj.title }}
         </a>
       </div>
       <div class="p-price">
@@ -18,7 +17,7 @@
           <em class="text">关注</em>
         </a>
         <strong class="price">
-          <span>￥269.00</span>
+          <span>￥{{ goodObj.price }}</span>
         </strong>
       </div>
       <div class="p-comment">
@@ -30,6 +29,9 @@
 <script>
 export default {
   name: "Good",
+  props: {
+    goodObj: Object,
+  },
 };
 </script>
 <style lang="less" rel="stylesheet/less" scoped>

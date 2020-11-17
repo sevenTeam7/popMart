@@ -1,5 +1,5 @@
 <template>
-  <div v-if="goodsInfo">
+  <div v-if="goodsInfo && goodsList">
     <Header />
     <div class="con w clearFix">
       <!-- 商品分类导航 -->
@@ -598,14 +598,11 @@
               </div>
               <div class="mc">
                 <ul class="shop-similar-promo-list" style="position: relative;">
-                  <Good />
-                  <Good />
-                  <Good />
-                  <Good />
-                  <Good />
-                  <Good />
-                  <Good />
-                  <Good />
+                  <Good
+                    :goodObj="goodObj"
+                    v-for="goodObj in goodsList"
+                    :key="goodObj._id"
+                  />
                 </ul>
               </div>
             </div>
@@ -698,17 +695,23 @@ export default {
     this.$bus.$on("getIndex", (index) => {
       this.index = index;
     });
-    //获取好评
+    //获取当前商品信息
     const skuid = 7;
     this.$store.dispatch("getGoodsInfo", skuid);
+
+    //获取好评商品数据
+    this.$store.dispatch("getGoodsList");
   },
   computed: {
     ...mapState({
       goodsInfo: (state) => {
         return state.detail.goodsInfo;
       },
+      goodsList: (state) => {
+        return state.detail.goodsList;
+      },
     }),
-    ...mapGetters(["commentsNum", "totalCommentList"]),
+    ...mapGetters(["totalCommentList"]),
   },
 };
 </script>
@@ -1467,7 +1470,7 @@ ul {
     margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     li {
       // margin-right: 20px;
       height: 350px;
