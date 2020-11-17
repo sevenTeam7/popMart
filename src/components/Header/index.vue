@@ -11,8 +11,8 @@
       </div>
       <div class="box1"></div>
       <div class="loginRegister">
-        <a href="">登录</a>
-        <a href="">注册</a>
+        <a href=""><router-link to="/login">登录</router-link></a>
+        <a href=""><router-link to="/views/regist">注册</router-link></a>
       </div>
     </div>
     <div class="nav">
