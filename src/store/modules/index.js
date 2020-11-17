@@ -1,4 +1,6 @@
-import cart from './cart'
+import cart from "./cart";
+import detail from "./detail";
 export default {
-  cart
+  detail,
+  cart,
 };
