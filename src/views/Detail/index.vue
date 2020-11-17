@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="goodsInfo">
     <Header />
     <div class="con w clearFix">
       <!-- 商品分类导航 -->
@@ -17,10 +17,13 @@
       <div class="mainCon clearFix">
         <!-- 左侧放大镜区域 -->
         <div class="previewWrap clearFix">
-          <!--放大镜效果，给zoom组件传递小图地址和大图地址-->
-          <Zoom />
+          <!--放大镜效果，给zoom组件传递中图地址和大图地址-->
+          <Zoom
+            :bigImgUrl="goodsInfo[0].bigImgList[index]"
+            :middleImgUrl="goodsInfo[0].middleImgList[index]"
+          />
           <!-- 小图列表 -->
-          <ImageList />
+          <ImageList :smallImgList="goodsInfo[0].smallImgList" />
           <!-- 关注分享 -->
           <div class="preview-info clearFix">
             <div class="left-btns">
@@ -52,11 +55,12 @@
           </div>
         </div>
         <!-- 右侧主要内容区域 -->
-        <div class="InfoWrap">
+        <div class="InfoWrap" v-if="goodsInfo">
           <div class="sku-name">
             <img src="./images/jdmart.png" alt="京东超市" />
-            POPMART泡泡玛特 Molly小鸟系列盲盒公仔手办娃娃潮玩桌面摆件生日礼物
-            Molly小鸟-整盒（12个款式不重复）
+            <!-- POPMART泡泡玛特 Molly小鸟系列盲盒公仔手办娃娃潮玩桌面摆件生日礼物
+            Molly小鸟-整盒（12个款式不重复） -->
+            {{ goodsInfo[0].goodsid[0].title }}
           </div>
           <div class="news">
             <p class="desc">
@@ -70,12 +74,12 @@
                 </div>
                 <div class="price">
                   <i>¥</i>
-                  <em>5299</em>
+                  <em>{{ goodsInfo[0].goodsid[0].price }}</em>
                   <span>降价通知</span>
                 </div>
                 <div class="remark">
                   <i>累计评价</i>
-                  <em>65545+</em>
+                  <em>{{ goodsInfo[0].goodsid[0].totalAssess }}+</em>
                 </div>
               </div>
             </div>
@@ -627,6 +631,7 @@ export default {
       skuNum: 1,
       commentList: "",
       init: true, //全部评论与好评数组等的切换
+      index: 0, //小图索引
     };
   },
   components: {

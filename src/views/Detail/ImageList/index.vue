@@ -3,85 +3,35 @@
     <div class="swiper-wrapper">
       <div
         class="swiper-slide"
-        v-for="(skuImg, index) in skuImageList"
-        :key="skuImg.id"
+        v-for="(smallImg, index) in smallImgList"
+        :key="index"
       >
         <img
-          :src="skuImg.imgUrl"
+          :src="smallImg"
           :class="{ active: currentIndex === index }"
           @click="changeCurrentIndex(index)"
         />
       </div>
     </div>
-
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
   </div>
 </template>
+
 <script>
-// import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
 import Swiper from "swiper";
+import { mapGetters } from "vuex";
 export default {
   name: "ImageList",
+  props: {
+    smallImgList: Array,
+  },
   data() {
     return {
-      skuImageList: [
-        {
-          id: 0,
-          imgUrl: "./images/01.png",
-        },
-        {
-          id: 1,
-          imgUrl: "./images/02.png",
-        },
-        {
-          id: 2,
-          imgUrl: "./images/03.png",
-        },
-        {
-          id: 3,
-          imgUrl: "./images/04.png",
-        },
-        {
-          id: 4,
-          imgUrl: "./images/01.png",
-        },
-        {
-          id: 5,
-          imgUrl: "./images/02.png",
-        },
-        {
-          id: 6,
-          imgUrl: "./images/03.png",
-        },
-        {
-          id: 7,
-          imgUrl: "./images/02.png",
-        },
-        {
-          id: 8,
-          imgUrl: "./images/03.png",
-        },
-        {
-          id: 9,
-          imgUrl: "./images/02.png",
-        },
-        {
-          id: 10,
-          imgUrl: "./images/03.png",
-        },
-        {
-          id: 11,
-          imgUrl: "./images/02.png",
-        },
-        {
-          id: 12,
-          imgUrl: "./images/03.png",
-        },
-      ],
-      currentIndex: 0, // 存储某个图片的索引的
+      currentIndex: 0,
     };
   },
+
   methods: {
     changeCurrentIndex(index) {
       this.currentIndex = index;
@@ -90,9 +40,9 @@ export default {
     },
   },
   watch: {
-    skuImageList: {
+    smallImgList: {
       handler: function() {
-        if (this.skuImageList.length === 0) {
+        if (this.smallImgList.length === 0) {
           return;
         }
         this.$nextTick(() => {
@@ -116,7 +66,8 @@ export default {
   },
 };
 </script>
-<style lang="less" rel="stylesheet/less" scoped>
+
+<style lang="less" scoped>
 .swiper-container {
   height: 56px;
   width: 412px;

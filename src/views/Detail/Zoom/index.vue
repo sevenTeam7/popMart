@@ -1,9 +1,9 @@
 <template>
   <div class="spec-preview">
-    <img src="../images/01.png" />
+    <img :src="middleImgUrl" />
     <div class="event" ref="event" @mousemove="handleMove"></div>
     <div class="big">
-      <img src="../images/01.png" ref="bigImg" />
+      <img :src="bigImgUrl" ref="bigImg" />
     </div>
     <div class="mask" ref="mask"></div>
   </div>
@@ -11,6 +11,7 @@
 <script>
 export default {
   name: "Zoom",
+  props: ["bigImgUrl", "middleImgUrl"],
   //获取mask的宽度-->只需获取一次
   mounted() {
     this.maskWidth = this.$refs.event.clientWidth / 2;
