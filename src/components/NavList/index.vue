@@ -28,12 +28,14 @@
   </div>
 </template>
 <script>
+
 export default {
   name: "NavList",
+
 };
 </script>
-<style>
-* 大盒子 */ .container-box {
+<style scoped>
+ .container-box {
   width: 100%;
 }
 /* 头部 */

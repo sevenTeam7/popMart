@@ -123,136 +123,18 @@
         <p class="journalism">媒体新闻</p>
         <div class="news_item_con ">
           <a
-            href="http://life.ynet.com/2020/10/12/2914725t978.html"
-            target="_blank"
+            :href="journaismval.url"
             class="news_item"
+            v-for="(journaismval, index) in journaism"
+            :key="journaismval.id"
           >
-            <img
-              src="https://popwebsite.paquapp.com/cms/news/6czx0Sr6063z1480BCT6t8bX2PycZi4b.jpeg"
-              alt=""
-            />
+            <img :src="journaismval.pic" alt="" />
             <div class="pop_1">
               <div class="news_title">
-                做公仔，当然是开心最重要啦
+                {{ journaismval.title }}
               </div>
               <p class="news_desc">
-                设计师Ton Mak分享泡泡玛特“Magical
-                Natural”主题系列盲盒公仔的设计历程和艺术人生。
-              </p>
-              <a
-                href="http://life.ynet.com/2020/10/12/2914725t978.html"
-                class="el-icon-arrow-right"
-                >MORE</a
-              >
-            </div>
-          </a>
-          <a
-            href="https://cci.ifeng.com/c/80IDz2F0frM"
-            target="_blank"
-            class="news_item"
-          >
-            <img
-              src="https://popwebsite.paquapp.com/cms/news/jzC0132CM8Jfh6XB48bAsycTEa80Yirb.jpg"
-              alt=""
-            />
-            <div class="pop_1">
-              <div class="news_title">
-                MIGO设计师雯子：勇于表达自己的熊孩子很可爱
-              </div>
-              <p class="news_desc">
-                用心设计有魅力的作品，不断给玩家带来美好和快乐，期待与玩家的心灵交流，对她而言，同样也是一件美妙的体验。
-              </p>
-              <a
-                href="http://life.ynet.com/2020/10/12/2914725t978.html"
-                class="el-icon-arrow-right"
-                >MORE</a
-              >
-            </div>
-          </a>
-          <a
-            href="http://www.cnr.cn/rdzx/cxxhl/zxxx/20200930/t20200930_525283932.shtml"
-            target="_blank"
-            class="news_item"
-          >
-            <img
-              src="https://popwebsite.paquapp.com/cms/news/faz2E2592kdia7kQ0fNm03ZrM6rerHz0.png"
-              alt=""
-            />
-            <div class="pop_1">
-              <div class="news_title">
-                潮玩登录未来火星生活周，泡泡玛特让世界了解中国当代青年
-              </div>
-              <p class="news_desc">
-                9月30日，未来火星生活周正式开幕，泡泡玛特亮相甘肃金昌“火星1号基地”，用潮玩的方式搭建火星的生活场景。
-              </p>
-              <a
-                href="http://life.ynet.com/2020/10/12/2914725t978.html"
-                class="el-icon-arrow-right"
-                >MORE</a
-              >
-            </div>
-          </a>
-          <a
-            href="http://life.china.com.cn/2020-09/29/content_41315174.htm"
-            target="_blank"
-            class="news_item"
-          >
-            <img
-              src="https://popwebsite.paquapp.com/cms/news/jZ7KhyxF8T2dcE57anD2Gn2mkR39dKW8.jpg"
-              alt=""
-            />
-            <div class="pop_1">
-              <div class="news_title">
-                泡泡玛特首次举办粉丝沙龙，央美教授分享潮玩故事
-              </div>
-              <p class="news_desc">
-                9月27日,在泡泡玛特浦项中心体验店,一场别开生面的粉丝沙龙活动与大家见面。
-              </p>
-              <a
-                href="http://life.ynet.com/2020/10/12/2914725t978.html"
-                class="el-icon-arrow-right"
-                >MORE</a
-              >
-            </div>
-          </a>
-          <a
-            href="https://www.toutiao.com/i6875243621168185869/"
-            target="_blank"
-            class="news_item"
-          >
-            <img
-              src="https://popwebsite.paquapp.com/cms/news/FhkAM7XpfdnKKK02isb6wc3fj6ZF73wb.webp"
-              alt=""
-            />
-            <div class="pop_1">
-              <div class="news_title">
-                《国家宝藏》回归之际，潮玩先行
-              </div>
-              <p class="news_desc">
-                泡泡玛特与国家宝藏合作的最后一款潮玩——铜奔马也如约而至，至此，铜奔马、洛神、李白、格萨尔唐卡均已面世。
-              </p>
-              <a
-                href="http://life.ynet.com/2020/10/12/2914725t978.html"
-                class="el-icon-arrow-right"
-                >MORE</a
-              >
-            </div>
-          </a>
-          <a
-            href="http://paper.people.com.cn/rmrbhwb/html/2020-09/18/content_2009561.htm"
-            target="_blank"
-            class="news_item"
-          >
-            <img
-              src="https://popwebsite.paquapp.com/cms/news/rj2y58weH75et0476ydCr6NCdws5arfh.jpg"
-              alt=""
-            />
-            <div class="pop_1">
-              <div class="news_title">
-                自主创新的中国潮玩走向世界
-              </div>
-              <p class="news_desc">
-                潮玩已不再是少部分人的兴趣爱好，甚至已上升为一种精神消费，表现出强大的消费潜力。
+                {{ journaismval.description }}
               </p>
               <a
                 href="http://life.ynet.com/2020/10/12/2914725t978.html"
@@ -328,6 +210,7 @@ export default {
   computed: {
     ...mapState({
       banners: (state) => state.home.banners,
+      journaism: (state) => state.home.journaism,
     }),
   },
 };

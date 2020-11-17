@@ -21,22 +21,22 @@
             href="http://life.ynet.com/2020/10/12/2914725t978.html"
             class="news_box_A"
           >
-            <div class="news_item">
-              <img
-                src="https://popwebsite.paquapp.com/cms/news/6czx0Sr6063z1480BCT6t8bX2PycZi4b.jpeg"
-                alt=""
-              />
+            <div
+              class="news_item"
+              v-for="(paginationVal, index) in pagination"
+              :key="paginationVal.id"
+            >
+              <img :src="paginationVal.pic" alt="" />
               <div class="news_item_con">
                 <div class="news_item_tltle">
-                  做公仔，当然是开心最重要啦
+                  {{ paginationVal.title }}
                 </div>
                 <p class="content_desc">
-                  设计师Ton Mak分享泡泡玛特“Magical
-                  Natural”主题系列盲盒公仔的设计历程和艺术人生。
+                  {{ paginationVal.description }}
                 </p>
                 <div class="news_site">
-                  <div class="site">北青网</div>
-                  <div class="time">2020-11-16 00:53"</div>
+                  <div class="site">{{ paginationVal.source }}</div>
+                  <div class="time">{{ paginationVal.created_at }}</div>
                   <div class="more">
                     MORE<i class="el-icon-arrow-right"></i>
                   </div>
@@ -44,60 +44,15 @@
               </div>
             </div>
           </a>
-          <a
-            href="http://life.ynet.com/2020/10/12/2914725t978.html"
-            class="news_box_A"
-          >
-          </a>
-          <div class="news_item">
-            <img
-              src="https://popwebsite.paquapp.com/cms/news/6czx0Sr6063z1480BCT6t8bX2PycZi4b.jpeg"
-              alt=""
-            />
-            <div class="news_item_con">
-              <div class="news_item_tltle">
-                做公仔，当然是开心最重要啦
-              </div>
-              <p class="content_desc">
-                设计师Ton Mak分享泡泡玛特“Magical
-                Natural”主题系列盲盒公仔的设计历程和艺术人生。
-              </p>
-              <div class="news_site">
-                <div class="site">北青网</div>
-                <div class="time">2020-11-16 00:53"</div>
-                <div class="more">MORE<i class="el-icon-arrow-right"></i></div>
-              </div>
-            </div>
-          </div>
-
-          <a
-            href="http://life.ynet.com/2020/10/12/2914725t978.html"
-            class="news_box_A"
-          >
-          </a>
-          <div class="news_item">
-            <img
-              src="https://popwebsite.paquapp.com/cms/news/6czx0Sr6063z1480BCT6t8bX2PycZi4b.jpeg"
-              alt=""
-            />
-            <div class="news_item_con">
-              <div class="news_item_tltle">
-                做公仔，当然是开心最重要啦
-              </div>
-              <p class="content_desc">
-                设计师Ton Mak分享泡泡玛特“Magical
-                Natural”主题系列盲盒公仔的设计历程和艺术人生。
-              </p>
-              <div class="news_site">
-                <div class="site">北青网</div>
-                <div class="time">2020-11-16 00:53"</div>
-                <div class="more">MORE<i class="el-icon-arrow-right"></i></div>
-              </div>
-            </div>
-          </div>
           <!-- 分页器 -->
           <div class="pagination">
-            <el-pagination layout="prev, pager, next" :total="1000">
+            <el-pagination
+              layout="prev, pager, next"
+              @current-change="handleCurrent"
+              :total="1000"
+              :page-size="options.pagesize"
+              :current-page="options.page"
+            >
             </el-pagination>
           </div>
           <Floot />
@@ -107,11 +62,43 @@
   </div>
 </template>
 <script>
+//引入vuex
+import { mapState } from "vuex";
 export default {
   name: "news",
+  data() {
+    return {
+      options: {
+        pageSize: 10, //页数条数
+        page: 1, //当前页码
+      },
+    };
+  },
+  methods: {
+    //currentPage 改变时会触发 给一下默认的页码page
+    handleCurrent(page) {
+      //打印你点击的时候的页码
+      console.log(page);
+      //把默认的options中的页码改变成点击的
+      this.options.page = page;
+      // console.log(22);
+      //重新发请求
+      this.$store.dispatch("getPagination", this.options);
+      //  console.log(pagination);
+    },
+  },
+  async mounted() {
+    // this.$store.dispatch("getPagination", { page: 2, pageSize: 2 });
+    await this.$store.dispatch("getPagination", this.options);
+  },
+  computed: {
+    ...mapState({
+      pagination: (state) => state.news.pagination,
+    }),
+  },
 };
 </script>
-<style>
+<style scoped>
 .containernews {
   width: 100%;
   height: 100%;

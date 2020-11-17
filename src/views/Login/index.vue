@@ -49,12 +49,16 @@
                     autocomplete="off"
                   ></el-input>
                 </el-form-item>
+
                 <el-form-item label="确认密码" prop="checkPass">
                   <el-input
                     type="password"
                     v-model="ruleForm.checkPass"
                     autocomplete="off"
                   ></el-input>
+                </el-form-item>
+                <el-form-item label="验证码">
+                  <el-input v-model="input" placeholder="请输入内容"></el-input>
                 </el-form-item>
                 <el-form-item>
                   <el-button type="primary" @click="submitForm('ruleForm')"
