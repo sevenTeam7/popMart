@@ -9,6 +9,11 @@
         > -->
         <div class="like"><a href="#" class="love">关注我</a></div>
       </div>
+      <div class="box1"></div>
+      <div class="loginRegister">
+        <a href="">登录</a>
+        <a href="">注册</a>
+      </div>
     </div>
     <div class="nav">
       <ul class="navLeft">
@@ -114,6 +119,52 @@ export default {
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEcAAABZCAMAAABbssnGAAAA/1BMVEUAAAD///////+xGRqxGRqxGRr////uub2xGRr////uub2xGRr///+xGRr////////uub3uub3uub3////uub2xGRruub3uub3////uub2xGRr////uub2xGRruub3////uub2xGRqxGRqxGRqxGRqxGRr////uub2xGRr////uub3kOTzlQEOzHx/++/vsoqbsmJzoaWz9+Pj78vL03t7y2Njv0dHtyMjqwcHtq6/jrKzNbG3GV1jEUFHmTE+/QEG8Oju1Jie6MjP57+/25ub25eXou7zgpKTblJTpfYHRdHXnX2LIXV3mWFvmU1bBSEnBR0i3KSrWhofVg4O6NDWxIW+2AAAAKHRSTlMAl9DQlkxEREQGBgbw8JtMTNCb1tbWmJa3t7fx8fHv1dXVm5yZmktLhfBmHAAAAn5JREFUWMPtmMdy2zAQhlfFIq3eZVuWi+IkAIu61SVLcu92kvd/logAMcT4tgBPHn2Xf3n5ZmcxWMwQfBKRaJriSNN0NJIAmdwpVeU0B4L9CNUhu+9rDqgeB1yUpbpkPc0vXl+OL0Xg8WbER/zkEndG6WwbT3hPCSDBigfi8fLC4gEvSgA/qxWRWOE9EYiydGWPi/dEIc1yLXvWeE8aeM5kz4zi8fu5/Qw0n7cq/UR5MQo8I6oyH3G3xmt/OGOqQAQSohyu2JkPqQoJgJKob94Jeb9R0pS83UMFrcWiRZXIhXTfQ9s/XJTV3YeCXEnZUuL7WXov6khDnda992LHju+LUbPwnBRqBsjkzyxVzvIgSFYtHapJX3No6XHIRUVLl6Kn+c3rdqctAo83Iz7irm073W04tr0NLGUAgxWPtsfzM4tHvMiAGsulLbHEe2pQYOnIHgfvKcBJKJ5j4NmVPV0Lj9/PxJHamaj0U+BFJ/B0LJX5iLvVcfxumAZ/XoYo20t25m1LBQOgLOrJm22/TZQ0ZW/3BJ+vr5Ya+ZDue6j7B5JFvW6SIMiXlS3lPMgYKjv6uFA1YMeO74sZj2UIjgzJxOImyOydE1XO90CQuiA6XKR8zRHR44iLfhJdmmw2vL6aX4nA482Ij/i+RXtTQqY92rrHeyoAJiv+UI+7OxZ/8SIT4iwHVGKA98QhxrIne3p4TwwyLPuyp4/3ZIDnVPZMCR6/n811oLn+p9JPjBeLVvDXhajMJ+5X874/nDlRIA6mKD8G7Mw/iAomQEXUmyGlw42SpsLul8AdjVyiBNtBTaLLj1D3D6Saet2kgv1cUbZU9r6+Fw2koUEawXvxHzpC3Z34XwtFAAAAAElFTkSuQmCC)
     0 0 no-repeat;
 }
+
+.box1 {
+  margin-top: 55px;
+  width: 130px;
+  height: 130px;
+  background: url("./images/bike.png") center 0 no-repeat;
+  animation: bike 8s steps(32) infinite;
+}
+@keyframes bike {
+  from {
+    background-position: center 0;
+    margin-left: 350px;
+  }
+  to {
+    background-position: center -4160px;
+    margin-left: 0px;
+  }
+}
+
+.header .loginRegister {
+  border: 1px solid;
+  border-radius: 12px;
+  flex-direction: column;
+  font-size: 16px;
+  padding: 10px;
+}
+.header .loginRegister a {
+  padding: 5px;
+  color: aqua;
+  animation: move 2s infinite;
+}
+@keyframes move {
+  0% {
+    color: white;
+    font-size: 8px;
+  }
+  50% {
+    transform: rotateX(30deg);
+    color: turquoise;
+  }
+  100% {
+    color: #e60021;
+    font-size: 16px;
+  }
+}
+
 .nav {
   width: 100%;
   height: 40px;

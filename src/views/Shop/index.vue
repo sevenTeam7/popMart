@@ -62,7 +62,7 @@
         </div>
 
         <div class="content">
-          <div class="content-shop">
+          <div class="content-shop" v-for="item in goodslist" :key="item.id">
             <div class="img">
               <img :src="Imgurl" alt="大图" />
             </div>
@@ -73,50 +73,22 @@
                 </li>
               </ul>
             </div>
-            <span class="money">￥ 708.00</span>
-            <p class="introduce">评价</p>
-            <p>已有<span>2800+</span>人评价</p>
-          </div>
-          <div class="content-shop">
-            <div class="img">
-              <img :src="Imgurl" alt="大图" />
-            </div>
-            <div class="img-em">
-              <ul v-for="img in imgUrl" :key="img.index">
-                <li @click="show(img.url)">
-                  <img :src="img.url" />
-                </li>
-              </ul>
-            </div>
-            <span class="money">￥ 708.00</span>
-            <p class="introduce">评价</p>
-            <p>已有<span>2800+</span>人评价</p>
-          </div>
-          <div class="content-shop">
-            <div class="img">
-              <img :src="Imgurl" alt="大图" />
-            </div>
-            <div class="img-em">
-              <ul v-for="img in imgUrl" :key="img.index">
-                <li @click="show(img.url)">
-                  <img :src="img.url" />
-                </li>
-              </ul>
-            </div>
-            <span class="money">￥ 708.00</span>
-            <p class="introduce">评价</p>
-            <p>已有<span>2800+</span>人评价</p>
+            <span class="money">￥ {{ item.price }}</span>
+            <p class="introduce">{{ item.title }}</p>
+            <p>
+              已有<span>{{ item.totalAssess }}+</span>人评价
+            </p>
           </div>
         </div>
         <div class="pagination">
           <el-pagination
             @size-change="handleSizeChange"
             @current-change="handleCurrentChange"
-            :current-page="currentPage1"
-            :page-sizes="[100, 200, 300, 400]"
-            :page-size="100"
+            :current-page="currentPage"
+            :page-sizes="[1, 2]"
+            :page-size="8"
             layout="prev, pager, next, total"
-            :total="400"
+            :total="16"
           >
           </el-pagination>
         </div>
@@ -139,22 +111,40 @@ export default {
       currentPage2: 5,
       currentPage3: 5,
       currentPage4: 1,
+      goodslist: [],
+      currentPage: 1,
     };
   },
   methods: {
     show(url) {
       this.Imgurl = url;
     },
-    handleSizeChange(val) {
-      console.log(`每页 ${val} 条`);
-    },
+    handleSizeChange(val) {},
     handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
+      if (this.currentPage === 8) {
+        this.goodslist = this.$store.state.shop.goodslist.goodslist.slice(
+          8,
+          16
+        );
+        this.currentPage = -this.currentPage;
+      } else {
+        this.goodslist = this.$store.state.shop.goodslist.goodslist.slice(0, 8);
+        this.currentPage = -this.currentPage;
+      }
+      console.log(this.goodslist);
     },
+  },
+  async mounted() {
+    await this.$store.dispatch("get_ShopImage");
+    this.goodslist = this.$store.state.shop.goodslist.goodslist.slice(0, 8);
+    this.currentPage = this.goodslist.length;
   },
 };
 </script>
 <style>
+html body {
+  height: 100%;
+}
 /* 商品 */
 .shop {
   width: 1000px;
@@ -189,7 +179,6 @@ export default {
   background: #333;
   width: 16px;
   height: 16px;
-  float: right;
   margin: 8px 10px 0 0;
   cursor: pointer;
   background: url(//img11.360buyimg.com/cms/g5/M02/12/10/rBEDik_ykDIIAAAAAAAFWswAzCsAADnnQJbJocAAAVy913.gif)
@@ -197,7 +186,7 @@ export default {
 }
 
 .shop .shopRight {
-  width: 780px;
+  width: 790px;
   margin-left: 10px;
 }
 .shop .shopRight .shopRight-top {
@@ -242,7 +231,6 @@ export default {
   height: 11px;
   margin-right: 5px;
   width: 9px;
-  overflow: hidden;
   vertical-align: middle;
 }
 .shop .shopRight .shopRight-top .right {
@@ -272,13 +260,17 @@ export default {
     no-repeat center;
 }
 .shop .shopRight .content {
+  width: 880px;
   display: flex;
+  flex-wrap: wrap;
   margin-top: 10px;
 }
 .shop .shopRight .content .content-shop {
-  padding: 10px;
-  padding-left: 0;
+  width: 200px;
+  height: 300px;
+  margin-bottom: 5px;
 }
+
 .shop .shopRight .content .img img {
   width: 188px;
   height: 188px;
@@ -297,6 +289,7 @@ export default {
   font-weight: bold;
 }
 .shop .shopRight .pagination {
+  margin-top: 50px;
   margin-left: 200px;
 }
 </style>

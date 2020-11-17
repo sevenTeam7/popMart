@@ -47,7 +47,7 @@
 </template>
 <script>
 export default {
-  name: "Footer",
+  name: "Floot",
 };
 </script>
 <style scoped>
@@ -93,7 +93,7 @@ export default {
   background: url("./images/微信.png") no-repeat;
   background-size: 100%;
 }
-.floot .footer-con .footer_icon2 {
+ .floot .footer-con .footer_icon2 {
   width: 17px;
   height: 23px;
   display: block;
@@ -103,7 +103,7 @@ export default {
   position: absolute;
   left: 26px;
 }
-.floot .footer-con .footer_icon3 {
+ .floot .footer-con .footer_icon3 {
   width: 17px;
   height: 23px;
   display: block;
