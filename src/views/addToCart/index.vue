@@ -172,7 +172,7 @@ export default {
 .main {
   width: 1452.5px;
   margin-top: 55px;
-  border-top: 1px solid#e2231a;
+ 
 }
 .success-wrap {
   height: 145px;
@@ -191,6 +191,7 @@ export default {
 }
 .small-item {
   display: flex;
+  color: #71b247;
 }
 
 .success-box {
@@ -202,19 +203,20 @@ export default {
   /*  border-bottom: 1px solid #000; */
 }
 
+
 .success-top .succ-icon {
-  top: 0;
-  left: 0;
-  // display: block;
+  margin-right: 10px;
+  line-height: 25px;
   width: 25px;
   height: 25px;
   background: url("./images/addtocart-icons.png");
   display: inline-block;
 }
 /*  */
-.succees-box .success-top h3 {
+.success-lcol .success-top h3 {
   font-size: 18px;
   line-height: 25px;
+  height: 25px;
   font-weight: 400;
   display: inline-block;
   color: #71b247;
@@ -378,5 +380,4 @@ export default {
 .block {
   text-align: center;
 }
-
 </style>
