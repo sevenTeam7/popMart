@@ -1,6 +1,5 @@
 <template>
   <div class="trade-container">
-    <Header />
     <h3 class="title">填写并核对订单信息</h3>
     <div class="content">
       <h5 class="receive">收件人信息</h5>
@@ -46,10 +45,7 @@
           :key="index"
         >
           <li>
-            <img
-              src="http://img20.360buyimg.com/n0/s80x80_jfs/t1/114946/23/1673/137342/5e9acd0cE88617e26/d3812d623af176c4.jpg.dpg"
-              alt=""
-            />
+            <img v-lazy="item.smallImg" alt="" />
           </li>
           <li>
             <p>
@@ -60,8 +56,10 @@
           <li>
             <h3>￥{{ item.price * item.skunum }}</h3>
           </li>
-          <li>X{{ item.skunum }}</li>
-          <li>有货</li>
+          <li>
+            <span>X{{ item.skunum }}</span>
+          </li>
+          <li><span>有货</span></li>
         </ul>
       </div>
       <div class="bbs">
@@ -104,7 +102,7 @@
       </div>
       <div class="receiveInfo" v-if="userInfo[currentIndex]">
         寄送至:
-        <span >{{ userInfo[currentIndex].address }}</span>
+        <span>{{ userInfo[currentIndex].address }}</span>
         收货人：<span>{{ userInfo[currentIndex].username }}</span>
         <span>{{ userInfo[currentIndex].phone }}</span>
       </div>
@@ -117,21 +115,20 @@
 
 <script>
 import { mapState, mapGetters } from "vuex";
-import Header from "@/component/Header";
 import state from "@/store/state";
 export default {
   name: "Trade",
   data() {
     return {
+      // 当前点击的下标
       currentIndex: 0,
       orderComment: "老板,受不了啦,快点发货,等不急啦", // 订单的备注
     };
   },
-  components: {
-    Header,
-  },
   async mounted() {
-    await this.getCartList()
+    // 获取商品列表信息
+    await this.getCartList();
+    // 获取收件人信息
     this.$store.dispatch("getUserInfo");
   },
 
@@ -139,16 +136,17 @@ export default {
     getCartList() {
       this.$store.dispatch("getCartList");
     },
+    // 获取当前点击的下标，改变样式的显示
     btnUser(index) {
       this.currentIndex = index;
     },
   },
 
-
   computed: {
     ...mapState({
       userInfo: (state) => state.trade.userInfo,
     }),
+    // 通过辅助函数拿到vuex中getters中获取的选中商品信息
     ...mapGetters(["delSelectedCart", "totalCartPrice", "totalCartNum"]),
   },
 };
@@ -283,15 +281,21 @@ export default {
   line-height: 30px;
 }
 .content .detail .list li p {
+  width: 684px;
+  padding-left: 30px;
   margin-bottom: 20px;
 }
 .content .detail .list li h4 {
+  padding-left: 30px;
   color: #c81623;
   font-weight: 400;
 }
 .content .detail .list li h3 {
+  width: 57px;
+  // padding-left: 30px;
   color: #e12228;
 }
+
 .content .bbs {
   margin-bottom: 15px;
 }

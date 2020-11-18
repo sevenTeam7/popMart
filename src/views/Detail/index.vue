@@ -1,6 +1,5 @@
 <template>
   <div v-if="goodsInfo && goodsList">
-    <Header />
     <div class="con w clearFix">
       <!-- 商品分类导航 -->
       <!-- <div class="topNav"></div> -->
@@ -617,7 +616,6 @@ import Zoom from "./Zoom";
 import ImageList from "./ImageList";
 import AfterSale from "./AfterSale";
 import Comment from "./Comment";
-import Header from "../Header";
 import Good from "./Good";
 import { mapState, mapGetters } from "vuex";
 export default {
@@ -636,7 +634,6 @@ export default {
     ImageList,
     AfterSale,
     Comment,
-    Header,
     Good,
   },
   methods: {

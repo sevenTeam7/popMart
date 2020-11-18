@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 import cart from "./cart";
 import detail from "./detail";

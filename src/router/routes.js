@@ -11,7 +11,7 @@ const routes = [
   { path: "/", component: Home },
   { path: "/views/cartasyc", component: Cart },
   { path: "/views/trade", component: Trade },
-  { path: "/views/regist", component: Regist },
+  { path: "/regist", component: Regist },
   { path: "/detail", component: Detail },
   {path:"/addToCart",component:addToCart}
 ]
