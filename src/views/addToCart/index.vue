@@ -153,16 +153,25 @@ export default {
   },
 
   methods: {
+    // 异步请求分页
     async handleCurrentChange(val) {
+      // 定义该数据为当前页面
       this.pageNum = val;
+      // 
       let list = await this.$store.state.addToCart.getShopImage.goodslist;
+
       this.shopList = list;
+      // 如果当前界面为1时
       if (this.pageNum == 1) {
+        // 定义了一个界面只有6条数据，用SLICE从接口总条数切割出6条数据
         this.shopList = list.slice(0, 6);
+        // 返回总16数据
         return;
       } else if (this.pageNum == 2) {
+        // 用SLICE从接口总条数切割出6条数据
         this.shopList = list.slice(6, 12);
       } else {
+        // 如果不返回总的数据，第三次切割将不够数据，会出现BUG
         this.shopList = list.slice(12, 16);
       }
     },
