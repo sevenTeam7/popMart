@@ -1,5 +1,5 @@
 import axios from "axios";
-import store from "../store";
+import store from "@/store";
 const ajax = axios.create({
   baseURL: "",
   timeout: 20000,

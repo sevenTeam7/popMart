@@ -1,137 +1,139 @@
 <template>
-  <!-- 最外层盒子 -->
-  <div class="main">
-    <!-- 导航栏 -->
+  <div>
     <Header />
+    <!-- 最外层盒子 -->
+    <div class="main">
+      <!-- 导航栏 -->
 
-    <!-- 顶部盒子 -->
-    <div class="success-wrap">
-      <!-- 阴影盒子 -->
-      <div class="w">
-        <div class="success-cont">
-          <!-- 中间商品区域 -->
-          <div class="success-box">
-            <!-- 顶部左部区域 -->
-            <div class="success-lcol">
-              <!-- 添加成功提示 -->
-              <div class="success-top">
-                <!-- 成功小图标 -->
-                <b class="succ-icon"></b>
-                <h3 class="succees" style="display:inline-block">
-                  商品已经成功加入购物车!
-                </h3>
-              </div>
-              <!-- 小图区域第一项 -->
-              <div class="small-item">
-                <!-- 顶部左边小图 -->
-                <div class="small-img">
-                  <div class="p-img">
-                    <img
-                      src="../addToCart/images/labixiaoxin-04.png"
-                      alt="##"
-                      width="60"
-                    />
+      <!-- 顶部盒子 -->
+      <div class="success-wrap">
+        <!-- 阴影盒子 -->
+        <div class="w">
+          <div class="success-cont">
+            <!-- 中间商品区域 -->
+            <div class="success-box">
+              <!-- 顶部左部区域 -->
+              <div class="success-lcol">
+                <!-- 添加成功提示 -->
+                <div class="success-top">
+                  <!-- 成功小图标 -->
+                  <b class="succ-icon"></b>
+                  <h3 class="succees" style="display:inline-block">
+                    商品已经成功加入购物车!
+                  </h3>
+                </div>
+                <!-- 小图区域第一项 -->
+                <div class="small-item">
+                  <!-- 顶部左边小图 -->
+                  <div class="small-img">
+                    <div class="p-img">
+                      <img
+                        src="../addToCart/images/labixiaoxin-04.png"
+                        alt="##"
+                        width="60"
+                      />
+                    </div>
+                  </div>
+                  <!-- 小图配套信息 -->
+                  <div class="mini-info">
+                    <div class="mini-name">
+                      <a
+                        href="###"
+                        target="_blank"
+                        clstag="pageclick|keycount|20161152|2"
+                        title="POPMART泡泡玛特 蛋黄哥厨房系列盲盒公仔娃娃潮玩桌面摆件生日礼物 蛋黄哥厨房系列——单个盲盒(随机发不支持退货)"
+                        >POPMART泡泡玛特
+                        蛋黄哥厨房系列盲盒公仔娃娃潮玩桌面摆件生日礼物
+                        蛋黄哥厨房系列——单个盲盒(随机发不支持退货)</a
+                      >
+                    </div>
+                    <div class="mini-extra">
+                      <span
+                        class="txt"
+                        title="蛋黄哥厨房系列-单个墨盒(随机发不支持退货)"
+                        >颜色：蛋黄哥厨房系列-单个墨盒(随机发不支持退货)
+                      </span>
+                      <span class="txt">/ 数量：1 </span>
+                    </div>
                   </div>
                 </div>
-                <!-- 小图配套信息 -->
-                <div class="mini-info">
-                  <div class="mini-name">
-                    <a
-                      href="###"
-                      target="_blank"
-                      clstag="pageclick|keycount|20161152|2"
-                      title="POPMART泡泡玛特 蛋黄哥厨房系列盲盒公仔娃娃潮玩桌面摆件生日礼物 蛋黄哥厨房系列——单个盲盒(随机发不支持退货)"
-                      >POPMART泡泡玛特
-                      蛋黄哥厨房系列盲盒公仔娃娃潮玩桌面摆件生日礼物
-                      蛋黄哥厨房系列——单个盲盒(随机发不支持退货)</a
-                    >
-                  </div>
-                  <div class="mini-extra">
-                    <span
-                      class="txt"
-                      title="蛋黄哥厨房系列-单个墨盒(随机发不支持退货)"
-                      >颜色：蛋黄哥厨房系列-单个墨盒(随机发不支持退货)
-                    </span>
-                    <span class="txt">/ 数量：1 </span>
-                  </div>
+              </div>
+              <!-- 顶部右边的区域 -->
+              <div class="success-btns">
+                <div class="success-ad">
+                  <a href="#none"></a>
                 </div>
-              </div>
-            </div>
-            <!-- 顶部右边的区域 -->
-            <div class="success-btns">
-              <div class="success-ad">
-                <a href="#none"></a>
-              </div>
-              <!-- 点击跳转 -->
-              <div class="btn-jump">
-                <a class="btn-tobback" href="##">查看商品详情</a>
-                <a class="btn-addtocart" href="##">去购物车结算</a>
+                <!-- 点击跳转 -->
+                <div class="btn-jump">
+                  <a class="btn-tobback" href="##">查看商品详情</a>
+                  <a class="btn-addtocart" href="##">去购物车结算</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- 内容区域 -->
-    <div class="content">
-      <!-- 加购 -->
-      <div class="wid">
-        <div class="mt">
-          <h3>购买了该商品的用户还购买了</h3>
-        </div>
-        <div class="goods-list">
-          <ul>
-            <li v-for="item in this.shopList" :key="item._id">
-              <div class="item">
-                <div class="p-img">
-                  <img
-                    src="./images/hangbao-03.png"
-                    alt=""
-                    width="98"
-                    height="98"
-                  />
+      <!-- 内容区域 -->
+      <div class="content">
+        <!-- 加购 -->
+        <div class="wid">
+          <div class="mt">
+            <h3>购买了该商品的用户还购买了</h3>
+          </div>
+          <div class="goods-list">
+            <ul>
+              <li v-for="item in this.shopList" :key="item._id">
+                <div class="item">
+                  <div class="p-img">
+                    <img
+                      src="./images/hangbao-03.png"
+                      alt=""
+                      width="98"
+                      height="98"
+                    />
+                  </div>
+                  <div>
+                    <div class="p-name">
+                      <a
+                        href="#"
+                        title="rolife若来盲盒Nanci囡茜梦境下午茶系列盲盒手办礼物女 单个下午茶盲盒（整套不重复请拍12件）"
+                      >
+                        {{ item.title }}
+                      </a>
+                    </div>
+                    <div class="p-price">
+                      <strong
+                        ><em>￥</em><i>{{ item.price }}</i></strong
+                      >
+                    </div>
+                    <div class="p-btn">
+                      <button>加入购物车</button>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <div class="p-name">
-                    <a
-                      href="#"
-                      title="rolife若来盲盒Nanci囡茜梦境下午茶系列盲盒手办礼物女 单个下午茶盲盒（整套不重复请拍12件）"
-                    >
-                      {{ item.title }}
-                    </a>
-                  </div>
-                  <div class="p-price">
-                    <strong
-                      ><em>￥</em><i>{{ item.price }}</i></strong
-                    >
-                  </div>
-                  <div class="p-btn">
-                    <button>加入购物车</button>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
 
-      <div class="block">
-        <!-- current-change	currentPage 改变时会触发 -->
-        <!-- page-size	每页显示条目个数，支持 .sync 修饰符 -->
-        <!-- page-sizes	每页显示个数选择器的选项设置 -->
-        <el-pagination
-          @current-change="handleCurrentChange"
-          :current-page="pageNum"
-          :page-sizes="[3, 6, 9]"
-          :page-size="6"
-          layout="prev, pager, next, total"
-          :total="16"
-        >
-        </el-pagination>
+        <div class="block">
+          <!-- current-change	currentPage 改变时会触发 -->
+          <!-- page-size	每页显示条目个数，支持 .sync 修饰符 -->
+          <!-- page-sizes	每页显示个数选择器的选项设置 -->
+          <el-pagination
+            @current-change="handleCurrentChange"
+            :current-page="pageNum"
+            :page-sizes="[3, 6, 9]"
+            :page-size="6"
+            layout="prev, pager, next, total"
+            :total="16"
+          >
+          </el-pagination>
+        </div>
       </div>
+      <!-- 底部区域 -->
+      <footer />
     </div>
-    <!-- 底部区域 -->
-    <footer />
   </div>
 </template>
 

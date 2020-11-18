@@ -26,8 +26,8 @@ export const reqSwicthIschecked = (skuid, ischecked) =>
 export const reqDeleteCat = (skuid) => ajax.delete(`/cart/deletecart/${skuid}`);
 
 // 获取订单收件人信息
-<<<<<<< HEAD
-export const reqTradeProson = ()=>ajax.get('/address/addressinfo')
+
+export const reqTradeProson = () => ajax.get("/address/addressinfo");
 
 // export const reqMailLogin = (username,code) => ajax.post('/login/mail',{username,code}
 // 大轮播图片数据
@@ -44,17 +44,15 @@ export const reqNews = (page, pageSize) =>
 
 // 账户 密码登录
 export const getPassWord = (usermail, password) => {
-   return ajax.post("/login/account",{
+  return ajax.post("/login/account", {
     usermail,
     password,
-  })
-    
-}
+  });
+};
 export const getEmailCode = (usermail) => {
-   return ajax.post("/login/getmail",{
+  return ajax.post("/login/getmail", {
     usermail,
-  })
-    
+  });
 };
 export const getCheckCode = (usermail, code) => {
   ajax.post("/login/mail"),
