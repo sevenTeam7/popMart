@@ -104,7 +104,7 @@
       </div>
       <div class="receiveInfo" v-if="userInfo[currentIndex]">
         寄送至:
-        <span >{{ userInfo[currentIndex].address }}</span>
+        <span>{{ userInfo[currentIndex].address }}</span>
         收货人：<span>{{ userInfo[currentIndex].username }}</span>
         <span>{{ userInfo[currentIndex].phone }}</span>
       </div>
@@ -117,7 +117,6 @@
 
 <script>
 import { mapState, mapGetters } from "vuex";
-import Header from "@/component/Header";
 import state from "@/store/state";
 export default {
   name: "Trade",
@@ -127,11 +126,8 @@ export default {
       orderComment: "老板,受不了啦,快点发货,等不急啦", // 订单的备注
     };
   },
-  components: {
-    Header,
-  },
   async mounted() {
-    await this.getCartList()
+    await this.getCartList();
     this.$store.dispatch("getUserInfo");
   },
 
@@ -143,7 +139,6 @@ export default {
       this.currentIndex = index;
     },
   },
-
 
   computed: {
     ...mapState({

@@ -7,7 +7,7 @@
         <div class="swiper-wrapper">
           <div
             class="swiper-slide"
-            v-for="(carousel) in banners"
+            v-for="carousel in banners"
             :key="carousel.id"
           >
             <img :src="carousel.pic" />
@@ -125,7 +125,7 @@
           <a
             :href="journaismval.url"
             class="news_item"
-            v-for="(journaismval) in journaism"
+            v-for="journaismval in journaism"
             :key="journaismval.id"
           >
             <img :src="journaismval.pic" alt="" />

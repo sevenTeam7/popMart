@@ -2,7 +2,7 @@
   <!-- 最外层盒子 -->
   <div class="main">
     <!-- 导航栏 -->
-    <header />
+    <Header />
 
     <!-- 顶部盒子 -->
     <div class="success-wrap">
@@ -172,7 +172,6 @@ export default {
 .main {
   width: 1452.5px;
   margin-top: 55px;
- 
 }
 .success-wrap {
   height: 145px;
@@ -202,7 +201,6 @@ export default {
   justify-content: space-between;
   /*  border-bottom: 1px solid #000; */
 }
-
 
 .success-top .succ-icon {
   margin-right: 10px;

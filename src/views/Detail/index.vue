@@ -611,11 +611,11 @@
   </div>
 </template>
 <script>
+import Header from "@/components/Header";
 import Zoom from "./Zoom";
 import ImageList from "./ImageList";
 import AfterSale from "./AfterSale";
 import Comment from "./Comment";
-import Header from "../Header";
 import Good from "./Good";
 import { mapState, mapGetters } from "vuex";
 export default {
@@ -634,8 +634,8 @@ export default {
     ImageList,
     AfterSale,
     Comment,
-    Header,
     Good,
+    Header,
   },
   methods: {
     //购买数量-限制输入框输入内容---->输入框只能输入正数

@@ -21,15 +21,10 @@ Vue.component("Footer", Footer);
 import "./utils/validate";
 
 //引入elemetUi
-import ElementUI from "element-ui";
-import "element-ui/lib/theme-chalk/index.css";
 
-//引入nav
-import NavList from "@/components/NavList";
 //引入floot
 import Floot from "@/components/Floot";
 
-Vue.component("NavList", NavList);
 Vue.component("Floot", Floot);
 
 //引入样式swpier
@@ -44,9 +39,6 @@ import "./static/iconfonts/iconfont.css";
 Vue.prototype.$API = API;
 
 Vue.prototype.$bus = new Vue();
-import ElementUI from "element-ui";
-import "element-ui/lib/theme-chalk/index.css";
-
 
 Vue.use(ElementUI);
 new Vue({

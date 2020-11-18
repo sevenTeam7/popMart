@@ -1,4 +1,4 @@
-import Home from "../views/Home";
+import Header from "@/components/Header";
 import Cart from "../views/CartAsyc";
 import Trade from "../views/Trade";
 import Regist from "../views/Regist";
@@ -7,7 +7,7 @@ import addToCart from "../views/addToCart";
 import Shop from "../views/Shop";
 
 const routes = [
-  { path: "/", component: Home },
+  { path: "/", component: Header },
   { path: "/shop", component: Shop },
   { path: "/views/cartasyc", component: Cart },
   { path: "/views/trade", component: Trade },
