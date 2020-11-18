@@ -18,7 +18,7 @@
           placeholder="请输入你的手机号码"
           @input="callback"
         />
-        <!-- <span style="color: red">{{ errors.first("usermail") }}</span> -->
+      
       </div>
 
       <div class="content">
@@ -29,7 +29,6 @@
           placeholder="密码由大写/小写字母和数字组成且长度大于8"
           @input="callback"
         />
-        <!-- <span style="color: red">{{ errors.first("password") }}</span> -->
       </div>
 
       <div class="content">
@@ -54,7 +53,6 @@
          <span style="color: red; paddingLeft:100px">{{ errors.first("code") }}</span>
       </div> -->
       <div class="btn">
-        <!-- <a href="javascript:" :disabled="isDisabled"  @click="registSuccess">完成注册</a> -->
         <el-button
           type="danger"
           :disabled="isDisabled"
