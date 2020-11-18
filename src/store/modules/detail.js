@@ -1,8 +1,9 @@
-import { reqGoodsInfo, reqGoodsList } from "@/api";
+import { reqGoodsInfo, reqGoodsList, getAddGood } from "@/api";
 export default {
   state: {
     goodsInfo: "", //当前商品信息
     goodsList: [], //好评商品列表
+    addCartGood: {}, //加入购物车商品
   },
   mutations: {
     //修改商品信息
@@ -12,6 +13,10 @@ export default {
     //修改好评商品列表
     RECEIVE_GOODSLIST(state, goodsList) {
       state.goodsList = goodsList;
+    },
+    //直接修改addCartGood
+    RECEIVE_ADDCARTGOOD(state, addCartGood) {
+      state.addCartGood = addCartGood;
     },
   },
   actions: {
@@ -27,6 +32,14 @@ export default {
       const result = await reqGoodsList();
       if (result.code === 20000) {
         commit("RECEIVE_GOODSLIST", result.data.goodslist);
+      }
+    },
+    //获取加入购物车商品
+    async getAddCartGood({ commit }, { skuid, skunum }) {
+      const result = await getAddGood(skuid, skunum);
+      if (result.code === 20000) {
+        // 如果成功，返回的是一个空字符串
+        commit("RECEIVE_ADDCARTGOOD", result.data);
       }
     },
   },

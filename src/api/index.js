@@ -26,7 +26,6 @@ export const reqSwicthIschecked = (skuid, ischecked) =>
 export const reqDeleteCat = (skuid) => ajax.delete(`/cart/deletecart/${skuid}`);
 
 // 获取订单收件人信息
-
 export const reqTradeProson = () => ajax.get("/address/addressinfo");
 
 // export const reqMailLogin = (username,code) => ajax.post('/login/mail',{username,code}
@@ -60,4 +59,9 @@ export const getCheckCode = (usermail, code) => {
       usermail,
       code,
     };
+};
+
+//根据skuid和skunum获取加入购物车商品
+export const getAddGood = (skuid, skunum) => {
+  return ajax.post(`/cart/addtocart`, { skuid, skunum });
 };

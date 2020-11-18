@@ -11,12 +11,12 @@ export default {
     },
   },
   actions: {
-    // 添加购物车操作
+    // 获取商品列表
     async get_ShopImage({ commit }) {
       const result = await getShopImage();
       if (result.code === 20000) {
         // 如果成功，返回的是一个空字符串
-        commit("RECEIVE_SHOP_LIST",result.data);
+        commit("RECEIVE_SHOP_LIST", result.data);
       }
     },
   },
