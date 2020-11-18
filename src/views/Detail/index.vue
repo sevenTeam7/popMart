@@ -615,7 +615,6 @@ import Zoom from "./Zoom";
 import ImageList from "./ImageList";
 import AfterSale from "./AfterSale";
 import Comment from "./Comment";
-import Header from "../Header";
 import Good from "./Good";
 import { mapState, mapGetters } from "vuex";
 export default {
@@ -634,7 +633,6 @@ export default {
     ImageList,
     AfterSale,
     Comment,
-    Header,
     Good,
   },
   methods: {

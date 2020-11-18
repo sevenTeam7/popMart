@@ -120,17 +120,11 @@
 </template>
 
 <script>
-import Header from "@/component/Header";
 import { mapState, mapGetters } from "vuex";
 export default {
   name: "CartAsyc",
-  components: {
-    Header,
-  },
   data() {
-    return {
-      
-    };
+    return {};
   },
   mounted() {
     // 获取购物车商品信息
@@ -192,8 +186,8 @@ export default {
       delSelectedCart.forEach((item) => {
         const promise = this.$store.dispatch("getDeleteCart", item.skuid);
       });
-      
-      this.getCartList()
+
+      this.getCartList();
     },
   },
   computed: {

@@ -131,7 +131,6 @@ export default {
         this.goodslist = this.$store.state.shop.goodslist.goodslist.slice(0, 8);
         this.currentPage = -this.currentPage;
       }
-      console.log(this.goodslist);
     },
   },
   async mounted() {
