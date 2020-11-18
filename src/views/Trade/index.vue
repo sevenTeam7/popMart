@@ -1,5 +1,6 @@
 <template>
   <div class="trade-container">
+    <Header />
     <h3 class="title">填写并核对订单信息</h3>
     <div class="content">
       <h5 class="receive">收件人信息</h5>
@@ -115,6 +116,7 @@
 
 <script>
 import { mapState, mapGetters } from "vuex";
+import Header from "@/components/Header"
 import state from "@/store/state";
 export default {
   name: "Trade",
@@ -124,6 +126,9 @@ export default {
       currentIndex: 0,
       orderComment: "老板,受不了啦,快点发货,等不急啦", // 订单的备注
     };
+  },
+  components: {
+    Header
   },
   async mounted() {
     // 获取商品列表信息

@@ -1,6 +1,8 @@
 <template>
   <div>
+    <Header />
     <div class="cart-container">
+      
       <div class="cart-header">
         <h2>全部商品</h2>
       </div>
@@ -116,10 +118,14 @@
 <script>
 // 引入辅助函数
 import { mapState, mapGetters } from "vuex";
+import Header from "@/components/Header"
 export default {
   name: "CartAsyc",
   data() {
     return {};
+  },
+  components:{
+    Header
   },
   mounted() {
     // 获取购物车商品信息
