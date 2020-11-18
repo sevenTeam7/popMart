@@ -1,20 +1,21 @@
-import Header from "@/components/Header";
+import Home from "../views/Home";
 import Cart from "../views/CartAsyc";
 import Trade from "../views/Trade";
 import Regist from "../views/Regist";
 import Detail from "@/views/Detail";
 import addToCart from "../views/addToCart";
 import Shop from "../views/Shop";
+import Login from "../views/Login";
 
 const routes = [
   { path: "/", component: Header },
   { path: "/shop", component: Shop },
   { path: "/views/cartasyc", component: Cart },
   { path: "/views/trade", component: Trade },
-  { path: "/views/regist", component: Regist },
+  { path: "/regist", component: Regist },
   { path: "/detail", component: Detail },
   { path: "/addToCart", component: addToCart },
+  { path: "/login", component: Login },
 ];
-// @ts-ignore
 
 export default routes;

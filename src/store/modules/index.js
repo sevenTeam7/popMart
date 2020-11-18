@@ -15,4 +15,5 @@ export default {
   home,
   news,
   login,
+  trade,
 };

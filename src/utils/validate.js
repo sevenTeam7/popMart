@@ -1,9 +1,6 @@
-//引入vue
-import Vue from "vue";
-//引入VeeValidate插件----表单验证的插件
-import VeeValidate from "vee-validate";
-import zh_CN from "vee-validate/dist/locale/zh_CN";
-
+import Vue from 'vue'
+import VeeValidate,{ Validator } from 'vee-validate'
+import zh_CN from 'vee-validate/dist/locale/zh_CN.js'
 // 添加表单验证，声明使用插件
 Vue.use(VeeValidate);
 // 使用中文提示
