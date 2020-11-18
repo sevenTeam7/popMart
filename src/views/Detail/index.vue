@@ -2,8 +2,6 @@
   <div v-if="goodsInfo && goodsList">
     <div class="con w clearFix">
       <!-- 商品分类导航 -->
-      <!-- <div class="topNav"></div> -->
-
       <!-- 导航路径区域 -->
       <div class="conPoin clearFix">
         <span>玩具乐器</span>
@@ -187,7 +185,7 @@
                 >-</a
               >
             </div>
-            <div class="add">
+            <div class="add" @click="toCart">
               <a href="javascript:">加入购物车</a>
             </div>
           </div>
@@ -612,6 +610,7 @@
   </div>
 </template>
 <script>
+import Header from "@/components/Header";
 import Zoom from "./Zoom";
 import ImageList from "./ImageList";
 import AfterSale from "./AfterSale";
@@ -635,6 +634,7 @@ export default {
     AfterSale,
     Comment,
     Good,
+    Header,
   },
   methods: {
     //购买数量-限制输入框输入内容---->输入框只能输入正数
@@ -685,6 +685,10 @@ export default {
           return;
         }
       }
+    },
+    //点击登录跳转到订单详情页面
+    toCart() {
+      this.$router.push("/views/cartasyc");
     },
   },
   mounted() {

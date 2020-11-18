@@ -7,10 +7,10 @@ module.exports = {
       "": {
         target: "http://localhost:4000",
         changeOrigin: true, // 是否允许跨域
-        /* pathRewrite: {
-          //重写路径（不用管）
-          "^/api": "",
-        }, */
+        // pathRewrite: {
+        //   //重写路径（不用管）
+        //   // "^/api": "",
+        // },
       },
     },
   },
