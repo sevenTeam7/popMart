@@ -1,6 +1,6 @@
 <template>
   <div class="trade-container">
-   <Header />
+   
     <h3 class="title">填写并核对订单信息</h3>
     <div class="content">
       <h5 class="receive">收件人信息</h5>
@@ -138,7 +138,7 @@ import Header from '@/component/Header'
 export default {
   name: "Trade",
   components:{
-    Header
+   
   }
 };
 </script>

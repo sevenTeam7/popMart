@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    
 
     <div class="cart-container">
       <div class="cart-header">
@@ -110,12 +110,12 @@
 </template>
 
 <script>
-import Header from "@/component/Header";
+
 import { mapState, mapGetters } from "vuex";
 export default {
   name: "CartAsyc",
   components: {
-    Header,
+    
   },
   data() {
     return {};
