@@ -12,7 +12,10 @@
           <a href="###">附近门店</a>
           <a href="###">合作</a>
           <a href="###">葩趣</a>
-          <a href="###">线上商城<i class="el-icon-arrow-down"></i></a>
+          <router-link to="/shop"
+            >线上商城<i class="el-icon-arrow-down"></i
+          ></router-link>
+          <!-- <a href="###">线上商城<i class="el-icon-arrow-down"></i></a> -->
           <a href="###">海上市场</a>
           <a href="###">海上平台<i class="el-icon-arrow-down"></i></a>
         </div>
@@ -28,14 +31,12 @@
   </div>
 </template>
 <script>
-
 export default {
   name: "NavList",
-
 };
 </script>
 <style scoped>
- .container-box {
+.container-box {
   width: 100%;
 }
 /* 头部 */
@@ -64,8 +65,6 @@ export default {
   line-height: 32px;
   position: relative;
   background: url("./images/header_logo.png") repeat center;
-  position: relative;
-  top: 12px;
 }
 
 .header .nav_con > a {
@@ -80,11 +79,6 @@ export default {
 .nav_con a:hover {
   text-decoration: underline;
   color: #f85000;
-}
-#lang {
-  position: relative;
-  left: -40px;
-  top: 20px;
 }
 #lang > a {
   color: #fff;

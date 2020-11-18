@@ -120,7 +120,7 @@
 </template>
 
 <script>
-import Header from "@/component/Header";
+import Header from "@/components/Header";
 import { mapState, mapGetters } from "vuex";
 export default {
   name: "CartAsyc",

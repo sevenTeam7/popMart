@@ -114,7 +114,8 @@
   </div>
 </template>
 <script>
-import { getPassWord, getEmailCode, getCheckCode } from "../../api";
+//引入
+import { getPassWord, getEmailCode, getCheckCode } from "@/api";
 export default {
   name: "Login",
   data() {
@@ -191,10 +192,14 @@ export default {
     handleClick(tab, event) {
       this.activeName = tab.name;
     },
+    //点击验证码的回调函数
     async sendCode(formName) {
+      //禁止打开
       this.disabled = false;
+      //如果ruleForm里面的email有新增的内容
       if (this.ruleForm.email) {
         const usermail = this.ruleForm.email.trim();
+        //请求
         const result = await getEmailCode({ usermail });
         if (result.code === 20000) {
           alert("邮件发送成功");
@@ -226,7 +231,6 @@ export default {
 }
 .login_container .login {
   width: 100%;
-  height: 120px;
   /* background-color: pink; */
 }
 .login .login_tltle {

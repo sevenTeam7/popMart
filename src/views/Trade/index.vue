@@ -117,7 +117,7 @@
 
 <script>
 import { mapState, mapGetters } from "vuex";
-import Header from "@/component/Header";
+import Header from "@/components/Header";
 import state from "@/store/state";
 export default {
   name: "Trade",

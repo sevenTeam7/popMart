@@ -21,7 +21,7 @@ Vue.component("Footer", Footer);
 import "./utils/validate";
 
 //引入elemetUi
-import ElementUI from "element-ui";
+// import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 
 //引入nav
@@ -35,7 +35,6 @@ Vue.component("Floot", Floot);
 //引入样式swpier
 import "swiper/css/swiper.css";
 
-Vue.use(ElementUI);
 // 导出所有的Api 挂载到vue写原型上
 import * as API from "./api";
 import "./styles/reset.css";
@@ -44,9 +43,8 @@ import "./static/iconfonts/iconfont.css";
 Vue.prototype.$API = API;
 
 Vue.prototype.$bus = new Vue();
-import ElementUI from "element-ui";
+// import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
-
 
 Vue.use(ElementUI);
 new Vue({
