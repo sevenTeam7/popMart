@@ -114,7 +114,14 @@
   </div>
 </template>
 <script>
+import Vue from "vue";
+import VeeValidate from "vee-validate";
 import { getPassWord, getEmailCode, getCheckCode } from "../../api";
+const config = {
+  errorBagName: "errorBags",
+  fieldsBagName: "fieldBags",
+};
+Vue.use(VeeValidate, config);
 export default {
   name: "Login",
   data() {
@@ -171,7 +178,6 @@ export default {
         if (valid) {
           const usermail = this.ruleForm.age;
           const password = this.ruleForm.pass;
-          console.log();
           const result = await getPassWord(usermail, password);
           if (result.code === 20000) {
             this.$router.push("/shop");
@@ -222,7 +228,6 @@ export default {
 }
 .login_container .login {
   width: 100%;
-  height: 120px;
   /* background-color: pink; */
 }
 .login .login_tltle {

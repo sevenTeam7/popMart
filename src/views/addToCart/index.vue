@@ -2,7 +2,7 @@
   <!-- 最外层盒子 -->
   <div class="main">
     <!-- 导航栏 -->
-    <header />
+    <Header />
 
     <!-- 顶部盒子 -->
     <div class="success-wrap">

@@ -12,7 +12,7 @@
       <div class="box1"></div>
       <div class="loginRegister">
         <a href=""><router-link to="/login">登录</router-link></a>
-        <a href=""><router-link to="/views/regist">注册</router-link></a>
+        <a href=""><router-link to="/regist">注册</router-link></a>
       </div>
     </div>
     <div class="nav">

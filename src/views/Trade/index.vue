@@ -117,7 +117,6 @@
 
 <script>
 import { mapState, mapGetters } from "vuex";
-import Header from "@/component/Header";
 import state from "@/store/state";
 export default {
   name: "Trade",
@@ -126,9 +125,6 @@ export default {
       currentIndex: 0,
       orderComment: "老板,受不了啦,快点发货,等不急啦", // 订单的备注
     };
-  },
-  components: {
-    Header,
   },
   async mounted() {
     await this.getCartList()
