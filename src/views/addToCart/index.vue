@@ -1,7 +1,7 @@
 <template>
   <!-- 最外层盒子 -->
   <div>
-    
+    <Header />
     <div class="main">
       <!-- 导航栏 -->
 
@@ -145,8 +145,6 @@
 </template>
 
 <script>
-
-// import Footer from "@/component/Footer";
 export default {
   name: "addToCart",
   data() {
@@ -154,10 +152,6 @@ export default {
       shopList: [],
       pageNum: 1, //当前页码
     };
-  },
-  components: {
-    
-    // Footer,
   },
   // 异步安装
   async mounted() {

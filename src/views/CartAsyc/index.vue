@@ -114,9 +114,6 @@
 import { mapState, mapGetters } from "vuex";
 export default {
   name: "CartAsyc",
-  components: {
-    
-  },
   data() {
     return {};
   },
