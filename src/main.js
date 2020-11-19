@@ -26,8 +26,7 @@ Vue.component("Floot", Floot);
 import "swiper/css/swiper.css";
 
 Vue.use(ElementUI);
-// 导出所有的Api 挂载到vue写原型上
-import * as API from "./api";
+
 import "./styles/reset.css";
 import "swiper/css/swiper.css";
 import "./static/iconfonts/iconfont.css";
