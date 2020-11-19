@@ -159,6 +159,7 @@
 <script>
 //引入swpier
 import Swiper from "swiper";
+import NavList from "@/components/NavList";
 //引入vuex辅助函数
 import { mapState } from "vuex";
 export default {
@@ -166,6 +167,9 @@ export default {
   mounted() {
     this.$store.dispatch("getBanners");
     this.$store.dispatch("getjournaism");
+  },
+  components: {
+    NavList,
   },
   watch: {
     banners: {
