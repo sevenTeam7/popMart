@@ -15,6 +15,13 @@ Vue.component("Header", Header);
 import Footer from "./components/Footer";
 Vue.component("Footer", Footer);
 
+//懒加载
+import loading from "./static/images/01.gif";
+import Vuelazyload from "vue-lazyload";
+Vue.use(Vuelazyload, {
+  loading,
+});
+
 // 导出所有的Api 挂载到vue写原型上
 import * as API from "./api";
 import "./styles/reset.css";
@@ -23,6 +30,7 @@ import "./static/iconfonts/iconfont.css";
 
 Vue.prototype.$API = API;
 
+//定义事件总线
 Vue.prototype.$bus = new Vue();
 
 Vue.use(ElementUI);
