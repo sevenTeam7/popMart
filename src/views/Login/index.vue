@@ -167,8 +167,8 @@ export default {
       ruleForm: {
         pass: "1234",
         checkPass: "1234",
-        age: "13800000000",
-        email: "864885597@qq.com",
+        age: "13800",
+        email: "",
         checkemail: "",
       },
       rules: {
@@ -186,7 +186,7 @@ export default {
           const password = this.ruleForm.pass;
           const result = await getPassWord(usermail, password);
           if (result.code === 20000) {
-            this.$router.push("/shop");
+            this.$router.push({ name: "shop", params: { usermail } });
           } else {
             alert("密码有误");
           }
@@ -226,7 +226,7 @@ export default {
         const code = this.ruleForm.checkemail;
         const result = await getCheckCode(usermail, code);
         if (result.code === 20000) {
-          this.$router.push("/shop");
+          this.$router.push({ name: "shop", params: { usermail } });
         } else {
           alert("验证码有误");
         }

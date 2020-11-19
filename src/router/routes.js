@@ -12,11 +12,11 @@ import Login from "@/views/Login";
 
 const routes = [
   { path: "/", component: Home },
-  { path: "/shop", component: Shop },
+  { path: "/shop", component: Shop, name: "shop" },
   { path: "/views/cartasyc", component: Cart },
   { path: "/views/trade", component: Trade },
   { path: "/regist", component: Regist },
-  { path: "/detail", component: Detail },
+  { path: "/detail", component: Detail, name: "detail" },
   { path: "/addToCart", component: addToCart },
   { path: "/news", component: News },
   { path: "/login", component: Login },

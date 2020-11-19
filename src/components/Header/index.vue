@@ -1,7 +1,9 @@
 <template>
   <div>
     <div class="header">
-      <img src="./images/popMart.png" class="titleImg" alt="titleImg" />
+      <router-link to="/"
+        ><img src="./images/popMart.png" class="titleImg" alt="titleImg"
+      /></router-link>
       <div class="title">
         <span>泡泡玛特线上自营店</span>
         <!-- <el-button class="button" size="small" icon-thumb type="danger" plain
@@ -11,7 +13,9 @@
       </div>
       <div class="box1"></div>
       <div class="loginRegister">
-        <a href=""><router-link to="/login">登录</router-link></a>
+        <a href=""
+          ><router-link to="/login">{{ tag ? tag : "登录" }}</router-link></a
+        >
         <a href=""><router-link to="/regist">注册</router-link></a>
       </div>
     </div>
@@ -69,9 +73,16 @@
 export default {
   name: "Header",
   data() {
-    return {};
+    return {
+      tag: "",
+    };
   },
   methods: {},
+  mounted() {
+    this.$bus.$on("tag", (Tag) => {
+      this.tag = Tag;
+    });
+  },
 };
 </script>
 <style>
