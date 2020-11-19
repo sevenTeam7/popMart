@@ -10,7 +10,7 @@
             v-for="carousel in banners"
             :key="carousel.id"
           >
-            <img :src="carousel.pic" />
+            <img v-lazy="carousel.pic" />
           </div>
         </div>
         <!-- 如果需要分页器 -->
@@ -128,7 +128,7 @@
             v-for="journaismval in journaism"
             :key="journaismval.id"
           >
-            <img :src="journaismval.pic" alt="" />
+            <img v-lazy="journaismval.pic" alt="" />
             <div class="pop_1">
               <div class="news_title">
                 {{ journaismval.title }}

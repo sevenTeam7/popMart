@@ -45,6 +45,15 @@ Vue.prototype.$API = API;
 Vue.prototype.$bus = new Vue();
 // import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
+//引入懒加载插件
+import VueLazyload from "vue-lazyload";
+
+//引入动态图片
+import lozyload from "./assets/loading.jpg";
+//使用
+Vue.use(VueLazyload, {
+  lozyload,
+});
 
 Vue.use(ElementUI);
 new Vue({

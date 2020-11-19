@@ -26,7 +26,7 @@
               v-for="(paginationVal, index) in pagination"
               :key="paginationVal.id"
             >
-              <img :src="paginationVal.pic" alt="" />
+              <img v-lazy="paginationVal.pic" alt="" />
               <div class="news_item_con">
                 <div class="news_item_tltle">
                   {{ paginationVal.title }}
