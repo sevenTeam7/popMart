@@ -223,8 +223,10 @@ export default {
     async goLogin(formName) {
       if (this.ruleForm.checkemail) {
         const usermail = this.ruleForm.email;
+        console.log(usermail);
         const code = this.ruleForm.checkemail;
-        const result = await getCheckCode(usermail, code);
+        console.log(code);
+        const result = await getCheckCode({usermail,code});
         if (result.code === 20000) {
           this.$router.push({ name: "shop", params: { usermail } });
         } else {

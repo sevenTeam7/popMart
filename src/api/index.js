@@ -48,17 +48,16 @@ export const getPassWord = (usermail, password) => {
     password,
   });
 };
-export const getEmailCode = (usermail) => {
+export const getEmailCode = ({usermail}) => {
   return ajax.post("/login/getmail", {
     usermail,
   });
 };
-export const getCheckCode = (usermail, code) => {
-  ajax.post("/login/mail"),
-    {
-      usermail,
-      code,
-    };
+export const getCheckCode = ({usermail, code}) => {
+  return  ajax.post("/login/mail",{
+    usermail,
+    code
+  }) 
 };
 
 //根据skuid和skunum获取加入购物车商品
