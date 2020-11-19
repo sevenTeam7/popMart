@@ -18,7 +18,6 @@
         <p>
           <span class="s1">{{ user.address }}</span>
           <span class="s2">{{ user.phone }}</span>
-          <span class="s3">默认地址</span>
         </p>
       </div>
       <div class="line"></div>
@@ -46,7 +45,7 @@
           :key="index"
         >
           <li>
-            <img v-lazy="item.smallImg" alt="" />
+            <img :src="item.smallImg" alt="" />
           </li>
           <li>
             <p>
@@ -109,7 +108,11 @@
       </div>
     </div>
     <div class="sub clearFix">
-      <router-link class="subBtn" to="/pay">提交订单</router-link>
+      <router-link
+        class="subBtn"
+        :to="{ path: '/pay', query: { totalCartPrice } }"
+        >提交订单</router-link
+      >
     </div>
   </div>
 </template>
@@ -126,6 +129,9 @@ export default {
       currentIndex: 0,
       orderComment: "老板,受不了啦,快点发货,等不急啦", // 订单的备注
     };
+  },
+  components: {
+    Header,
   },
   async mounted() {
     // 获取商品列表信息

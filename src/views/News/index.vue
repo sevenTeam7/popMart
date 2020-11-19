@@ -67,6 +67,9 @@ import { mapState } from "vuex";
 import NavList from "@/components/NavList";
 export default {
   name: "news",
+  components: {
+    NavList,
+  },
   data() {
     return {
       options: {

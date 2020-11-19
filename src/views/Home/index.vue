@@ -10,7 +10,7 @@
             v-for="carousel in banners"
             :key="carousel.id"
           >
-            <img v-lazy="carousel.pic" />
+            <img :src="carousel.pic" />
           </div>
         </div>
         <!-- 如果需要分页器 -->
@@ -164,6 +164,9 @@ import NavList from "@/components/NavList";
 import { mapState } from "vuex";
 export default {
   name: "Home",
+  components: {
+    NavList,
+  },
   mounted() {
     this.$store.dispatch("getBanners");
     this.$store.dispatch("getjournaism");

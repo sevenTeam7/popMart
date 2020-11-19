@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import Cart from "@/views/CartAsyc";
 import Trade from "@/views/Trade";
 import Regist from "@/views/Regist";
@@ -10,16 +9,15 @@ import Home from "@/views/Home";
 import Login from "@/views/Login";
 
 const routes = [
-  /* 主页 */
-  { path: "/", component: Home },
-  { path: "/shop", component: Shop, name: "shop" },
-  { path: "/views/cartasyc", component: Cart },
-  { path: "/views/trade", component: Trade },
+  { path: '/', component: Home },
+  { path: "/shop", component: Shop , name: 'shop' },
+  { path: "/cartasyc", component: Cart },
+  { path: "/trade", component: Trade,name:'/views/trade'},
   { path: "/regist", component: Regist },
   { path: "/detail", component: Detail, name: "detail" },
   { path: "/addToCart", component: addToCart, name: "addToCart" },
   { path: "/login", component: Login },
-  { path: "/news", component: News },
+  { path: '/news', component: News }
 ];
 
 export default routes;
