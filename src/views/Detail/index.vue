@@ -1,7 +1,7 @@
 <template>
-  <div v-if="goodsInfo && goodsList">
+  <div>
     <Header />
-    <div class="con w clearFix">
+    <div class="con w clearFix" v-if="goodsInfo && goodsList">
       <!-- 商品分类导航 -->
       <!-- 导航路径区域 -->
       <div class="conPoin clearFix">
@@ -267,102 +267,82 @@
               <div class="mc">
                 <dl class="sp-single">
                   <dt class="open">
-                    <s></s
-                    ><a
-                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
-                      target="_blank"
-                      >Molly</a
+                    <s></s>
+                    <router-link :to="{ path: 'shop' }">
+                      <a href="#" target="_blank">Molly</a>
+                    </router-link>
+                  </dt>
+                </dl>
+                <dl class="sp-single">
+                  <dt class="open">
+                    <s></s>
+                    <router-link to="/shop">
+                      <a href="#" target="_blank">PUCKY</a></router-link
                     >
                   </dt>
                 </dl>
                 <dl class="sp-single">
                   <dt class="open">
-                    <s></s
-                    ><a
-                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
-                      target="_blank"
-                      >PUCKY</a
-                    >
+                    <s></s>
+                    <router-link :to="{ path: 'shop' }">
+                      <a href="#" target="_blank">Molly</a>
+                    </router-link>
                   </dt>
                 </dl>
                 <dl class="sp-single">
                   <dt class="open">
-                    <s></s
-                    ><a
-                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
-                      target="_blank"
-                      >Molly</a
-                    >
+                    <s></s>
+                    <router-link :to="{ path: 'shop' }">
+                      <a href="#" target="_blank">Molly</a>
+                    </router-link>
                   </dt>
                 </dl>
                 <dl class="sp-single">
                   <dt class="open">
-                    <s></s
-                    ><a
-                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
-                      target="_blank"
-                      >PUCKY</a
-                    >
+                    <s></s>
+                    <router-link :to="{ path: 'shop' }">
+                      <a href="#" target="_blank">Molly</a>
+                    </router-link>
                   </dt>
                 </dl>
                 <dl class="sp-single">
                   <dt class="open">
-                    <s></s
-                    ><a
-                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
-                      target="_blank"
-                      >Molly</a
-                    >
+                    <s></s>
+                    <router-link :to="{ path: 'shop' }">
+                      <a href="#" target="_blank">Molly</a>
+                    </router-link>
                   </dt>
                 </dl>
                 <dl class="sp-single">
                   <dt class="open">
-                    <s></s
-                    ><a
-                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
-                      target="_blank"
-                      >PUCKY</a
-                    >
+                    <s></s>
+                    <router-link :to="{ path: 'shop' }">
+                      <a href="#" target="_blank">Molly</a>
+                    </router-link>
                   </dt>
                 </dl>
                 <dl class="sp-single">
                   <dt class="open">
-                    <s></s
-                    ><a
-                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
-                      target="_blank"
-                      >Molly</a
-                    >
+                    <s></s>
+                    <router-link :to="{ path: 'shop' }">
+                      <a href="#" target="_blank">Molly</a>
+                    </router-link>
                   </dt>
                 </dl>
                 <dl class="sp-single">
                   <dt class="open">
-                    <s></s
-                    ><a
-                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
-                      target="_blank"
-                      >PUCKY</a
-                    >
+                    <s></s>
+                    <router-link :to="{ path: 'shop' }">
+                      <a href="#" target="_blank">Molly</a>
+                    </router-link>
                   </dt>
                 </dl>
                 <dl class="sp-single">
                   <dt class="open">
-                    <s></s
-                    ><a
-                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
-                      target="_blank"
-                      >Molly</a
-                    >
-                  </dt>
-                </dl>
-                <dl class="sp-single">
-                  <dt class="open">
-                    <s></s
-                    ><a
-                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
-                      target="_blank"
-                      >PUCKY</a
-                    >
+                    <s></s>
+                    <router-link :to="{ path: 'shop' }">
+                      <a href="#" target="_blank">Molly</a>
+                    </router-link>
                   </dt>
                 </dl>
               </div>

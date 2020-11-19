@@ -5,7 +5,7 @@ module.exports = {
   devServer: {
     proxy: {
       "": {
-        target: "http://192.168.16.23:4000",
+        target: "http://localhost:4000",
         changeOrigin: true, // 是否允许跨域
         // pathRewrite: {
         //   //重写路径（不用管）

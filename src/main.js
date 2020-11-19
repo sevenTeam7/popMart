@@ -9,20 +9,14 @@ import "./styles/index.less";
 // import "./utils/validate";
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
-
 import Header from "./components/Header";
 Vue.component("Header", Header);
 import Footer from "./components/Footer";
 Vue.component("Footer", Footer);
-
 //引入表单验证插件
 import "./utils/validate";
-
-//引入elemetUi
-
 //引入floot
 import Floot from "@/components/Floot";
-
 Vue.component("Floot", Floot);
 
 //引入样式swpier
@@ -34,6 +28,12 @@ import * as API from "./api";
 import "./styles/reset.css";
 import "swiper/css/swiper.css";
 import "./static/iconfonts/iconfont.css";
+
+import VueLazyload from "vue-lazyload";
+import loading from "@/static/images/loading.gif";
+Vue.use(VueLazyload, {
+  loading,
+});
 
 Vue.prototype.$API = API;
 
