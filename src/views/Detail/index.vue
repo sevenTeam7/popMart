@@ -596,10 +596,6 @@ import Zoom from "./Zoom";
 import ImageList from "./ImageList";
 import AfterSale from "./AfterSale";
 import Comment from "./Comment";
-<<<<<<< HEAD
-=======
-
->>>>>>> hyl
 import Good from "./Good";
 import { mapState, mapGetters } from "vuex";
 export default {
@@ -619,10 +615,6 @@ export default {
     ImageList,
     AfterSale,
     Comment,
-<<<<<<< HEAD
-=======
-   
->>>>>>> hyl
     Good,
     Header,
   },
@@ -699,6 +691,8 @@ export default {
       this.index = index;
     });
     //获取当前商品信息
+    // this.skuid=this.$route.params.id*1
+    // console.log(this.skuid);
     this.$store.dispatch("getGoodsInfo", this.skuid);
 
     //获取好评商品数据

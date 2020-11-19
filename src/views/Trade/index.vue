@@ -1,9 +1,6 @@
 <template>
   <div class="trade-container">
-<<<<<<< HEAD
-=======
-   
->>>>>>> hyl
+    <Header />
     <h3 class="title">填写并核对订单信息</h3>
     <div class="content">
       <h5 class="receive">收件人信息</h5>
@@ -118,7 +115,6 @@
 </template>
 
 <script>
-<<<<<<< HEAD
 import { mapState, mapGetters } from "vuex";
 import Header from "@/components/Header";
 import state from "@/store/state";
@@ -155,10 +151,6 @@ export default {
     // 通过辅助函数拿到vuex中getters中获取的选中商品信息
     ...mapGetters(["delSelectedCart", "totalCartPrice", "totalCartNum"]),
   },
-=======
-export default {
-  name: "Trade",
->>>>>>> hyl
 };
 </script>
 

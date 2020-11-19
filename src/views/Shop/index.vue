@@ -74,7 +74,7 @@
                   :class="curentIndex === i ? 'active' : ''"
                   v-for="(imgB, i) in item.bigImg"
                   :key="i"
-                  @click="goToDestail(item._id)"
+                  @click="goToDestail(item.skuid)"
                 >
                   <img :src="imgB" :ref="item._id" />
                 </li>
@@ -172,6 +172,7 @@ export default {
       this.showList = this.goodslist.slice(0, 8);
     },
     goToDestail(id) {
+      console.log(id);
       this.$router.push({ name: "detail", params: { id } });
     },
   },
