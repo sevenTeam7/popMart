@@ -1,4 +1,5 @@
-﻿const pxtorem = require("postcss-pxtorem");
+﻿
+const pxtorem = require("postcss-pxtorem");
 const { resolve } = require("path");
 module.exports = {
   lintOnSave: false, // 干掉eslint 语法检查

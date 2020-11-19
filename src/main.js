@@ -27,6 +27,11 @@ Vue.component("Footer", Footer);
 import "./utils/validate";
 
 //引入elemetUi
+<<<<<<< HEAD
+=======
+// import ElementUI from "element-ui";
+import "element-ui/lib/theme-chalk/index.css";
+>>>>>>> yxp
 
 //引入floot
 import Floot from "@/components/Floot";
@@ -36,7 +41,6 @@ Vue.component("Floot", Floot);
 //引入样式swpier
 import "swiper/css/swiper.css";
 
-Vue.use(ElementUI);
 // 导出所有的Api 挂载到vue写原型上
 import * as API from "./api";
 import "./styles/reset.css";
@@ -46,6 +50,20 @@ import "./static/iconfonts/iconfont.css";
 Vue.prototype.$API = API;
 
 Vue.prototype.$bus = new Vue();
+<<<<<<< HEAD
+=======
+// import ElementUI from "element-ui";
+import "element-ui/lib/theme-chalk/index.css";
+//引入懒加载插件
+import VueLazyload from "vue-lazyload";
+
+//引入动态图片
+import lozyload from "./assets/loading.jpg";
+//使用
+Vue.use(VueLazyload, {
+  lozyload,
+});
+>>>>>>> yxp
 
 Vue.use(ElementUI);
 new Vue({

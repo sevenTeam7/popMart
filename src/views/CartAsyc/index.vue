@@ -114,7 +114,7 @@
 </template>
 
 <script>
-// 引入辅助函数
+import Header from "@/components/Header";
 import { mapState, mapGetters } from "vuex";
 export default {
   name: "CartAsyc",
