@@ -34,7 +34,7 @@
       <div class="content">
         <label>确认密码:</label>
         <input
-          type="password2"
+          type="password"
           @input="callback"
           v-model="password2"
           placeholder="请输入确认密码"
