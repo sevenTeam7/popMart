@@ -161,8 +161,12 @@
 import Swiper from "swiper";
 //引入vuex辅助函数
 import { mapState } from "vuex";
+import NavList from "@/components/NavList";
 export default {
   name: "Home",
+  components: {
+    NavList,
+  },
   mounted() {
     this.$store.dispatch("getBanners");
     this.$store.dispatch("getjournaism");

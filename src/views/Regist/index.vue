@@ -96,7 +96,7 @@ export default {
       console.log(result);
       if (result.code === 2000) {
         await this.$message.success("注册成功");
-        this.$router.push("/shop");
+        this.$router.push({name:'shop',params:{usermail}});
       } else {
         this.$message.error("注册失败，请重新再试");
       }

@@ -5,14 +5,16 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import "./styles/index.less";
-// 引入懒加载
+
+/* // 引入懒加载
 import Vuelazyload from 'vue-lazyload'
 // 引入懒加载图片
 import loading from './assets/loading.gif'
 // 使用懒加载
 Vue.use(Vuelazyload,{
   loading
-})
+}) */
+
 // 引入validate
 // import "./utils/validate";
 Vue.config.productionTip = false;

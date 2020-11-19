@@ -18,6 +18,7 @@ const actions = {
   async get_ShopImage({ commit }) {
     // 异步获取当前用户权限数据
     const result = await getShopImage();
+    console.log(result);
     if (result.code === 20000) {
       commit("GET_SHOP_IMAGE", result.data);
     }

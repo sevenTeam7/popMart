@@ -18,7 +18,6 @@
         <p>
           <span class="s1">{{ user.address }}</span>
           <span class="s2">{{ user.phone }}</span>
-          <span class="s3">默认地址</span>
         </p>
       </div>
       <div class="line"></div>
@@ -46,7 +45,7 @@
           :key="index"
         >
           <li>
-            <img v-lazy="item.smallImg" alt="" />
+            <img :src="item.smallImg" alt="" />
           </li>
           <li>
             <p>
@@ -109,14 +108,18 @@
       </div>
     </div>
     <div class="sub clearFix">
-      <router-link class="subBtn" to="/pay">提交订单</router-link>
+      <router-link
+        class="subBtn"
+        :to="{ path: '/pay', query: { totalCartPrice } }"
+        >提交订单</router-link
+      >
     </div>
   </div>
 </template>
 
 <script>
 import { mapState, mapGetters } from "vuex";
-import Header from "@/components/Header"
+import Header from "@/components/Header";
 import state from "@/store/state";
 export default {
   name: "Trade",
@@ -128,7 +131,7 @@ export default {
     };
   },
   components: {
-    Header
+    Header,
   },
   async mounted() {
     // 获取商品列表信息

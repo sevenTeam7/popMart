@@ -12,7 +12,8 @@
           <a href="###">附近门店</a>
           <a href="###">合作</a>
           <a href="###">葩趣</a>
-          <a href="###">线上商城<i class="el-icon-arrow-down"></i></a>
+          <!-- <a href="###">线上商城<i class="el-icon-arrow-down"></i></a> -->
+          <router-link  to="/shop">线上商城<i class="el-icon-arrow-down"></i></router-link>
           <a href="###">海上市场</a>
           <a href="###">海上平台<i class="el-icon-arrow-down"></i></a>
         </div>

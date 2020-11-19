@@ -6,16 +6,19 @@ import Detail from "@/views/Detail";
 import addToCart from "@/views/addToCart";
 import Shop from "@/views/Shop";
 import Login from "@/views/Login";
+import Home from '@/views/Home'
+import News from '@/views/News'
 
 const routes = [
-  { path: "/", component: Login },
-  { path: "/shop", component: Shop },
+  { path: '/', component: Home },
+  { path: "/shop", component: Shop , name: 'shop' },
   { path: "/views/cartasyc", component: Cart },
-  { path: "/views/trade", component: Trade },
+  { path: "/views/trade", component: Trade,name:'/views/trade'},
   { path: "/regist", component: Regist },
   { path: "/detail", component: Detail },
   { path: "/addToCart", component: addToCart },
   { path: "/login", component: Login },
+  { path: '/news', component: News }
 ];
 
 export default routes;

@@ -2,7 +2,6 @@
   <div>
     <Header />
     <div class="cart-container">
-      
       <div class="cart-header">
         <h2>全部商品</h2>
       </div>
@@ -26,10 +25,7 @@
           </li>
 
           <li class="cart-list-con2">
-            <img
-              :src="item.smallImg"
-              alt=""
-            />
+            <img :src="item.smallImg" alt="" />
             <div class="cart-font">
               {{ item.title }}
             </div>
@@ -107,7 +103,20 @@
             <i class="summoney">{{ totalCartPrice }}</i>
           </div>
           <div class="sumbtn">
+            <!-- 编程式导航 -->
+            <!-- <a class="sum-btn" @click="toTrade" href="javascript:;">结算</a> -->
             <router-link class="sum-btn" to="/views/trade">结算</router-link>
+            <!-- 声明式导航 params传参 -->
+            <!-- <router-link class="sum-btn" :to="{name:'/views/trade',params:{totalCartPrice}}">结算</router-link> -->
+            <!-- 声明式导航 query传参 -->
+            <!-- <router-link
+              class="sum-btn"
+              :to="{
+                path: '/views/trade',
+                query: { totalCartPrice, totalCartNum },
+              }"
+              >结算</router-link
+            > -->
           </div>
         </div>
       </div>
@@ -118,20 +127,34 @@
 <script>
 // 引入辅助函数
 import { mapState, mapGetters } from "vuex";
-import Header from "@/components/Header"
+import Header from "@/components/Header";
 export default {
   name: "CartAsyc",
   data() {
-    return {};
+    return {
+    };
   },
-  components:{
-    Header
+  components: {
+    Header,
   },
   mounted() {
     // 获取购物车商品信息
     this.getCartList();
   },
   methods: {
+    // params传参 只能使用name引入  需要在路由配置中使用占位符 并且需要在路由配置中设置name属性
+    /* toTrade(){
+      const {totalCartPrice} = this
+      // console.log(totalCartPrice);
+      this.$router.push({name:'/views/trade',params:{totalCartPrice}})
+    }, */
+    // query传参 可以使用name也可以使用path 如果要使用name那么需要在路由配置中设置name属性
+    /*  toTrade(){
+      const {totalCartPrice,totalCartNum} = this
+      // console.log(totalCartPrice);
+      this.$router.push({path:'/views/trade',query:{totalCartPrice,totalCartNum}})
+    }, */
+
     // 获取购物车信息
     getCartList() {
       this.$store.dispatch("getCartList");
@@ -166,16 +189,22 @@ export default {
       this.getCartList();
     },
     // 切换全选/全不选
-    isChecked(event) {
+    async isChecked(event) {
       // 获取当前的选中状态 把布尔值转换成number
       const check = event.target.checked * 1;
-      this.cartList.map((item) => {
+      const promise = this.cartList.map((item) => {
         return this.$store.dispatch("getIschecked", {
           skuid: item.skuid,
           ischecked: check,
         });
       });
-      this.getCartList();
+      try {
+        // 使用Promise的all方法一次解决，全成功则成功，一个失败则失败
+        await Promise.all(promise);
+        this.getCartList();
+      } catch (error) {
+        alert(error.message);
+      }
     },
     // 删除商品信息
     delCart(skuid) {
