@@ -1,7 +1,5 @@
 <template>
   <div>
-    <Header />
-
     <div class="cart-container">
       <div class="cart-header">
         <h2>全部商品</h2>
@@ -15,11 +13,7 @@
         <div class="cart-nav-06">操作</div>
       </div>
       <div class="cart-color">
-        <ul
-          class="cart-main"
-          v-for="(item, index) in cartList"
-          :key="item.skuid"
-        >
+        <ul class="cart-main" v-for="item in cartList" :key="item.skuid">
           <li class="cart-list-con1">
             <input
               type="checkbox"
@@ -31,7 +25,7 @@
 
           <li class="cart-list-con2">
             <img
-              src="http://img20.360buyimg.com/n0/s80x80_jfs/t1/114946/23/1673/137342/5e9acd0cE88617e26/d3812d623af176c4.jpg.dpg"
+              :src="item.smallImg"
               alt=""
             />
             <div class="cart-font">
@@ -120,6 +114,7 @@
 </template>
 
 <script>
+import Header from "@/components/Header";
 import { mapState, mapGetters } from "vuex";
 export default {
   name: "CartAsyc",
@@ -145,6 +140,7 @@ export default {
       }
     }, */
     // 改变商品数量 组件样式方法
+    // change事件 第一个参数表示当前的值，第二个参数表示前一次的值
     changeCount(num, item) {
       this.$store.dispatch("getCartNum", {
         skuid: item.skuid,
@@ -155,17 +151,19 @@ export default {
     swicthIscheked(item) {
       const { skuid } = item;
       const isChecked = item.ischecked === 1 ? 0 : 1;
+      // 调用切换接口
       this.$store.dispatch("getIschecked", {
         skuid,
         ischecked: isChecked,
       });
+      // 重新获取数据
       this.getCartList();
     },
     // 切换全选/全不选
     isChecked(event) {
       // 获取当前的选中状态 把布尔值转换成number
       const check = event.target.checked * 1;
-      const promise = this.cartList.map((item) => {
+      this.cartList.map((item) => {
         return this.$store.dispatch("getIschecked", {
           skuid: item.skuid,
           ischecked: check,
@@ -175,25 +173,62 @@ export default {
     },
     // 删除商品信息
     delCart(skuid) {
-      this.$store.dispatch("getDeleteCart", skuid);
-      this.getCartList();
+      this.$confirm("此操作将永久删除该商品, 是否继续?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning",
+      })
+        .then(() => {
+          // 调用删除接口
+          this.$store.dispatch("getDeleteCart", skuid);
+          // 重新获取数据
+          this.getCartList();
+          this.$message({
+            type: "success",
+            message: "您已成功删除该商品!",
+          });
+        })
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: "已取消删除，早点下单哦",
+          });
+        });
     },
     // 删除选中的商品
     selectedCart() {
       const { delSelectedCart } = this;
-      if (delSelectedCart.length === 0) return;
-      let promise = [];
-      delSelectedCart.forEach((item) => {
-        const promise = this.$store.dispatch("getDeleteCart", item.skuid);
-      });
-
-      this.getCartList();
+      this.$confirm("此操作将永久删除您选中的商品, 是否继续?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning",
+      })
+        .then(() => {
+          if (delSelectedCart.length === 0) return;
+          let promise = [];
+          delSelectedCart.forEach((item) => {
+            this.$store.dispatch("getDeleteCart", item.skuid);
+          });
+          this.getCartList();
+          this.$message({
+            type: "success",
+            message: "您已成功删除该商品!",
+          });
+        })
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: "已取消删除，早点下单哦",
+          });
+        });
     },
   },
   computed: {
+    // 使用辅助函数
     ...mapState({
       cartList: (state) => state.cart.cartList,
     }),
+    // 使用辅助函数
     ...mapGetters([
       "totalCartNum",
       "totalCartPrice",

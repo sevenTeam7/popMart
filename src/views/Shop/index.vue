@@ -51,8 +51,8 @@
             <a class="three" href="#"
               ><span class="left-one"><em></em>上架时间</span></a
             >
-            <a class="three" href="#"><span>好评度</span></a>
-            <a class="three" href="#"><span>价格</span></a>
+            <a class="three" href="#" @click="goodTake"><span>好评度</span></a>
+            <a class="three" href="#" @click="goodPrice"><span>价格</span></a>
             <a class="three" href="#"><span>销量</span></a>
           </div>
           <div class="right">
@@ -62,17 +62,36 @@
         </div>
 
         <div class="content">
-          <div class="content-shop" v-for="item in goodslist" :key="item.id">
+          <div
+            class="content-shop"
+            ref="imgBig"
+            v-for="(item, parentIndex) in showList"
+            :key="item.id"
+          >
             <div class="img">
-              <img :src="Imgurl" alt="大图" />
-            </div>
-            <div class="img-em">
-              <ul v-for="img in imgUrl" :key="img.index">
-                <li @click="show(img.url)">
-                  <img :src="img.url" />
+              <ul ref="bigUr">
+                <li
+                  :class="curentIndex === i ? 'active' : ''"
+                  v-for="(imgB, i) in item.bigImg"
+                  :key="i"
+                  @click="goToDestail(item._id)"
+                >
+                  <img :src="imgB" :ref="item._id" />
                 </li>
               </ul>
             </div>
+            <!-- 小图 -->
+            <div class="img-em">
+              <ul class="wangdazhuang">
+                <li
+                  v-for="(imgS, smallIndex) in item.smallImg"
+                  :key="smallIndex"
+                >
+                  <img :src="imgS" @click="test(parentIndex, smallIndex)" />
+                </li>
+              </ul>
+            </div>
+
             <span class="money">￥ {{ item.price }}</span>
             <p class="introduce">{{ item.title }}</p>
             <p>
@@ -82,7 +101,6 @@
         </div>
         <div class="pagination">
           <el-pagination
-            @size-change="handleSizeChange"
             @current-change="handleCurrentChange"
             :current-page="currentPage"
             :page-sizes="[1, 2]"
@@ -102,41 +120,69 @@ export default {
   name: "Shop",
   data() {
     return {
-      imgUrl: [
-        { index: 1, url: require("./images/01.jpg") },
-        { index: 2, url: require("./images/02.jpg") },
-      ],
-      Imgurl: require("./images/01.jpg"),
-      currentPage1: 5,
-      currentPage2: 5,
-      currentPage3: 5,
-      currentPage4: 1,
+      Imgurl: "",
       goodslist: [],
+      showList: [],
       currentPage: 1,
+      curentIndex: 0,
+      Tag: "123",
     };
   },
   methods: {
-    show(url) {
-      this.Imgurl = url;
-    },
-    handleSizeChange(val) {},
-    handleCurrentChange(val) {
-      if (this.currentPage === 8) {
-        this.goodslist = this.$store.state.shop.goodslist.goodslist.slice(
-          8,
-          16
-        );
-        this.currentPage = -this.currentPage;
-      } else {
-        this.goodslist = this.$store.state.shop.goodslist.goodslist.slice(0, 8);
-        this.currentPage = -this.currentPage;
+    test(parentIndex, smallIndex) {
+      // 找到小图的src
+      const smallImgSrc = event.target.src;
+      // 找到这个小图所属的整个大数组中对应的大图索引数据
+      const liList = this.$refs.bigUr[parentIndex].children; // 获取大图ul的所有大图片的子节点（li，li）
+      // 排他
+      for (let i = 0; i < liList.length; i++) {
+        // 先把所有li上面的active类清除
+        for (let j = 0; j < liList.length; j++) {
+          liList[j].classList.remove("active");
+        }
+        // 把当前点击项的li加一个active
+        liList[smallIndex].classList.add("active");
       }
+    },
+    handleCurrentChange(val) {
+      if (val === 1) {
+        this.showList = this.goodslist.slice(0, 8);
+      } else {
+        this.showList = this.goodslist.slice(8, 16);
+      }
+    },
+    goodTake() {
+      const goodsList = this.goodslist.reduce((pre, cur) => {
+        pre.push(cur);
+        return pre.sort(function(a, b) {
+          return a.totalAssess - b.totalAssess;
+        });
+      }, []);
+      this.goodslist = goodsList;
+      this.showList = this.goodslist.slice(0, 8);
+    },
+    goodPrice() {
+      const goodsList = this.goodslist.reduce((pre, cur) => {
+        pre.push(cur);
+        return pre.sort(function(a, b) {
+          return a.price - b.price;
+        });
+      }, []);
+      this.goodslist = goodsList;
+      this.showList = this.goodslist.slice(0, 8);
+    },
+    goToDestail(id) {
+      this.$router.push({ name: "detail", params: { id } });
     },
   },
   async mounted() {
     await this.$store.dispatch("get_ShopImage");
-    this.goodslist = this.$store.state.shop.goodslist.goodslist.slice(0, 8);
-    this.currentPage = this.goodslist.length;
+    this.goodslist = this.$store.state.shop.goodslist.goodslist;
+    this.showList = this.goodslist.slice(0, 8);
+    this.Tag = this.$route.params.usermail;
+    if (this.Tag) {
+      this.$bus.$emit("tag", this.Tag);
+    }
   },
 };
 </script>
@@ -232,6 +278,7 @@ html body {
   width: 9px;
   vertical-align: middle;
 }
+
 .shop .shopRight .shopRight-top .right {
   margin-right: 50px;
 }
@@ -270,11 +317,25 @@ html body {
   margin-bottom: 5px;
 }
 
-.shop .shopRight .content .img img {
+.shop .shopRight .content .img {
   width: 188px;
   height: 188px;
+  overflow: hidden;
+  margin-bottom: 5px;
 }
+
+.shop .shopRight .content .img ul li {
+  display: none;
+}
+
+.shop .shopRight .content .img .active {
+  display: block;
+}
+
 .shop .shopRight .content .img-em {
+  display: flex;
+}
+.shop .shopRight .content .img-em .wangdazhuang {
   display: flex;
 }
 .shop .shopRight .content .img-em img {
@@ -286,6 +347,10 @@ html body {
   font-size: 16px;
   color: red;
   font-weight: bold;
+}
+.shop .shopRight .content .introduce {
+  height: 40px;
+  overflow: hidden;
 }
 .shop .shopRight .pagination {
   margin-top: 50px;

@@ -26,7 +26,7 @@
               v-for="(paginationVal, index) in pagination"
               :key="paginationVal.id"
             >
-              <img :src="paginationVal.pic" alt="" />
+              <img v-lazy="paginationVal.pic" alt="" />
               <div class="news_item_con">
                 <div class="news_item_tltle">
                   {{ paginationVal.title }}
@@ -64,6 +64,7 @@
 <script>
 //引入vuex
 import { mapState } from "vuex";
+import NavList from "@/components/NavList";
 export default {
   name: "news",
   data() {
@@ -73,6 +74,9 @@ export default {
         page: 1, //当前页码
       },
     };
+  },
+  components: {
+    NavList,
   },
   methods: {
     //currentPage 改变时会触发 给一下默认的页码page

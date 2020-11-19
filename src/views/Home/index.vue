@@ -10,7 +10,7 @@
             v-for="carousel in banners"
             :key="carousel.id"
           >
-            <img :src="carousel.pic" />
+            <img v-lazy="carousel.pic" />
           </div>
         </div>
         <!-- 如果需要分页器 -->
@@ -50,7 +50,7 @@
 
       <!-- 视频 -->
 
-      <!-- <div class="video_box">
+      <div class="video_box">
         <div class="video">
           <video
             src="https://popwebsite.paquapp.com/popmartwww/pc/index_video.mp4"
@@ -59,7 +59,7 @@
             loop="loop"
           ></video>
         </div>
-      </div> -->
+      </div>
 
       <!-- TO LIGHT UP PASSION AND BRING JOY -->
       <div class="company_con">
@@ -128,7 +128,7 @@
             v-for="journaismval in journaism"
             :key="journaismval.id"
           >
-            <img :src="journaismval.pic" alt="" />
+            <img v-lazy="journaismval.pic" alt="" />
             <div class="pop_1">
               <div class="news_title">
                 {{ journaismval.title }}
@@ -159,6 +159,7 @@
 <script>
 //引入swpier
 import Swiper from "swiper";
+import NavList from "@/components/NavList";
 //引入vuex辅助函数
 import { mapState } from "vuex";
 export default {
@@ -166,6 +167,9 @@ export default {
   mounted() {
     this.$store.dispatch("getBanners");
     this.$store.dispatch("getjournaism");
+  },
+  components: {
+    NavList,
   },
   watch: {
     banners: {
@@ -219,70 +223,6 @@ export default {
 /* 大盒子 */
 .container-box {
   width: 100%;
-}
-/* 头部 */
-.header {
-  height: 55px;
-  display: flex;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  background: rgba(0, 0, 0, 0.5);
-  justify-content: space-around;
-  z-index: 3;
-}
-/* 头部的鼠标移入变色 */
-.header:hover {
-  width: 100%;
-  position: fixed;
-  background: rgba(0, 0, 0, 3);
-}
-/* 头部nav */
-.header > a {
-  display: block;
-  background-size: 100%;
-  width: 130px;
-  height: 32px;
-  line-height: 32px;
-  position: relative;
-  background: url("./images/header_logo.png") repeat center;
-  position: relative;
-  top: 12px;
-}
-
-.header .nav_con > a {
-  display: inline;
-  line-height: 55px;
-  padding: 0 22px;
-  color: #fff;
-  font-weight: 500;
-  font-size: 16px;
-  font-family: "font-family";
-}
-.nav_con a:hover {
-  text-decoration: underline;
-  color: #f85000;
-}
-#lang {
-  position: relative;
-  left: -110px;
-  top: 20px;
-}
-#lang > a {
-  color: #fff;
-  font-size: 13px;
-  padding: 5px;
-  /* border-right: 2px solid #fff; */
-}
-#lang .active {
-  color: #feba0a;
-}
-#lang .line {
-  width: 1px;
-  height: 2px;
-  border-right: 1px solid #fff;
-  background: #fff;
-  /* margin: 0 0 0 5px; */
 }
 /* 轮播图片 */
 .swiper-container {

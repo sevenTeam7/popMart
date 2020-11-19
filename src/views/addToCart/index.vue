@@ -6,7 +6,7 @@
       <!-- 导航栏 -->
 
       <!-- 顶部盒子 -->
-      <div class="success-wrap">
+      <div class="success-wrap" v-if="targetGood">
         <!-- 阴影盒子 -->
         <div class="w">
           <div class="success-cont">
@@ -27,11 +27,7 @@
                   <!-- 顶部左边小图 -->
                   <div class="small-img">
                     <div class="p-img">
-                      <img
-                        src="../addToCart/images/labixiaoxin-04.png"
-                        alt="##"
-                        width="60"
-                      />
+                      <img :src="targetGood.imgSrc" alt="##" width="60" />
                     </div>
                   </div>
                   <!-- 小图配套信息 -->
@@ -42,9 +38,7 @@
                         target="_blank"
                         clstag="pageclick|keycount|20161152|2"
                         title="POPMART泡泡玛特 蛋黄哥厨房系列盲盒公仔娃娃潮玩桌面摆件生日礼物 蛋黄哥厨房系列——单个盲盒(随机发不支持退货)"
-                        >POPMART泡泡玛特
-                        蛋黄哥厨房系列盲盒公仔娃娃潮玩桌面摆件生日礼物
-                        蛋黄哥厨房系列——单个盲盒(随机发不支持退货)</a
+                        >{{ targetGood.title }}</a
                       >
                     </div>
                     <div class="mini-extra">
@@ -144,6 +138,7 @@ export default {
     return {
       shopList: [],
       pageNum: 1, //当前页码
+      targetGood: this.$route.params.targetGood,
     };
   },
   async mounted() {
@@ -153,16 +148,25 @@ export default {
   },
 
   methods: {
+    // 异步请求分页
     async handleCurrentChange(val) {
+      // 定义该数据为当前页面
       this.pageNum = val;
+      // 
       let list = await this.$store.state.addToCart.getShopImage.goodslist;
+
       this.shopList = list;
+      // 如果当前界面为1时
       if (this.pageNum == 1) {
+        // 定义了一个界面只有6条数据，用SLICE从接口总条数切割出6条数据
         this.shopList = list.slice(0, 6);
+        // 返回总16数据
         return;
       } else if (this.pageNum == 2) {
+        // 用SLICE从接口总条数切割出6条数据
         this.shopList = list.slice(6, 12);
       } else {
+        // 如果不返回总的数据，第三次切割将不够数据，会出现BUG
         this.shopList = list.slice(12, 16);
       }
     },

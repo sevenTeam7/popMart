@@ -11,7 +11,6 @@ export default {
   cart,
   addToCart,
   shop,
-  trade,
   home,
   news,
   login,

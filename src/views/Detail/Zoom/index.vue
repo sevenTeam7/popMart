@@ -1,6 +1,6 @@
 <template>
   <div class="spec-preview">
-    <img :src="middleImgUrl" />
+    <img v-lazy="middleImgUrl" />
     <div class="event" ref="event" @mousemove="handleMove"></div>
     <div class="big">
       <img :src="bigImgUrl" ref="bigImg" />

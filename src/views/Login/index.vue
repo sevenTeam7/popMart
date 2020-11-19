@@ -114,14 +114,19 @@
   </div>
 </template>
 <script>
+
 import Vue from "vue";
 import VeeValidate from "vee-validate";
-import { getPassWord, getEmailCode, getCheckCode } from "../../api";
+import { getPassWord, getEmailCode, getCheckCode } from "@/api";
 const config = {
   errorBagName: "errorBags",
   fieldsBagName: "fieldBags",
 };
 Vue.use(VeeValidate, config);
+
+//引入
+
+
 export default {
   name: "Login",
   data() {
@@ -162,8 +167,8 @@ export default {
       ruleForm: {
         pass: "1234",
         checkPass: "1234",
-        age: "13800000000",
-        email: "864885597@qq.com",
+        age: "13800",
+        email: "",
         checkemail: "",
       },
       rules: {
@@ -181,7 +186,7 @@ export default {
           const password = this.ruleForm.pass;
           const result = await getPassWord(usermail, password);
           if (result.code === 20000) {
-            this.$router.push("/shop");
+            this.$router.push({ name: "shop", params: { usermail } });
           } else {
             alert("密码有误");
           }
@@ -197,10 +202,14 @@ export default {
     handleClick(tab, event) {
       this.activeName = tab.name;
     },
+    //点击验证码的回调函数
     async sendCode(formName) {
+      //禁止打开
       this.disabled = false;
+      //如果ruleForm里面的email有新增的内容
       if (this.ruleForm.email) {
         const usermail = this.ruleForm.email.trim();
+        //请求
         const result = await getEmailCode({ usermail });
         if (result.code === 20000) {
           alert("邮件发送成功");
@@ -217,7 +226,7 @@ export default {
         const code = this.ruleForm.checkemail;
         const result = await getCheckCode(usermail, code);
         if (result.code === 20000) {
-          this.$router.push("/shop");
+          this.$router.push({ name: "shop", params: { usermail } });
         } else {
           alert("验证码有误");
         }
