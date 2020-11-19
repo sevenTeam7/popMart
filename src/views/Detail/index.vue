@@ -1,6 +1,7 @@
 <template>
-  <div v-if="goodsInfo && goodsList">
-    <div class="con w clearFix">
+  <div>
+    <Header />
+    <div class="con w clearFix" v-if="goodsInfo && goodsList">
       <!-- 商品分类导航 -->
       <!-- 导航路径区域 -->
       <div class="conPoin clearFix">
@@ -173,15 +174,15 @@
               <input
                 autocomplete="off"
                 class="itxt"
-                v-model="skuNum"
-                value="skuNum"
+                v-model="skunum"
+                value="skunum"
                 @input="CheckNum"
               />
-              <a href="javascript:" class="plus" @click="skuNum++">+</a>
+              <a href="javascript:" class="plus" @click="skunum++">+</a>
               <a
                 href="javascript:"
                 class="mins"
-                @click="skuNum > 1 ? skuNum-- : ''"
+                @click="skunum > 1 ? skunum-- : ''"
                 >-</a
               >
             </div>
@@ -266,102 +267,82 @@
               <div class="mc">
                 <dl class="sp-single">
                   <dt class="open">
-                    <s></s
-                    ><a
-                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
-                      target="_blank"
-                      >Molly</a
+                    <s></s>
+                    <router-link :to="{ path: 'shop' }">
+                      <a href="#" target="_blank">Molly</a>
+                    </router-link>
+                  </dt>
+                </dl>
+                <dl class="sp-single">
+                  <dt class="open">
+                    <s></s>
+                    <router-link to="/shop">
+                      <a href="#" target="_blank">PUCKY</a></router-link
                     >
                   </dt>
                 </dl>
                 <dl class="sp-single">
                   <dt class="open">
-                    <s></s
-                    ><a
-                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
-                      target="_blank"
-                      >PUCKY</a
-                    >
+                    <s></s>
+                    <router-link :to="{ path: 'shop' }">
+                      <a href="#" target="_blank">Molly</a>
+                    </router-link>
                   </dt>
                 </dl>
                 <dl class="sp-single">
                   <dt class="open">
-                    <s></s
-                    ><a
-                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
-                      target="_blank"
-                      >Molly</a
-                    >
+                    <s></s>
+                    <router-link :to="{ path: 'shop' }">
+                      <a href="#" target="_blank">Molly</a>
+                    </router-link>
                   </dt>
                 </dl>
                 <dl class="sp-single">
                   <dt class="open">
-                    <s></s
-                    ><a
-                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
-                      target="_blank"
-                      >PUCKY</a
-                    >
+                    <s></s>
+                    <router-link :to="{ path: 'shop' }">
+                      <a href="#" target="_blank">Molly</a>
+                    </router-link>
                   </dt>
                 </dl>
                 <dl class="sp-single">
                   <dt class="open">
-                    <s></s
-                    ><a
-                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
-                      target="_blank"
-                      >Molly</a
-                    >
+                    <s></s>
+                    <router-link :to="{ path: 'shop' }">
+                      <a href="#" target="_blank">Molly</a>
+                    </router-link>
                   </dt>
                 </dl>
                 <dl class="sp-single">
                   <dt class="open">
-                    <s></s
-                    ><a
-                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
-                      target="_blank"
-                      >PUCKY</a
-                    >
+                    <s></s>
+                    <router-link :to="{ path: 'shop' }">
+                      <a href="#" target="_blank">Molly</a>
+                    </router-link>
                   </dt>
                 </dl>
                 <dl class="sp-single">
                   <dt class="open">
-                    <s></s
-                    ><a
-                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
-                      target="_blank"
-                      >Molly</a
-                    >
+                    <s></s>
+                    <router-link :to="{ path: 'shop' }">
+                      <a href="#" target="_blank">Molly</a>
+                    </router-link>
                   </dt>
                 </dl>
                 <dl class="sp-single">
                   <dt class="open">
-                    <s></s
-                    ><a
-                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
-                      target="_blank"
-                      >PUCKY</a
-                    >
+                    <s></s>
+                    <router-link :to="{ path: 'shop' }">
+                      <a href="#" target="_blank">Molly</a>
+                    </router-link>
                   </dt>
                 </dl>
                 <dl class="sp-single">
                   <dt class="open">
-                    <s></s
-                    ><a
-                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
-                      target="_blank"
-                      >Molly</a
-                    >
-                  </dt>
-                </dl>
-                <dl class="sp-single">
-                  <dt class="open">
-                    <s></s
-                    ><a
-                      href="//mall.jd.com/view_search-1622691-13946143-1-0-20-1.html"
-                      target="_blank"
-                      >PUCKY</a
-                    >
+                    <s></s>
+                    <router-link :to="{ path: 'shop' }">
+                      <a href="#" target="_blank">Molly</a>
+                    </router-link>
                   </dt>
                 </dl>
               </div>
@@ -622,10 +603,11 @@ export default {
   data() {
     return {
       isSelected: true,
-      skuNum: 1,
+      skunum: 1,
       commentList: "",
       init: true, //全部评论与好评数组等的切换
       index: 0, //小图索引
+      skuid: 7, //当前商品id
     };
   },
   components: {
@@ -639,14 +621,14 @@ export default {
   methods: {
     //购买数量-限制输入框输入内容---->输入框只能输入正数
     CheckNum() {
-      const skuNum = this.skuNum;
+      const skunum = this.skunum;
       const regNum = /^[1-9]\d*$|\s\g/;
-      if (regNum.test(skuNum)) {
+      if (regNum.test(skunum)) {
         //如果正则通过，显示内容
-        this.skuNum = skuNum;
+        this.skunum = skunum;
       } else {
         //将输入的字符串先转数组，对数组的每一项过滤,只有数字通过，然会转为字符串
-        this.skuNum = this.skuNum
+        this.skunum = this.skunum
           .split("")
           .filter((item, index) => Number(item))
           .join("");
@@ -687,8 +669,20 @@ export default {
       }
     },
     //点击登录跳转到订单详情页面
-    toCart() {
-      this.$router.push("/views/cartasyc");
+    async toCart() {
+      //添加购物车
+      const { skuid, skunum } = this;
+      await this.$store.dispatch("getAddCartGood", { skuid, skunum });
+      const imgSrc = this.goodsInfo[0].smallImgList[0];
+      const title = this.goodsInfo[0].goodsid[0].title;
+      const targetGood = {
+        imgSrc,
+        title,
+      };
+      this.$router.push({
+        name: "addToCart",
+        params: { targetGood: targetGood },
+      });
     },
   },
   mounted() {
@@ -697,8 +691,7 @@ export default {
       this.index = index;
     });
     //获取当前商品信息
-    const skuid = 7;
-    this.$store.dispatch("getGoodsInfo", skuid);
+    this.$store.dispatch("getGoodsInfo", this.skuid);
 
     //获取好评商品数据
     this.$store.dispatch("getGoodsList");
@@ -710,6 +703,9 @@ export default {
       },
       goodsList: (state) => {
         return state.detail.goodsList;
+      },
+      addCartGood: (state) => {
+        return state.detail.addCartGood;
       },
     }),
     ...mapGetters(["totalCommentList"]),
