@@ -10,6 +10,7 @@ import Home from "@/views/Home";
 import Login from "@/views/Login";
 
 const routes = [
+  /* 主页 */
   { path: "/", component: Home },
   { path: "/shop", component: Shop, name: "shop" },
   { path: "/views/cartasyc", component: Cart },

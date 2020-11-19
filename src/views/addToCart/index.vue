@@ -1,12 +1,22 @@
 <template>
+<<<<<<< HEAD
   <div>
     <Header />
     <!-- 最外层盒子 -->
+=======
+  <!-- 最外层盒子 -->
+  <div>
+    <Header />
+>>>>>>> hyl
     <div class="main">
       <!-- 导航栏 -->
 
       <!-- 顶部盒子 -->
+<<<<<<< HEAD
       <div class="success-wrap" v-if="targetGood">
+=======
+      <div class="success-wrap">
+>>>>>>> hyl
         <!-- 阴影盒子 -->
         <div class="w">
           <div class="success-cont">
@@ -27,7 +37,15 @@
                   <!-- 顶部左边小图 -->
                   <div class="small-img">
                     <div class="p-img">
+<<<<<<< HEAD
                       <img :src="targetGood.imgSrc" alt="##" width="60" />
+=======
+                      <img
+                        src="../addToCart/images/labixiaoxin-04.png"
+                        alt="##"
+                        width="60"
+                      />
+>>>>>>> hyl
                     </div>
                   </div>
                   <!-- 小图配套信息 -->
@@ -38,7 +56,13 @@
                         target="_blank"
                         clstag="pageclick|keycount|20161152|2"
                         title="POPMART泡泡玛特 蛋黄哥厨房系列盲盒公仔娃娃潮玩桌面摆件生日礼物 蛋黄哥厨房系列——单个盲盒(随机发不支持退货)"
+<<<<<<< HEAD
                         >{{ targetGood.title }}</a
+=======
+                        >POPMART泡泡玛特
+                        蛋黄哥厨房系列盲盒公仔娃娃潮玩桌面摆件生日礼物
+                        蛋黄哥厨房系列——单个盲盒(随机发不支持退货)</a
+>>>>>>> hyl
                       >
                     </div>
                     <div class="mini-extra">
@@ -59,8 +83,20 @@
                 </div>
                 <!-- 点击跳转 -->
                 <div class="btn-jump">
+<<<<<<< HEAD
                   <a class="btn-tobback" href="##">查看商品详情</a>
                   <a class="btn-addtocart" href="##">去购物车结算</a>
+=======
+                  <!-- 查看商品详情 wdz-->
+                  <router-link class="btn-tobback" to="/Detail">
+                    查看商品详情</router-link
+                  >
+
+                  <!-- 跳转购物车结算。wqh -->
+                  <router-link class="btn-addtocart" to="/cartasyc"
+                    >去购物车结算</router-link
+                  >
+>>>>>>> hyl
                 </div>
               </div>
             </div>
@@ -128,6 +164,11 @@
       <!-- 底部区域 -->
       <footer />
     </div>
+<<<<<<< HEAD
+=======
+    <!-- 底部区域 -->
+    <Footer />
+>>>>>>> hyl
   </div>
 </template>
 
@@ -141,13 +182,18 @@ export default {
       targetGood: this.$route.params.targetGood,
     };
   },
+  // 异步安装
   async mounted() {
+    // 引入路由接口
     await this.$store.dispatch("get_ShopImage");
+    // 将接口数据赋值给shopList
     this.shopList = this.$store.state.addToCart.getShopImage.goodslist;
+    // 定义切割每个界面6条数据
     this.shopList = this.shopList.slice(0, 6);
   },
 
   methods: {
+<<<<<<< HEAD
     // 异步请求分页
     async handleCurrentChange(val) {
       // 定义该数据为当前页面
@@ -161,10 +207,27 @@ export default {
         // 定义了一个界面只有6条数据，用SLICE从接口总条数切割出6条数据
         this.shopList = list.slice(0, 6);
         // 返回总16数据
+=======
+    // 分页点击事件
+    async handleCurrentChange(val) {
+      // 定义了pageNum是可修改
+      this.pageNum = val;
+      // 将接口数据赋值给shopList
+      let list = await this.$store.state.addToCart.getShopImage.goodslist;
+      // 列表数据赋值给了接口
+      this.shopList = list;
+      // 如果当界面为1的时候
+      if (this.pageNum == 1) {
+        // 将在总数据中切割出6条
+        this.shopList = list.slice(0, 6);
+        // 切割完必须返回数据
+>>>>>>> hyl
         return;
+        // 当界面为2的时候。切割出6条数据
       } else if (this.pageNum == 2) {
         // 用SLICE从接口总条数切割出6条数据
         this.shopList = list.slice(6, 12);
+        // 不然就是剩下的数据
       } else {
         // 如果不返回总的数据，第三次切割将不够数据，会出现BUG
         this.shopList = list.slice(12, 16);
@@ -177,7 +240,10 @@ export default {
 <style lang="less" scoped>
 .main {
   width: 1452.5px;
+<<<<<<< HEAD
   margin-top: 55px;
+=======
+>>>>>>> hyl
 }
 .success-wrap {
   height: 145px;

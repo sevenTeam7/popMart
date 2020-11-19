@@ -1,5 +1,10 @@
 <template>
   <div>
+<<<<<<< HEAD
+=======
+    
+
+>>>>>>> hyl
     <div class="cart-container">
       <div class="cart-header">
         <h2>全部商品</h2>
@@ -114,7 +119,11 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 import Header from "@/components/Header";
+=======
+
+>>>>>>> hyl
 import { mapState, mapGetters } from "vuex";
 export default {
   name: "CartAsyc",

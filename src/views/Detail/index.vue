@@ -596,6 +596,10 @@ import Zoom from "./Zoom";
 import ImageList from "./ImageList";
 import AfterSale from "./AfterSale";
 import Comment from "./Comment";
+<<<<<<< HEAD
+=======
+
+>>>>>>> hyl
 import Good from "./Good";
 import { mapState, mapGetters } from "vuex";
 export default {
@@ -615,6 +619,10 @@ export default {
     ImageList,
     AfterSale,
     Comment,
+<<<<<<< HEAD
+=======
+   
+>>>>>>> hyl
     Good,
     Header,
   },
