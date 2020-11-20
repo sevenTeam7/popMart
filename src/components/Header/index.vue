@@ -139,13 +139,40 @@ export default {
   animation: bike 8s steps(32) infinite;
 }
 @keyframes bike {
-  from {
+  /* from {
     background-position: center 0;
     margin-left: 350px;
   }
   to {
     background-position: center -4160px;
     margin-left: 0px;
+  } */
+  0% {
+    background-position: center 0;
+    margin-left: 350px;
+  }
+  /* 25% {
+    background-position: center -4160px;
+    margin-left: 0px;
+    transform: rotateY(0deg);
+  } */
+  49% {
+    background-position: center -4160px;
+    margin-left: 0px;
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(0deg);
+    background-position: center -4160px;
+    margin-left: 0px;
+    transform: rotateY(180deg);
+  }
+  /* 75% {
+  } */
+  100% {
+    background-position: center 0;
+    margin-left: 350px;
+    transform: rotateY(180deg);
   }
 }
 
