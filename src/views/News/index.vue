@@ -21,29 +21,28 @@
             href="http://life.ynet.com/2020/10/12/2914725t978.html"
             class="news_box_A"
           >
-            <div
-              class="news_item"
-              v-for="(paginationVal, index) in pagination"
-              :key="paginationVal.id"
-            >
-              <img v-lazy="paginationVal.pic" alt="" />
-              <div class="news_item_con">
-                <div class="news_item_tltle">
-                  {{ paginationVal.title }}
-                </div>
-                <p class="content_desc">
-                  {{ paginationVal.description }}
-                </p>
-                <div class="news_site">
-                  <div class="site">{{ paginationVal.source }}</div>
-                  <div class="time">{{ paginationVal.created_at }}</div>
-                  <div class="more">
-                    MORE<i class="el-icon-arrow-right"></i>
-                  </div>
-                </div>
+          </a>
+          <div
+            class="news_item"
+            v-for="(paginationVal, index) in pagination"
+            :key="paginationVal.id"
+          >
+            <img v-lazy="paginationVal.pic" alt="" />
+            <div class="news_item_con">
+              <div class="news_item_tltle">
+                {{ paginationVal.title }}
+              </div>
+              <p class="content_desc">
+                {{ paginationVal.description }}
+              </p>
+              <div class="news_site">
+                <div class="site">{{ paginationVal.source }}</div>
+                <div class="time">{{ paginationVal.created_at }}</div>
+                <div class="more">MORE<i class="el-icon-arrow-right"></i></div>
               </div>
             </div>
-          </a>
+          </div>
+
           <!-- 分页器 -->
           <div class="pagination">
             <el-pagination
@@ -108,7 +107,7 @@ export default {
 <style scoped>
 .containernews {
   width: 100%;
-  height: 100%;
+  height: 3000px;
 }
 .big_picture {
   width: 100%;

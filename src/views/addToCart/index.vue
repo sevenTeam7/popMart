@@ -47,7 +47,7 @@
                         title="蛋黄哥厨房系列-单个墨盒(随机发不支持退货)"
                         >颜色：蛋黄哥厨房系列-单个墨盒(随机发不支持退货)
                       </span>
-                      <span class="txt">/ 数量：1 </span>
+                      <span class="txt">/ 数量：{{targetGood.skunum}}</span>
                     </div>
                   </div>
                 </div>

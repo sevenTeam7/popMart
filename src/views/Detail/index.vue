@@ -675,9 +675,11 @@ export default {
       await this.$store.dispatch("getAddCartGood", { skuid, skunum });
       const imgSrc = this.goodsInfo[0].smallImgList[0];
       const title = this.goodsInfo[0].goodsid[0].title;
+      
       const targetGood = {
         imgSrc,
         title,
+        skunum:this.skunum
       };
       this.$router.push({
         name: "addToCart",

@@ -37,7 +37,7 @@
           <li class="cart-list-con4">
             <el-input-number
               size="mini"
-              :min="0"
+              :min="1"
               @change="changeCount($event, item)"
               :value="item.skunum"
             ></el-input-number>

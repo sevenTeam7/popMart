@@ -7,13 +7,15 @@ import Shop from "@/views/Shop";
 import News from "@/views/News";
 import Home from "@/views/Home";
 import Login from "@/views/Login";
+import Pay from '@/views/Pay'
 
 const routes = [
   { path: '/', component: Home },
   { path: "/shop", component: Shop , name: 'shop' },
   { path: "/cartasyc", component: Cart },
-  { path: "/trade", component: Trade,name:'/views/trade'},
+  { path: "/trade", component: Trade,name:'/trade'},
   { path: "/regist", component: Regist },
+  {path:"/pay",component:Pay},
   { path: "/detail", component: Detail, name: "detail" },
   { path: "/addToCart", component: addToCart, name: "addToCart" },
   { path: "/login", component: Login },

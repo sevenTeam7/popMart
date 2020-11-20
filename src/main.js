@@ -11,6 +11,8 @@ import "./styles/reset.css";
 import "swiper/css/swiper.css";
 import "./static/iconfonts/iconfont.css";
 
+
+
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
 import Header from "./components/Header";

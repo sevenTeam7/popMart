@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="header">
-      <router-link to="/"
+      <router-link to="/shop"
         ><img src="./images/popMart.png" class="titleImg" alt="titleImg"
       /></router-link>
       <div class="title">
