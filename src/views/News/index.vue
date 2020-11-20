@@ -1,8 +1,8 @@
 <template>
   <div>
+    <!-- 导航条 -->
+    <NavList />
     <div class="containernews">
-      <!-- 导航条 -->
-      <NavList />
       <div class="big_picture">
         <!-- NEWS -->
         <div class="tltle_news">
@@ -42,7 +42,6 @@
               </div>
             </div>
           </div>
-
           <!-- 分页器 -->
           <div class="pagination">
             <el-pagination
@@ -54,10 +53,11 @@
             >
             </el-pagination>
           </div>
-          <Floot />
+          
         </div>
       </div>
     </div>
+    <Floot />
   </div>
 </template>
 <script>
@@ -107,7 +107,7 @@ export default {
 <style scoped>
 .containernews {
   width: 100%;
-  height: 3000px;
+  height: 100%;
 }
 .big_picture {
   width: 100%;
@@ -142,7 +142,7 @@ export default {
   transform: translateZ(0);
 }
 .containernews .news_con .news_box {
-  height: 214px;
+  /* height: 214px; */
   margin: 0 auto;
   /* background-color: pink; */
 }
