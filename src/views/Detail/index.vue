@@ -1,5 +1,5 @@
 <template>
-  <div v-if="goodsInfo && goodsList">
+  <div v-if="goodsInfo">
     <div class="con w clearFix">
       <!-- 商品分类导航 -->
       <!-- 导航路径区域 -->

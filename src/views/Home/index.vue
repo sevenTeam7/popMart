@@ -219,7 +219,7 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style>
 /* 大盒子 */
 .container-box {
   width: 100%;

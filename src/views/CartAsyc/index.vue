@@ -166,7 +166,7 @@ export default {
       this.cartList.map((item) => {
         return this.$store.dispatch("getIschecked", {
           skuid: item.skuid,
-          ischecked: check,
+          ischecked: check, // 0 或1
         });
       });
       this.getCartList();
