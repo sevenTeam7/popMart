@@ -42,7 +42,7 @@ export const reqNews = (page, pageSize) =>
 // console.log(111111111);
 
 // 账户 密码登录
-export const getPassWord = (usermail, password) => {
+export const reqGetPassWord = (usermail, password) => {
   return ajax.post("/login/account", {
     usermail,
     password,

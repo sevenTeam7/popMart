@@ -6,6 +6,7 @@ import trade from "./trade";
 import home from "./home";
 import news from "./news";
 import login from "./login";
+import user from "./user";
 export default {
   detail,
   cart,
@@ -15,4 +16,5 @@ export default {
   news,
   login,
   trade,
+  user,
 };
