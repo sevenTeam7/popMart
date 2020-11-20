@@ -59,7 +59,10 @@
                       ></el-input>
                     </el-form-item>
                     <el-form-item>
-                      <el-button type="primary" @click="submitForm('ruleForm')"
+                      <el-button
+                        :disabled="disable"
+                        type="primary"
+                        @click="submitForm('ruleForm')"
                         >提交</el-button
                       >
                       <el-button @click="resetForm('ruleForm')">重置</el-button>
@@ -114,10 +117,9 @@
   </div>
 </template>
 <script>
-
 import Vue from "vue";
 import VeeValidate from "vee-validate";
-import { getPassWord, getEmailCode, getCheckCode } from "@/api";
+import { getEmailCode, getCheckCode } from "../../api";
 const config = {
   errorBagName: "errorBags",
   fieldsBagName: "fieldBags",
@@ -125,7 +127,6 @@ const config = {
 Vue.use(VeeValidate, config);
 
 //引入
-
 
 export default {
   name: "Login",
@@ -157,13 +158,16 @@ export default {
         callback(new Error("请再次输入密码"));
       } else if (value !== this.ruleForm.pass) {
         callback(new Error("两次输入密码不一致!"));
+        this.disable = true;
       } else {
         callback();
+        this.disable = false;
       }
     };
     return {
       disabled: true,
       activeName: "first",
+      disable: true,
       ruleForm: {
         pass: "1234",
         checkPass: "1234",
@@ -180,16 +184,24 @@ export default {
   },
   methods: {
     submitForm(formName) {
-      this.$refs[formName].validate(async (valid) => {
+      this.$refs[formName].validate((valid) => {
         if (valid) {
           const usermail = this.ruleForm.age;
           const password = this.ruleForm.pass;
-          const result = await getPassWord(usermail, password);
-          if (result.code === 20000) {
-            this.$router.push({ name: "shop", params: { usermail } });
-          } else {
-            alert("密码有误");
-          }
+          // const result = await getPassWord(usermail, password);
+          this.$store
+            .dispatch("getPassWord", { usermail, password })
+            .then(() => {
+              this.$router.push({ name: "shop", params: { usermail } });
+            })
+            .catch(() => {
+              alert("密码错误");
+            });
+          // if (result.code === 20000) {
+          //   this.$router.push({ name: "shop", params: { usermail } });
+          // } else {
+          //   alert("密码有误");
+          // }
         } else {
           console.log("error submit!!");
           return false;
@@ -226,7 +238,7 @@ export default {
         console.log(usermail);
         const code = this.ruleForm.checkemail;
         console.log(code);
-        const result = await getCheckCode({usermail,code});
+        const result = await getCheckCode({ usermail, code });
         if (result.code === 20000) {
           this.$router.push({ name: "shop", params: { usermail } });
         } else {
