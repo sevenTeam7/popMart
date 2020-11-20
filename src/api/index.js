@@ -28,18 +28,16 @@ export const reqDeleteCat = (skuid) => ajax.delete(`/cart/deletecart/${skuid}`);
 // 获取订单收件人信息
 export const reqTradeProson = () => ajax.get("/address/addressinfo");
 // 账户 密码登录
-export const getPassWord = (usermail, password) => {
-   return ajax.post("/login/account",{
+export const reqGetPassWord = (usermail, password) => {
+  return ajax.post("/login/account", {
     usermail,
     password,
-  })
-    
-}
+  });
+};
 export const getEmailCode = (usermail) => {
-   return ajax.post("/login/getmail",{
+  return ajax.post("/login/getmail", {
     usermail,
-  })
-    
+  });
 };
 export const getCheckCode = (usermail, code) => {
   ajax.post("/login/mail"),
