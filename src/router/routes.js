@@ -15,12 +15,12 @@ const routes = [
   { path: "/cartasyc", component: Cart },
   { path: "/trade", component: Trade,
   beforeEnter: ((to, from, next) => {
-    //   判断是否从pay跳转
+    //   判断是否从cartasyc跳转
     if (from.path === '/cartasyc') {
         // 是则放行
         next()
     }else{
-        // 不是则 返回trade
+        // 不是则 返回cartasyc
         next('/cartasyc')
     }
     }),name:'/trade'},
