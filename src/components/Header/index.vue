@@ -22,8 +22,8 @@
     <div class="nav">
       <ul class="navLeft">
         <li>
-          <a class="one" href="#"
-            ><button><span>首页</span></button></a
+          <router-link class="one" to="/shop"
+            ><button><span>首页</span></button></router-link
           >
         </li>
         <li>
@@ -60,6 +60,9 @@
           <a class="one" href="#"
             ><button><span>MORE</span></button></a
           >
+        </li>
+        <li>
+          <router-link to="/cartasyc" class="one"><button><span>我的购物车</span></button></router-link>
         </li>
       </ul>
       <div class="navRight">

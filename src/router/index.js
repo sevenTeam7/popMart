@@ -13,11 +13,11 @@ const router = new VueRouter({
     return { x: 0, y: 0 };
   },
 });
-router.beforeEach((to, from, next) => {
+/* router.beforeEach((to, from, next) => {
   //只有在登录的时候才能访问的地址
   // pay views/cartasyc views/trade  detail addToCart
   const targetPath = to.path;
-  const checkPath = ["/pay", "/views/cartasyc", "/views/trade", "/addToCart"];
+  const checkPath = ["/pay", "/cartasyc", "/trade", "/addToCart"];
   if (checkPath.indexOf(targetPath) == -1) {
     //不存在
     next();
@@ -28,6 +28,6 @@ router.beforeEach((to, from, next) => {
       next("/login");
     }
   }
-});
+}); */
 
 export default router;
